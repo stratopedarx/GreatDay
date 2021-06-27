@@ -7,39 +7,31 @@
 
 import UIKit
 
-class CustomTableViewCell_3: UITableViewCell, UITableViewDelegate {
+class CustomTableViewCell_3: UITableViewCell {
     static let identifier = "idCell_3"
 
-    @IBOutlet weak var horizontalTableView: UITableView!
-    
+    @IBOutlet weak var collectionView: UICollectionView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        horizontalTableView.delegate = self
-        horizontalTableView.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
 }
 
 
-extension CustomTableViewCell_3: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension CustomTableViewCell_3: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell_4.identifier) as! CustomTableViewCell_4
-        tableView.rowHeight = 400
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier,
+                                                    for: indexPath) as! CustomCollectionViewCell
         return cell
     }
-    
-    
 }
 
 
-extension CustomTableViewCell_3: UITabBarDelegate {
+extension CustomTableViewCell_3: UICollectionViewDelegate {
     
 }
