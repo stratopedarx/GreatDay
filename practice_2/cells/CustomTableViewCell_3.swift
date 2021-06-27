@@ -19,7 +19,7 @@ class CustomTableViewCell_3: UITableViewCell {
 }
 
 
-extension CustomTableViewCell_3: UICollectionViewDataSource {
+extension CustomTableViewCell_3: UICollectionViewDataSource, UICollectionViewDelegate  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
@@ -31,7 +31,3 @@ extension CustomTableViewCell_3: UICollectionViewDataSource {
     }
 }
 
-
-extension CustomTableViewCell_3: UICollectionViewDelegate {
-    
-}

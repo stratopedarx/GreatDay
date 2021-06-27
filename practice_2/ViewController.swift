@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -41,7 +41,3 @@ extension ViewController: UITableViewDataSource {
     
 }
 
-
-extension ViewController: UITableViewDelegate {
-    
-}
