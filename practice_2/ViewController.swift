@@ -27,10 +27,13 @@ extension ViewController: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell_1.identifier, for: indexPath) as! CustomTableViewCell_1
+            tableView.rowHeight = 120
         case 1:
             cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell_2.identifier, for: indexPath) as! CustomTableViewCell_2
+            tableView.rowHeight = 285
         default:
             cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell_3.identifier, for: indexPath) as! CustomTableViewCell_3
+            tableView.rowHeight = 400
         }
         return cell
     }
