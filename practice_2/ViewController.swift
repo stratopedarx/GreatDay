@@ -14,9 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
-        ApiManager.shared.getRandom { image in
-            
+        ApiManager.shared.getRandom { images in
         }
     }
 }

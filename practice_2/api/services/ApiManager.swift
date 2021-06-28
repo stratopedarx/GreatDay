@@ -9,7 +9,7 @@ enum ApiType {
     }
     var path: String {
         switch self {
-        case .getRandom: return "image/random"
+        case .getRandom: return "image/random/3"
         }
     }
     var request: URLRequest {
@@ -27,14 +27,13 @@ enum ApiType {
 class ApiManager {
     static let shared = ApiManager()
     
-    func getRandom(completion: @escaping (_ message: String) -> Void) {
+    func getRandom(completion: @escaping (RandomImage) -> Void) {
         let request = ApiType.getRandom.request
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let data = data, let randomImage = try? JSONDecoder().decode(RandomImage.self, from: data),
-               randomImage.status == "success", let message = randomImage.message {
-                completion(message)
+            if let data = data, let images = try? JSONDecoder().decode(RandomImage.self, from: data) {
+                completion(images)
             } else {
-                completion("")
+                // no results
             }
         }
         task.resume()
