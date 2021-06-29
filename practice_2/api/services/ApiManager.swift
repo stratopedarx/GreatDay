@@ -40,13 +40,30 @@ class ApiManager {
         return configuration
     }
     
+    func hasError(_ error: Error?) -> Bool {
+        if error != nil {
+            print("Error!")
+            return true
+        }
+        return false
+    }
+    
+    func isValidStatusCode(_ response: URLResponse?) -> Bool {
+        guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
+            print("Server error!")
+            return false
+        }
+        return true
+    }
+    
     func getRandom(completion: @escaping (RandomImage) -> Void) {
         let request = ApiType.getRandom.request
         let task = URLSession(configuration: configuration).dataTask(with: request) { data, response, error in
+            if self.hasError(error) || !self.isValidStatusCode(response) {
+                return
+            }
             if let data = data, let images = try? JSONDecoder().decode(RandomImage.self, from: data) {
                 completion(images)
-            } else {
-                // no results
             }
         }
         task.resume()

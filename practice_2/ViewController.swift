@@ -10,12 +10,12 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         
         ApiManager.shared.getRandom { images in
-            print(images)
             for link in images.message! {
                 self.models.append(Model(imageLink: link))
             }
         }
         
+        // we use test models if we get https errors or not corrected data
         if models.count != 6 {
             createTestModels()
         }
@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         models.append(Model(imageLink: "https://images.dog.ceo/breeds/mountain-swiss/n02107574_497.jpg"))
         models.append(Model(imageLink: "https://images.dog.ceo/breeds/ridgeback-rhodesian/n02087394_7777.jpg"))
         models.append(Model(imageLink: "https://images.dog.ceo/breeds/setter-irish/n02100877_585.jpg"))
+        models.shuffle()
     }
 }
 
