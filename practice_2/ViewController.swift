@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  practice_2
-//
-//  Created by user199993 on 6/27/21.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -15,16 +8,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-//        ApiManager.shared.getRandom { images in
-//        }
-        models.append(Model(breed: "bulldog-boston"))
-        models.append(Model(breed: "kelpie"))
-        models.append(Model(breed: "akita"))
-        models.append(Model(breed: "mountain-swiss"))
-        models.append(Model(breed: "ridgeback-rhodesian"))
-        models.append(Model(breed: "setter-irish"))
+        ApiManager.shared.getRandom { images in
+            print(images)
+            for link in images.message! {
+                self.models.append(Model(imageLink: link))
+            }
+        }
+//        models.append(Model(imageLink: "https://images.dog.ceo/breeds/bulldog-boston/n02096585_318.jpg"))
+//        models.append(Model(imageLink: "https://images.dog.ceo/breeds/briard/n02105251_7430.jpg"))
+//        models.append(Model(imageLink: "https://images.dog.ceo/breeds/akita/512px-Ainu-Dog.jpg"))
+//        models.append(Model(imageLink: "https://images.dog.ceo/breeds/mountain-swiss/n02107574_497.jpg"))
+//        models.append(Model(imageLink: "https://images.dog.ceo/breeds/ridgeback-rhodesian/n02087394_7777.jpg"))
+//        models.append(Model(imageLink: "https://images.dog.ceo/breeds/setter-irish/n02100877_585.jpg"))
     }
-
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
@@ -44,7 +40,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell3.identifier, for: indexPath) as! CustomTableViewCell3
-            cell.models = [models[3], models[4], models[5]]
+            cell.collectionModels = [models[3], models[4], models[5]]
             return cell
         }
     }
@@ -60,27 +56,28 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
 
 struct Model {
-    //let imageLink: UIImageView
+    var imageLink: String
     var breed: String
-    
-    init(breed: String) {
-        self.breed = breed.capitalized
+
+    init(imageLink: String) {
+        self.imageLink = imageLink  //e.g. https://images.dog.ceo/breeds/bulldog-boston/n02096585_318.jpg
+        self.breed = imageLink.split(separator: "/")[3].capitalized
     }
 }
 
 
-//// https://www.hackingwithswift.com/example-code/uikit/how-to-load-a-remote-image-url-into-uiimageview
-//extension UIImageView {
-//    func load(url: URL) {
-//        DispatchQueue.global().async { [weak self] in
-//            if let data = try? Data(contentsOf: url) {
-//                if let image = UIImage(data: data) {
-//                    DispatchQueue.main.async {
-//                        self?.image = image
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
+// https://www.hackingwithswift.com/example-code/uikit/how-to-load-a-remote-image-url-into-uiimageview
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
+    }
+}
 

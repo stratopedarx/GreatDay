@@ -1,6 +1,9 @@
 import Foundation
 
 
+let numberOfImages = 6
+
+
 enum ApiType {
     case getRandom
     
@@ -9,10 +12,11 @@ enum ApiType {
     }
     var path: String {
         switch self {
-        case .getRandom: return "image/random/3"
+        case .getRandom: return "image/random/6"
         }
     }
     var request: URLRequest {
+        print(path)
         let url = URL(string: path, relativeTo: URL(string: baseUrl)!)!
         var request = URLRequest(url: url)
         

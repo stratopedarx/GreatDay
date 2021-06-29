@@ -3,7 +3,7 @@ import UIKit
 class CustomTableViewCell3: UITableViewCell {
     static let identifier = "idCell3"
 
-    var models = [Model]()
+    var collectionModels = [Model]()
     @IBOutlet weak var collectionView: UICollectionView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -15,13 +15,13 @@ class CustomTableViewCell3: UITableViewCell {
 
 extension CustomTableViewCell3: UICollectionViewDataSource, UICollectionViewDelegate  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return models.count
+        return collectionModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier,
                                                     for: indexPath) as! CustomCollectionViewCell
-        cell.configure(with: models[indexPath.row])
+        cell.configure(with: collectionModels[indexPath.row])
         return cell
     }
 }

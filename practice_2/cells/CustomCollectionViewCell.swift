@@ -1,10 +1,3 @@
-//
-//  CustomCollectionViewCell.swift
-//  practice_2
-//
-//  Created by user199993 on 6/27/21.
-//
-
 import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
@@ -14,6 +7,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
 
     func configure(with model: Model) {
         self.bottomLabel.text = model.breed
-        //self.topImageView = model.imageLink
+        self.bottomImageView.load(url: URL(string: model.imageLink)!)
     }
 }

@@ -7,6 +7,6 @@ class CustomTableViewCell1: UITableViewCell {
     
     func configure(with model: Model) {
         self.topLabel.text = model.breed
-        //self.topImageView = model.imageLink
+        self.topImageView.load(url: URL(string: model.imageLink)!)
     }
 }
