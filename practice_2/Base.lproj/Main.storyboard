@@ -28,8 +28,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Breed" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkj-J1-M9a">
-                                                    <rect key="frame" x="118" y="50" width="178" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkj-J1-M9a">
+                                                    <rect key="frame" x="160" y="51" width="234" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -41,13 +41,14 @@
                                             <constraints>
                                                 <constraint firstItem="uXc-E3-1Sq" firstAttribute="top" secondItem="jN1-l3-uWd" secondAttribute="top" constant="15" id="A9A-zJ-AuC"/>
                                                 <constraint firstAttribute="trailing" secondItem="uXc-E3-1Sq" secondAttribute="trailing" constant="260" id="Cy6-wR-Eoq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="lkj-J1-M9a" secondAttribute="trailing" id="HAG-oF-ovF"/>
                                                 <constraint firstAttribute="bottom" secondItem="uXc-E3-1Sq" secondAttribute="bottom" constant="15" id="n2f-lA-DM6"/>
                                                 <constraint firstItem="uXc-E3-1Sq" firstAttribute="leading" secondItem="jN1-l3-uWd" secondAttribute="leading" constant="10" id="tif-8h-QzY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="linkColor"/>
                                         <constraints>
-                                            <constraint firstItem="lkj-J1-M9a" firstAttribute="centerX" secondItem="Cle-Vi-yG6" secondAttribute="centerX" id="X34-qu-4nQ"/>
+                                            <constraint firstItem="lkj-J1-M9a" firstAttribute="centerX" secondItem="Cle-Vi-yG6" secondAttribute="centerX" constant="70" id="X34-qu-4nQ"/>
                                             <constraint firstItem="lkj-J1-M9a" firstAttribute="centerY" secondItem="Cle-Vi-yG6" secondAttribute="centerY" id="cvk-zp-zEF"/>
                                         </constraints>
                                         <connections>
