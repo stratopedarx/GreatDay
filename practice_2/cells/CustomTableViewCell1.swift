@@ -6,7 +6,7 @@ class CustomTableViewCell1: UITableViewCell {
     @IBOutlet weak var topImageView: UIImageView!
     
     func configure(with model: Model) {
-        self.topLabel.text = model.breeed
+        self.topLabel.text = model.breed
         //self.topImageView = model.imageLink
     }
 }

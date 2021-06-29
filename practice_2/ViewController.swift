@@ -17,12 +17,12 @@ class ViewController: UIViewController {
         tableView.dataSource = self
 //        ApiManager.shared.getRandom { images in
 //        }
-        models.append(Model(breeed: "bulldog-boston"))
-        models.append(Model(breeed: "kelpie"))
-        models.append(Model(breeed: "akita"))
-        models.append(Model(breeed: "mountain-swiss"))
-        models.append(Model(breeed: "ridgeback-rhodesian"))
-        models.append(Model(breeed: "setter-irish"))
+        models.append(Model(breed: "bulldog-boston"))
+        models.append(Model(breed: "kelpie"))
+        models.append(Model(breed: "akita"))
+        models.append(Model(breed: "mountain-swiss"))
+        models.append(Model(breed: "ridgeback-rhodesian"))
+        models.append(Model(breed: "setter-irish"))
     }
 
 }
@@ -61,7 +61,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
 struct Model {
     //let imageLink: UIImageView
-    let breeed: String
+    var breed: String
+    
+    init(breed: String) {
+        self.breed = breed.capitalized
+    }
 }
 
 
@@ -79,3 +83,4 @@ struct Model {
 //        }
 //    }
 //}
+

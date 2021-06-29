@@ -8,8 +8,8 @@ class CustomTableViewCell2: UITableViewCell {
     @IBOutlet weak var rightLabel: UILabel!
     
     func configure(leftModel: Model, rightModel: Model) {
-        self.leftLabel.text = leftModel.breeed
-        self.rightLabel.text = rightModel.breeed
+        self.leftLabel.text = leftModel.breed
+        self.rightLabel.text = rightModel.breed
         //self.leftImageView.image = model.imageLink
         //self.rightImageView.image = model.imageLink
     }

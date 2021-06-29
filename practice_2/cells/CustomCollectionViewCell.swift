@@ -13,7 +13,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bottomImageView: UIImageView!
 
     func configure(with model: Model) {
-        self.bottomLabel.text = model.breeed
+        self.bottomLabel.text = model.breed
         //self.topImageView = model.imageLink
     }
 }
