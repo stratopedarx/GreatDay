@@ -29,18 +29,23 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell1.identifier, for: indexPath) as! CustomTableViewCell1
             cell.topLabel.text = "Lalala"
-            tableView.rowHeight = 120
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell2.identifier, for: indexPath) as! CustomTableViewCell2
             cell.leftLabel.text = "Left"
             cell.rightLabel.text = "Right"
-            tableView.rowHeight = 285
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell3.identifier, for: indexPath) as! CustomTableViewCell3
-            tableView.rowHeight = 400
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:  return 120
+        case 1: return 285
+        default: return 400
         }
     }
 }
