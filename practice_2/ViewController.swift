@@ -3,23 +3,32 @@ import UIKit
 class ViewController: UIViewController {
     var models = [Model]()
     @IBOutlet weak var tableView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
         ApiManager.shared.getRandom { images in
             print(images)
             for link in images.message! {
                 self.models.append(Model(imageLink: link))
             }
         }
-//        models.append(Model(imageLink: "https://images.dog.ceo/breeds/bulldog-boston/n02096585_318.jpg"))
-//        models.append(Model(imageLink: "https://images.dog.ceo/breeds/briard/n02105251_7430.jpg"))
-//        models.append(Model(imageLink: "https://images.dog.ceo/breeds/akita/512px-Ainu-Dog.jpg"))
-//        models.append(Model(imageLink: "https://images.dog.ceo/breeds/mountain-swiss/n02107574_497.jpg"))
-//        models.append(Model(imageLink: "https://images.dog.ceo/breeds/ridgeback-rhodesian/n02087394_7777.jpg"))
-//        models.append(Model(imageLink: "https://images.dog.ceo/breeds/setter-irish/n02100877_585.jpg"))
+        
+        if models.count != 6 {
+            createTestModels()
+        }
+    }
+    
+    private func createTestModels() {
+        self.models = [Model]()
+        models.append(Model(imageLink: "https://images.dog.ceo/breeds/bulldog-boston/n02096585_318.jpg"))
+        models.append(Model(imageLink: "https://images.dog.ceo/breeds/briard/n02105251_7430.jpg"))
+        models.append(Model(imageLink: "https://images.dog.ceo/breeds/akita/512px-Ainu-Dog.jpg"))
+        models.append(Model(imageLink: "https://images.dog.ceo/breeds/mountain-swiss/n02107574_497.jpg"))
+        models.append(Model(imageLink: "https://images.dog.ceo/breeds/ridgeback-rhodesian/n02087394_7777.jpg"))
+        models.append(Model(imageLink: "https://images.dog.ceo/breeds/setter-irish/n02100877_585.jpg"))
     }
 }
 

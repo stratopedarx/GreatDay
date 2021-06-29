@@ -10,7 +10,7 @@ class CustomTableViewCell2: UITableViewCell {
     func configure(leftModel: Model, rightModel: Model) {
         self.leftLabel.text = leftModel.breed
         self.rightLabel.text = rightModel.breed
-        //self.leftImageView.load(url: URL(string: leftModel.imageLink)!)
-        //self.rightImageView.load(url: URL(string: rightModel.imageLink)!)
+        self.leftImageView.load(url: URL(string: leftModel.imageLink)!)
+        self.rightImageView.load(url: URL(string: rightModel.imageLink)!)
     }
 }

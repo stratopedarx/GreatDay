@@ -41,5 +41,6 @@ class ApiManager {
             }
         }
         task.resume()
+        sleep(1) // it helps to get result from webserver
     }
 }
