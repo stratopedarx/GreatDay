@@ -14,8 +14,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        ApiManager.shared.getRandom { images in
-        }
+//        ApiManager.shared.getRandom { images in
+//        }
     }
 }
 
@@ -25,21 +25,23 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell
         switch indexPath.row {
         case 0:
-            cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell_1.identifier, for: indexPath) as! CustomTableViewCell_1
+            let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell1.identifier, for: indexPath) as! CustomTableViewCell1
+            cell.topLabel.text = "Lalala"
             tableView.rowHeight = 120
+            return cell
         case 1:
-            cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell_2.identifier, for: indexPath) as! CustomTableViewCell_2
+            let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell2.identifier, for: indexPath) as! CustomTableViewCell2
+            cell.leftLabel.text = "Left"
+            cell.rightLabel.text = "Right"
             tableView.rowHeight = 285
+            return cell
         default:
-            cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell_3.identifier, for: indexPath) as! CustomTableViewCell_3
+            let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell3.identifier, for: indexPath) as! CustomTableViewCell3
             tableView.rowHeight = 400
+            return cell
         }
-        return cell
     }
-    
-    
 }
 

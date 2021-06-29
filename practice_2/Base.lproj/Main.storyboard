@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CustomTableViewCell_1" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCell_1" rowHeight="120" id="Cle-Vi-yG6" customClass="CustomTableViewCell_1" customModule="practice_2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CustomTableViewCell_1" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCell1" rowHeight="120" id="Cle-Vi-yG6" customClass="CustomTableViewCell1" customModule="practice_2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cle-Vi-yG6" id="jN1-l3-uWd">
@@ -50,8 +50,12 @@
                                             <constraint firstItem="lkj-J1-M9a" firstAttribute="centerX" secondItem="Cle-Vi-yG6" secondAttribute="centerX" id="X34-qu-4nQ"/>
                                             <constraint firstItem="lkj-J1-M9a" firstAttribute="centerY" secondItem="Cle-Vi-yG6" secondAttribute="centerY" id="cvk-zp-zEF"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="topImageView" destination="uXc-E3-1Sq" id="Rjz-Um-lum"/>
+                                            <outlet property="topLabel" destination="lkj-J1-M9a" id="5nA-cW-17n"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CustomTableViewCell_2" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCell_2" rowHeight="285" id="hiU-Ei-RUe" customClass="CustomTableViewCell_2" customModule="practice_2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CustomTableViewCell_2" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCell2" rowHeight="285" id="hiU-Ei-RUe" customClass="CustomTableViewCell2" customModule="practice_2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="144.5" width="414" height="285"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hiU-Ei-RUe" id="3M4-0I-cZG">
@@ -96,8 +100,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.19170471189999999" green="0.89000000000000001" blue="0.1751494848" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="leftLabel" destination="65t-vI-FMg" id="DSg-On-z0v"/>
+                                            <outlet property="rightLabel" destination="WOP-qd-QvZ" id="lOz-ct-lVt"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CustomTableViewCell_3" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCell_3" rowHeight="400" id="RkT-MK-9UR" customClass="CustomTableViewCell_3" customModule="practice_2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CustomTableViewCell_3" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCell3" rowHeight="400" id="RkT-MK-9UR" customClass="CustomTableViewCell3" customModule="practice_2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="429.5" width="414" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RkT-MK-9UR" id="IGa-cG-d65">
@@ -140,6 +148,10 @@
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="414" height="400"/>
+                                                            <connections>
+                                                                <outlet property="bottomImageView" destination="hhW-Yz-7mj" id="R4R-gH-4g8"/>
+                                                                <outlet property="bottomLabel" destination="Rgk-Rw-56Q" id="OOd-yS-kHU"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>

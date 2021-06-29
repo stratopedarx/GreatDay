@@ -9,4 +9,6 @@ import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
     static let identifier = "idCollectionCell"
+    @IBOutlet weak var bottomLabel: UILabel!
+    @IBOutlet weak var bottomImageView: UIImageView!
 }
