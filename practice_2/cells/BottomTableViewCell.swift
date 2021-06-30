@@ -1,7 +1,7 @@
 import UIKit
 
-class CustomTableViewCell3: UITableViewCell {
-    static let identifier = "idCell3"
+class BottomTableViewCell: UITableViewCell {
+    static let identifier = "idBottomCell"
 
     var collectionModels = [Model]()
     @IBOutlet weak var collectionView: UICollectionView!
@@ -13,14 +13,14 @@ class CustomTableViewCell3: UITableViewCell {
 }
 
 
-extension CustomTableViewCell3: UICollectionViewDataSource, UICollectionViewDelegate  {
+extension BottomTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collectionModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier,
-                                                    for: indexPath) as! CustomCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BottomCollectionViewCell.identifier,
+                                                    for: indexPath) as! BottomCollectionViewCell
         cell.configure(with: collectionModels[indexPath.row])
         return cell
     }

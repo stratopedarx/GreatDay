@@ -1,7 +1,7 @@
 import UIKit
 
-class CustomTableViewCell2: UITableViewCell {
-    static let identifier = "idCell2"
+class MiddleTableViewCell: UITableViewCell {
+    static let identifier = "idMiddleCell"
     @IBOutlet weak var leftImageView: UIImageView!
     @IBOutlet weak var rightImageView: UIImageView!
     @IBOutlet weak var leftLabel: UILabel!

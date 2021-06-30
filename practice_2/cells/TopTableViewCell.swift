@@ -1,7 +1,7 @@
 import UIKit
 
-class CustomTableViewCell1: UITableViewCell {
-    static let identifier = "idCell1"
+class TopTableViewCell: UITableViewCell {
+    static let identifier = "idTopCell"
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var topImageView: UIImageView!
     
