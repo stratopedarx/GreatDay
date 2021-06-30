@@ -33,48 +33,60 @@ class ViewController: UIViewController {
     }
 }
 
+enum Section: Int {
+    case top = 0
+    case middle = 1
+    case bottom = 2
+}
+
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return models.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell1.identifier, for: indexPath) as! CustomTableViewCell1
-            cell.configure(with: models[0])
-            return cell
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell2.identifier, for: indexPath) as! CustomTableViewCell2
-            cell.configure(leftModel: models[1], rightModel: models[2])
-            return cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell3.identifier, for: indexPath) as! CustomTableViewCell3
-            cell.collectionModels = [models[3], models[4], models[5]]
-            return cell
+        switch getSection(indexPath.row % 3) {
+        case .top:
+            return createTopCell(indexPath)
+        case .middle:
+            return createMiddleCell(indexPath)
+        case .bottom:
+            return createBottomCell(indexPath)
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0:  return 120
-        case 1: return 285
-        default: return 400
+        switch getSection(indexPath.row % 3) {
+        case .top:  return 120
+        case .middle: return 285
+        case .bottom: return 400
         }
     }
-}
-
-
-struct Model {
-    var imageLink: String
-    var breed: String
-
-    init(imageLink: String) {
-        self.imageLink = imageLink  //e.g. https://images.dog.ceo/breeds/bulldog-boston/n02096585_318.jpg
-        self.breed = imageLink.split(separator: "/")[3].capitalized
+    
+    private func getSection(_ position: Int) -> Section {
+        if position == 0 { return Section.top }
+        else if position == 1 { return Section.middle }
+        else { return Section.bottom }
+    }
+    
+    private func createTopCell(_ indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell1.identifier, for: indexPath) as! CustomTableViewCell1
+        cell.configure(with: models[0])
+        return cell
+    }
+    
+    private func createMiddleCell(_ indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell2.identifier, for: indexPath) as! CustomTableViewCell2
+        cell.configure(leftModel: models[1], rightModel: models[2])
+        return cell
+    }
+    
+    private func createBottomCell(_ indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell3.identifier, for: indexPath) as! CustomTableViewCell3
+        cell.collectionModels = [models[3], models[4], models[5]]
+        return cell
     }
 }
-
 
 // https://www.hackingwithswift.com/example-code/uikit/how-to-load-a-remote-image-url-into-uiimageview
 extension UIImageView {

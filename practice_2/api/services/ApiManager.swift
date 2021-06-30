@@ -1,7 +1,7 @@
 import Foundation
 
 
-let numberOfImages = 6
+let numberOfImages = 12
 
 
 enum ApiType {
