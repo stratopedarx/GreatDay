@@ -1,5 +1,12 @@
 import UIKit
 
+
+enum ScreenSpace: Int {
+    case top = 0
+    case middle = 1
+    case bottom = 2
+}
+
 class ViewController: UIViewController {
     var models = [Model]()
     @IBOutlet weak var tableView: UITableView!
@@ -16,7 +23,7 @@ class ViewController: UIViewController {
         }
         
         // we use test models if we get https errors or not corrected data
-        if models.count != 6 {
+        if models.count % 6 != 0 {
             createTestModels()
         }
     }
@@ -33,19 +40,19 @@ class ViewController: UIViewController {
     }
 }
 
-enum Section: Int {
-    case top = 0
-    case middle = 1
-    case bottom = 2
-}
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return models.count/6  // one block contains 3 cells (6 models)
+    }
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
+        return 3  // one section contains 3 cells
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch getSection(indexPath.row % 3) {
+        switch getScreenSpace(indexPath.row % 3) {
         case .top:
             return createTopCell(indexPath)
         case .middle:
@@ -56,34 +63,41 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch getSection(indexPath.row % 3) {
+        switch getScreenSpace(indexPath.row % 3) {
         case .top:  return 120
         case .middle: return 285
         case .bottom: return 400
         }
     }
     
-    private func getSection(_ position: Int) -> Section {
-        if position == 0 { return Section.top }
-        else if position == 1 { return Section.middle }
-        else { return Section.bottom }
+    private func getIndex(_ indexPath: IndexPath) -> Int {
+        indexPath.row + indexPath.section * 6
+    }
+    
+    private func getScreenSpace(_ position: Int) -> ScreenSpace {
+        if position == 0 { return ScreenSpace.top }
+        else if position == 1 { return ScreenSpace.middle }
+        else { return ScreenSpace.bottom }
     }
     
     private func createTopCell(_ indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TopTableViewCell.identifier, for: indexPath) as! TopTableViewCell
-        cell.configure(with: models[0])
+        cell.configure(with: models[getIndex(indexPath)])
         return cell
     }
     
     private func createMiddleCell(_ indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MiddleTableViewCell.identifier, for: indexPath) as! MiddleTableViewCell
-        cell.configure(leftModel: models[1], rightModel: models[2])
+        let i = getIndex(indexPath)
+        cell.configure(leftModel: models[i], rightModel: models[i + 1])
         return cell
     }
     
     private func createBottomCell(_ indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BottomTableViewCell.identifier, for: indexPath) as! BottomTableViewCell
-        cell.collectionModels = [models[3], models[4], models[5]]
+        let i = getIndex(indexPath)
+        print(indexPath.row, indexPath.section * 6)
+        cell.collectionModels = [models[i + 1], models[i + 2], models[i + 3]]
         return cell
     }
 }

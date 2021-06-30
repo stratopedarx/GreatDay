@@ -1,7 +1,7 @@
 import Foundation
 
 
-let numberOfImages = 12
+let numberOfImages = 12  // the value must be a multiple of 6
 
 
 enum ApiType {
@@ -26,8 +26,6 @@ enum ApiType {
             return request
         }
     }
-    
-    
 }
 
 class ApiManager {
@@ -63,6 +61,7 @@ class ApiManager {
                 return
             }
             if let data = data, let images = try? JSONDecoder().decode(RandomImage.self, from: data) {
+                print(images)
                 completion(images)
             }
         }
