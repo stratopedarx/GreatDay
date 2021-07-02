@@ -1,6 +1,5 @@
 import UIKit
 
-
 enum ScreenSpace: Int {
     case top = 0
     case middle = 1
@@ -10,24 +9,24 @@ enum ScreenSpace: Int {
 class ViewController: UIViewController {
     var models = [Model]()
     @IBOutlet weak var tableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
+
         ApiManager.shared.getRandom { images in
             for link in images.message! {
                 self.models.append(Model(imageLink: link))
             }
         }
-        
+
         // we use test models if we get https errors or not corrected data
         if models.count % 6 != 0 {
             createTestModels()
         }
     }
-    
+
     private func createTestModels() {
         self.models = [Model]()
         models.append(Model(imageLink: "https://images.dog.ceo/breeds/bulldog-boston/n02096585_318.jpg"))
@@ -40,17 +39,16 @@ class ViewController: UIViewController {
     }
 }
 
-
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return models.count/6  // one block contains 3 cells (6 models)
     }
-        
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3  // one section contains 3 cells
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch getScreenSpace(indexPath.row % 3) {
         case .top:
@@ -61,7 +59,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             return createBottomCell(indexPath)
         }
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch getScreenSpace(indexPath.row % 3) {
         case .top:  return 120
@@ -69,32 +67,39 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         case .bottom: return 400
         }
     }
-    
+
     private func getIndex(_ indexPath: IndexPath) -> Int {
         indexPath.row + indexPath.section * 6
     }
-    
+
     private func getScreenSpace(_ position: Int) -> ScreenSpace {
-        if position == 0 { return ScreenSpace.top }
-        else if position == 1 { return ScreenSpace.middle }
-        else { return ScreenSpace.bottom }
+        if position == 0 {
+            return ScreenSpace.top
+        } else if position == 1 {
+            return ScreenSpace.middle
+        } else {
+            return ScreenSpace.bottom
+        }
     }
-    
+
     private func createTopCell(_ indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TopTableViewCell.identifier, for: indexPath) as! TopTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TopTableViewCell.identifier,
+                                                 for: indexPath) as! TopTableViewCell
         cell.configure(with: models[getIndex(indexPath)])
         return cell
     }
-    
+
     private func createMiddleCell(_ indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MiddleTableViewCell.identifier, for: indexPath) as! MiddleTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: MiddleTableViewCell.identifier,
+                                                 for: indexPath) as! MiddleTableViewCell
         let i = getIndex(indexPath)
         cell.configure(leftModel: models[i], rightModel: models[i + 1])
         return cell
     }
-    
+
     private func createBottomCell(_ indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BottomTableViewCell.identifier, for: indexPath) as! BottomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: BottomTableViewCell.identifier,
+                                                 for: indexPath) as! BottomTableViewCell
         let i = getIndex(indexPath)
         print(indexPath.row, indexPath.section * 6)
         cell.collectionModels = [models[i + 1], models[i + 2], models[i + 3]]
@@ -116,4 +121,3 @@ extension UIImageView {
         }
     }
 }
-

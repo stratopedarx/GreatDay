@@ -6,7 +6,7 @@ class MiddleTableViewCell: UITableViewCell {
     @IBOutlet weak var rightImageView: UIImageView!
     @IBOutlet weak var leftLabel: UILabel!
     @IBOutlet weak var rightLabel: UILabel!
-    
+
     func configure(leftModel: Model, rightModel: Model) {
         self.leftLabel.text = leftModel.breed
         self.rightLabel.text = rightModel.breed

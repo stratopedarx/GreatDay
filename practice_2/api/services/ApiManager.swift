@@ -1,12 +1,10 @@
 import Foundation
 
-
 let numberOfImages = 12  // the value must be a multiple of 6
-
 
 enum ApiType {
     case getRandom
-    
+
     var baseUrl: String {
         "https://dog.ceo/api/breeds/"
     }
@@ -19,7 +17,7 @@ enum ApiType {
         print(path)
         let url = URL(string: path, relativeTo: URL(string: baseUrl)!)!
         var request = URLRequest(url: url)
-        
+
         switch self {
         case .getRandom:
             request.httpMethod = "GET"
@@ -37,7 +35,7 @@ class ApiManager {
         configuration.timeoutIntervalForResource = TimeInterval(15)
         return configuration
     }
-    
+
     func hasError(_ error: Error?) -> Bool {
         if error != nil {
             print("Error!")
@@ -45,7 +43,7 @@ class ApiManager {
         }
         return false
     }
-    
+
     func isValidStatusCode(_ response: URLResponse?) -> Bool {
         guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
             print("Server error!")
@@ -53,7 +51,7 @@ class ApiManager {
         }
         return true
     }
-    
+
     func getRandom(completion: @escaping (RandomImage) -> Void) {
         let request = ApiType.getRandom.request
         let task = URLSession(configuration: configuration).dataTask(with: request) { data, response, error in
