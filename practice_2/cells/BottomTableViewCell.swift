@@ -19,8 +19,10 @@ extension BottomTableViewCell: UICollectionViewDataSource, UICollectionViewDeleg
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // swiftlint:disable force_cast
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BottomCollectionViewCell.identifier,
                                                     for: indexPath) as! BottomCollectionViewCell
+        // swiftlint:enable force_cast
         cell.configure(with: collectionModels[indexPath.row])
         return cell
     }
