@@ -12,6 +12,8 @@
 		8931C3272688D1D9009310AA /* BottomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931C3262688D1D9009310AA /* BottomTableViewCell.swift */; };
 		894592D326A086E80012B412 /* DogApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894592D226A086E80012B412 /* DogApp.storyboard */; };
 		894592D626A089820012B412 /* StarWars.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894592D526A089820012B412 /* StarWars.storyboard */; };
+		894592D826A093670012B412 /* StarWarsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894592D726A093670012B412 /* StarWarsVC.swift */; };
+		894592DA26A098E60012B412 /* HeroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894592D926A098E60012B412 /* HeroCell.swift */; };
 		898650DF268CB37B00482BB6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898650DE268CB37B00482BB6 /* Model.swift */; };
 		89E5EEF5268901D3002120C9 /* BottomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5EEF4268901D3002120C9 /* BottomCollectionViewCell.swift */; };
 		89E5EEF826890D24002120C9 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5EEF726890D24002120C9 /* ApiManager.swift */; };
@@ -30,6 +32,8 @@
 		8931C3262688D1D9009310AA /* BottomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTableViewCell.swift; sourceTree = "<group>"; };
 		894592D226A086E80012B412 /* DogApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DogApp.storyboard; sourceTree = "<group>"; };
 		894592D526A089820012B412 /* StarWars.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StarWars.storyboard; sourceTree = "<group>"; };
+		894592D726A093670012B412 /* StarWarsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsVC.swift; sourceTree = "<group>"; };
+		894592D926A098E60012B412 /* HeroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCell.swift; sourceTree = "<group>"; };
 		898650DE268CB37B00482BB6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		89E5EEF4268901D3002120C9 /* BottomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCollectionViewCell.swift; sourceTree = "<group>"; };
 		89E5EEF726890D24002120C9 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				894592D526A089820012B412 /* StarWars.storyboard */,
+				894592D726A093670012B412 /* StarWarsVC.swift */,
+				894592D926A098E60012B412 /* HeroCell.swift */,
 			);
 			path = StarWarsApp;
 			sourceTree = "<group>";
@@ -239,11 +245,13 @@
 				89E5EEF826890D24002120C9 /* ApiManager.swift in Sources */,
 				89E5EEFC26891137002120C9 /* RandomImage.swift in Sources */,
 				8931C3232688D1B6009310AA /* TopTableViewCell.swift in Sources */,
+				894592DA26A098E60012B412 /* HeroCell.swift in Sources */,
 				89E5EEF5268901D3002120C9 /* BottomCollectionViewCell.swift in Sources */,
 				89F903EA268875E000096068 /* ViewController.swift in Sources */,
 				898650DF268CB37B00482BB6 /* Model.swift in Sources */,
 				8931C3272688D1D9009310AA /* BottomTableViewCell.swift in Sources */,
 				89F903E6268875E000096068 /* AppDelegate.swift in Sources */,
+				894592D826A093670012B412 /* StarWarsVC.swift in Sources */,
 				89F903E8268875E000096068 /* SceneDelegate.swift in Sources */,
 				8931C3252688D1C7009310AA /* MiddleTableViewCell.swift in Sources */,
 			);
