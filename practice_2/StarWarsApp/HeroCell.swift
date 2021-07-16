@@ -1,10 +1,3 @@
-//
-//  HeroCell.swift
-//  practice_2
-//
-//  Created by user199993 on 7/15/21.
-//
-
 import UIKit
 
 class HeroCell: UITableViewCell {

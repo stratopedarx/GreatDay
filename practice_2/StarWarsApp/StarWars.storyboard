@@ -28,6 +28,9 @@
                                 <state key="normal" title="Search">
                                     <color key="titleColor" systemColor="systemYellowColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="searchHero:" destination="86M-Pm-khN" eventType="touchUpInside" id="MEg-Eg-OfR"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="493-lR-6p9">
                                 <rect key="frame" x="0.0" y="227.5" width="414" height="585.5"/>
@@ -78,8 +81,8 @@
                     <tabBarItem key="tabBarItem" title="Star Wars" image="star" catalog="system" id="RT0-H8-abA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="searchButton" destination="PKl-7J-b0L" id="4ye-HM-ydK"/>
                         <outlet property="searchTextField" destination="arY-fm-0fZ" id="BwS-ZH-MTB"/>
-                        <outlet property="serachButton" destination="PKl-7J-b0L" id="4ye-HM-ydK"/>
                         <outlet property="starWarsTableView" destination="493-lR-6p9" id="2Ao-mZ-WlA"/>
                     </connections>
                 </viewController>

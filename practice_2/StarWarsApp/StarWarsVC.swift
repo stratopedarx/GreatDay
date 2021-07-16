@@ -1,7 +1,7 @@
 import UIKit
 
-class StarWarsVC: UIViewController, UITableViewDataSource {
-    @IBOutlet weak var serachButton: UIButton!
+class StarWarsVC: UIViewController {
+    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var starWarsTableView: UITableView!
 
@@ -10,9 +10,17 @@ class StarWarsVC: UIViewController, UITableViewDataSource {
         starWarsTableView.dataSource = self
         starWarsTableView.delegate = self
     }
+
+    @IBAction func searchHero(_ sender: UIButton) {
+        if searchTextField.text != "" {
+            print("hello")
+        } else {
+            Alert.showAlert(title: "wrong input data", message: "try again", on: self)
+        }
+    }
 }
 
-extension StarWarsVC: UITableViewDelegate {
+extension StarWarsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
