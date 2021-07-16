@@ -12,8 +12,11 @@ class StarWarsVC: UIViewController {
     }
 
     @IBAction func searchHero(_ sender: UIButton) {
-        if searchTextField.text != "" {
-            print("hello")
+        let name = searchTextField.text!
+        if name != "" {
+            SWApiManager.sharedSW.searchHero(by: name) { hero in
+                print(hero)
+            }
         } else {
             Alert.showAlert(title: "wrong input data", message: "try again", on: self)
         }
