@@ -81,6 +81,7 @@
                     <tabBarItem key="tabBarItem" title="Star Wars" image="star" catalog="system" id="RT0-H8-abA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="searchButton" destination="PKl-7J-b0L" id="8no-01-lFz"/>
                         <outlet property="searchTextField" destination="arY-fm-0fZ" id="BwS-ZH-MTB"/>
                         <outlet property="starWarsTableView" destination="493-lR-6p9" id="2Ao-mZ-WlA"/>
                         <segue destination="BjP-eP-aE3" kind="show" identifier="starWarsSegue" id="OB2-f0-gXT"/>

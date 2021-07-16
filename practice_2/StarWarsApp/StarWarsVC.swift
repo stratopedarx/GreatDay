@@ -5,6 +5,7 @@ class StarWarsVC: UIViewController {
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var starWarsTableView: UITableView!
+    @IBOutlet weak var searchButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,5 +69,20 @@ extension StarWarsVC: UITableViewDelegate, UITableViewDataSource {
         // swiftlint:enable force_cast
         cell.configure(with: heroModels[indexPath.row])
         return cell
+    }
+}
+
+// This extension updates searchButton color for dark mode
+extension StarWarsVC {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        userInterfaceChangeToDarkMode()
+    }
+
+    func userInterfaceChangeToDarkMode() {
+        if traitCollection.userInterfaceStyle == .dark {
+            searchButton.layer.backgroundColor = UIColor.yellow.cgColor
+            searchButton.setTitleColor(UIColor.black, for: .normal)
+        }
     }
 }
