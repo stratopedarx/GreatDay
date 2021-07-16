@@ -1,3 +1,8 @@
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
+//
+//   let sWHero = try? newJSONDecoder().decode(SWHero.self, from: jsonData)
+
 import Foundation
 
 // MARK: - SWHero
@@ -20,10 +25,10 @@ struct Result: Codable {
 
     enum CodingKeys: String, CodingKey {
         case name, height, mass
-        case hairColor
-        case skinColor
-        case eyeColor
-        case birthYear
+        case hairColor = "hair_color"
+        case skinColor = "skin_color"
+        case eyeColor = "eye_color"
+        case birthYear = "birth_year"
         case gender, homeworld, films, species, vehicles, starships, created, edited, url
     }
 }
@@ -36,8 +41,8 @@ class JSONNull: Codable, Hashable {
         return true
     }
 
-    public var hashValue: Int {
-        return 0
+    public func hash(into hasher: inout Hasher) {
+        // No-op
     }
 
     public init() {}
@@ -47,7 +52,8 @@ class JSONNull: Codable, Hashable {
         if !container.decodeNil() {
             throw DecodingError.typeMismatch(
                 JSONNull.self,
-                DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
+                DecodingError.Context(codingPath: decoder.codingPath,
+                                      debugDescription: "Wrong type for JSONNull"))
         }
     }
 

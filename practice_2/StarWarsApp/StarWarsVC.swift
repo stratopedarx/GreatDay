@@ -25,7 +25,6 @@ class StarWarsVC: UIViewController {
                     }
                 } else {
                     for res in hero.results! {
-                        print(res)
                         self.heroModels.append(HeroModel(res))
                     }
                     self.reloadView()
@@ -50,6 +49,14 @@ class StarWarsVC: UIViewController {
 }
 
 extension StarWarsVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "StarWars", bundle: nil)
+        if let detailVC = storyboard.instantiateViewController(identifier: "DetailHeroVC") as? DetailHeroVC {
+            detailVC.configure(with: heroModels[indexPath.row])
+            show(detailVC, sender: nil)
+        }
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return heroModels.count
     }
