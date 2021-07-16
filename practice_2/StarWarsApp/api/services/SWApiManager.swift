@@ -31,10 +31,9 @@ class SWApiManager: ApiManager {
                 return
             }
             if let data = data, let hero = try? JSONDecoder().decode(SWHero.self, from: data) {
-                    print(hero)
-                    completion(hero)
-                }
+                completion(hero)
             }
-            task.resume()
         }
+        task.resume()
+    }
 }

@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter hero name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="arY-fm-0fZ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter hero name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="arY-fm-0fZ">
                                 <rect key="frame" x="72" y="104" width="270" height="45.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -81,14 +81,13 @@
                     <tabBarItem key="tabBarItem" title="Star Wars" image="star" catalog="system" id="RT0-H8-abA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="searchButton" destination="PKl-7J-b0L" id="4ye-HM-ydK"/>
                         <outlet property="searchTextField" destination="arY-fm-0fZ" id="BwS-ZH-MTB"/>
                         <outlet property="starWarsTableView" destination="493-lR-6p9" id="2Ao-mZ-WlA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="itJ-1X-Fe5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1769.5652173913045" y="458.70535714285711"/>
+            <point key="canvasLocation" x="1680" y="358"/>
         </scene>
     </scenes>
     <resources>
