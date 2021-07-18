@@ -2,6 +2,7 @@ import UIKit
 
 class StarWarsVC: UIViewController {
     var heroModels = [HeroModel]()
+    let databaseService = DefaultDatabaseService(context: DatabaseStack.persistentContainer.viewContext)
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var starWarsTableView: UITableView!
@@ -26,7 +27,11 @@ class StarWarsVC: UIViewController {
                     }
                 } else {
                     for res in hero.results! {
-                        self.heroModels.append(HeroModel(res))
+                        let newHeroModel = HeroModel(res)
+                        self.heroModels.append(newHeroModel)
+                        if !self.databaseService.saveToDatabase(newHeroModel) {
+                            print("Could not save the object: \(newHeroModel)")
+                        }
                     }
                     self.reloadView()
                 }

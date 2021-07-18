@@ -9,6 +9,10 @@ class DefaultDatabaseService: DatabaseService {
     }
 
     func saveToDatabase(_ heroModel: HeroModel) -> Bool {
+        if isExist(heroModel) {
+            return false
+        }
+
         let entity = NSEntityDescription.entity(forEntityName: "SWHeroModel", in: managedContext)!
         let hero = NSManagedObject(entity: entity, insertInto: managedContext)
 
@@ -31,6 +35,19 @@ class DefaultDatabaseService: DatabaseService {
         }
 
         return false
+    }
+
+    private func isExist(_ heroModel: HeroModel) -> Bool {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SWHeroModel")
+        fetchRequest.predicate = NSPredicate(format: "name = %@", heroModel.name!)
+        var results: [NSManagedObject] = []
+
+        do {
+            results = try managedContext.fetch(fetchRequest)
+        } catch let error {
+            print("Error executing fetch request. \(error)")
+        }
+        return results.count > 0
     }
 
     func getFromDatabase(onComplete: @escaping ([HeroModel]) -> Void) {
