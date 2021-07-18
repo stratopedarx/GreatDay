@@ -20,21 +20,25 @@ class StarWarsVC: UIViewController {
         if name == "" {
             Alert.showAlert(title: "wrong input data", message: "try again", on: self)
         } else {
-            SWApiManager.sharedSW.searchHero(by: name) { hero in
-                if hero.count! == 0 {
+            SWApiManager.sharedSW.searchHero(by: name) { response in
+                if response.count! == 0 {
                     DispatchQueue.main.async {
                         Alert.showAlert(title: "Not found", message: "try again", on: self)
                     }
                 } else {
-                    for res in hero.results! {
-                        let newHeroModel = HeroModel(res)
-                        self.heroModels.append(newHeroModel)
-                        if !self.databaseService.saveToDatabase(newHeroModel) {
-                            print("Could not save the object: \(newHeroModel)")
-                        }
-                    }
+                    self.handleResults(response)
                     self.reloadView()
                 }
+            }
+        }
+    }
+
+    private func handleResults(_ response: SWHero) {
+        for res in response.results! {
+            let newHeroModel = HeroModel(res)
+            self.heroModels.append(newHeroModel)
+            if !self.databaseService.saveToDatabase(newHeroModel) {
+                print("Could not save the object: \(newHeroModel)")
             }
         }
     }
