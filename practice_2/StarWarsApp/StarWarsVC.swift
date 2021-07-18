@@ -21,6 +21,7 @@ class StarWarsVC: UIViewController {
             Alert.showAlert(title: "wrong input data", message: "try again", on: self)
         } else {
             SWApiManager.sharedSW.searchHero(by: name) { response in
+                self.removeModels()
                 if response.count! == 0 {
                     DispatchQueue.main.async {
                         Alert.showAlert(title: "Not found", message: "try again", on: self)
@@ -28,7 +29,19 @@ class StarWarsVC: UIViewController {
                 } else {
                     self.handleResults(response)
                     self.reloadView()
+                    return
                 }
+            }
+        }
+        // databaseService.deleteAllObjectsFromDatabase()
+        handleResultsFromDB(by: name)
+        self.reloadView()
+    }
+
+    private func handleResultsFromDB(by name: String) {
+        databaseService.getObjects(by: name) { heroModels in
+            for heroModel in heroModels {
+                self.heroModels.append(heroModel)
             }
         }
     }

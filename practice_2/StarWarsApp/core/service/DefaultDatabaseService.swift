@@ -25,17 +25,7 @@ class DefaultDatabaseService: DatabaseService {
         hero.setValue(heroModel.eyeColor, forKey: "eyeColor")
         hero.setValue(heroModel.birthYear, forKey: "birthYear")
         hero.setValue(heroModel.gender, forKey: "gender")
-
-        if managedContext.hasChanges {
-            do {
-                try managedContext.save()
-                return true
-            } catch let error {
-                print("Could not save hero to database. \(error)")
-            }
-        }
-
-        return false
+        return saveContext()
     }
 
     func getFromDatabase(onComplete: @escaping ([HeroModel]) -> Void) {
@@ -82,8 +72,33 @@ class DefaultDatabaseService: DatabaseService {
         return results.count > 0
     }
 
+    func getObjects(by name: String, onComplete: @escaping ([HeroModel]) -> Void) {
+        let fetchRequest = getFetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] '\(name)'")
+
+        do {
+            guard let fetchResult = try managedContext.fetch(fetchRequest) as? [SWHeroModel] else { return }
+            let heroes = mapFetchedData(fetchResult)
+            onComplete(heroes)
+        } catch let error {
+            print("Error executing fetch request. \(error)")
+        }
+    }
+
     private func getFetchRequest() -> NSFetchRequest<NSManagedObject> {
         return NSFetchRequest<NSManagedObject>(entityName: entityName)
+    }
+
+    private func saveContext() -> Bool {
+        if managedContext.hasChanges {
+            do {
+                try managedContext.save()
+                return true
+            } catch let error {
+                print("Could not save hero to database. \(error)")
+            }
+        }
+        return false
     }
 
     /// This method only for developers.
@@ -100,6 +115,11 @@ class DefaultDatabaseService: DatabaseService {
             print("Could not delete all items. \(error)")
             return 0
         }
+        if !saveContext() {
+            return 0
+        }
+
+        print("Delete \(items.count) objects")
         return items.count
     }
 }
