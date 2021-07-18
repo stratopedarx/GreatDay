@@ -2,6 +2,7 @@ import CoreData
 import Foundation
 
 class DefaultDatabaseService: DatabaseService {
+    let entityName = "SWHeroModel"
     private var managedContext: NSManagedObjectContext
 
     init(context managedContext: NSManagedObjectContext) {
@@ -13,7 +14,7 @@ class DefaultDatabaseService: DatabaseService {
             return false
         }
 
-        let entity = NSEntityDescription.entity(forEntityName: "SWHeroModel", in: managedContext)!
+        let entity = NSEntityDescription.entity(forEntityName: entityName, in: managedContext)!
         let hero = NSManagedObject(entity: entity, insertInto: managedContext)
 
         hero.setValue(heroModel.name, forKey: "name")
@@ -37,21 +38,8 @@ class DefaultDatabaseService: DatabaseService {
         return false
     }
 
-    private func isExist(_ heroModel: HeroModel) -> Bool {
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SWHeroModel")
-        fetchRequest.predicate = NSPredicate(format: "name = %@", heroModel.name!)
-        var results: [NSManagedObject] = []
-
-        do {
-            results = try managedContext.fetch(fetchRequest)
-        } catch let error {
-            print("Error executing fetch request. \(error)")
-        }
-        return results.count > 0
-    }
-
     func getFromDatabase(onComplete: @escaping ([HeroModel]) -> Void) {
-           let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SWHeroModel")
+           let fetchRequest = getFetchRequest()
 
            do {
                guard let fetchResult = try managedContext.fetch(fetchRequest) as? [SWHeroModel] else { return }
@@ -78,5 +66,40 @@ class DefaultDatabaseService: DatabaseService {
                                 starships: nil, created: nil, edited: nil, url: nil)
             return HeroModel(result)
         }
+    }
+
+    // MARK: below helper methods
+    private func isExist(_ heroModel: HeroModel) -> Bool {
+        let fetchRequest = getFetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "name = %@", heroModel.name!)
+        var results: [NSManagedObject] = []
+
+        do {
+            results = try managedContext.fetch(fetchRequest)
+        } catch let error {
+            print("Error executing fetch request. \(error)")
+        }
+        return results.count > 0
+    }
+
+    private func getFetchRequest() -> NSFetchRequest<NSManagedObject> {
+        return NSFetchRequest<NSManagedObject>(entityName: entityName)
+    }
+
+    /// This method only for developers.
+    /// Remove all objects from database.
+    /// Returns number of deleted items.
+    func deleteAllObjectsFromDatabase() -> Int {
+        var items: [NSManagedObject] = []
+        do {
+            items = try managedContext.fetch(getFetchRequest())
+            for item in items {
+                managedContext.delete(item)
+            }
+        } catch let error {
+            print("Could not delete all items. \(error)")
+            return 0
+        }
+        return items.count
     }
 }
