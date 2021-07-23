@@ -83,29 +83,26 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     private func createTopCell(_ indexPath: IndexPath) -> UITableViewCell {
-        // swiftlint:disable force_cast
-        let cell = tableView.dequeueReusableCell(withIdentifier: TopTableViewCell.identifier,
-                                                 for: indexPath) as! TopTableViewCell
-        // swiftlint:enable force_cast
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: TopTableViewCell.identifier,
+                for: indexPath) as? TopTableViewCell else { fatalError("Can not create the cell") }
         cell.configure(with: models[getIndex(indexPath)])
         return cell
     }
 
     private func createMiddleCell(_ indexPath: IndexPath) -> UITableViewCell {
-        // swiftlint:disable force_cast
-        let cell = tableView.dequeueReusableCell(withIdentifier: MiddleTableViewCell.identifier,
-                                                 for: indexPath) as! MiddleTableViewCell
-        // swiftlint:enable force_cast
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: MiddleTableViewCell.identifier,
+                for: indexPath) as? MiddleTableViewCell else { fatalError("Can not create the cell") }
         let index = getIndex(indexPath)
         cell.configure(leftModel: models[index], rightModel: models[index + 1])
         return cell
     }
 
     private func createBottomCell(_ indexPath: IndexPath) -> UITableViewCell {
-        // swiftlint:disable force_cast
-        let cell = tableView.dequeueReusableCell(withIdentifier: BottomTableViewCell.identifier,
-                                                 for: indexPath) as! BottomTableViewCell
-        // swiftlint:enable force_cast
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: BottomTableViewCell.identifier,
+                for: indexPath) as? BottomTableViewCell else { fatalError("Can not create the cell") }
         let index = getIndex(indexPath)
         cell.collectionModels = [models[index + 1], models[index + 2], models[index + 3]]
         return cell
