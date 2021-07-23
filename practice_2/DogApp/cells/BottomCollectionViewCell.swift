@@ -2,8 +2,8 @@ import UIKit
 
 class BottomCollectionViewCell: UICollectionViewCell {
     static let identifier = "idCollectionCell"
-    @IBOutlet weak var bottomLabel: UILabel!
-    @IBOutlet weak var bottomImageView: UIImageView!
+    @IBOutlet private weak var bottomLabel: UILabel!
+    @IBOutlet private weak var bottomImageView: UIImageView!
 
     func configure(with model: Model) {
         self.bottomLabel.text = model.breed

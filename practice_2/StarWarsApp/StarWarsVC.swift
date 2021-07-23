@@ -3,8 +3,8 @@ import UIKit
 class StarWarsVC: UIViewController {
     var heroModels = [HeroModel]()
 
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var starWarsTableView: UITableView!
+    @IBOutlet private weak var searchTextField: UITextField!
+    @IBOutlet private weak var starWarsTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
