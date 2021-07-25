@@ -24,6 +24,8 @@
 		89D0C70A26A16748008FA33F /* SWHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0C70926A16748008FA33F /* SWHero.swift */; };
 		89D0C70C26A18955008FA33F /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0C70B26A18955008FA33F /* HeroModel.swift */; };
 		89D0C70F26A1A28A008FA33F /* DetailHeroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0C70E26A1A28A008FA33F /* DetailHeroVC.swift */; };
+		89D2134826AD530D0019B40C /* AnimalsApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89D2134726AD530D0019B40C /* AnimalsApp.storyboard */; };
+		89D2134D26AD540B0019B40C /* AnimalsListViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2134C26AD540B0019B40C /* AnimalsListViewContoller.swift */; };
 		89E5EEF5268901D3002120C9 /* BottomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5EEF4268901D3002120C9 /* BottomCollectionViewCell.swift */; };
 		89E5EEF826890D24002120C9 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5EEF726890D24002120C9 /* ApiManager.swift */; };
 		89E5EEFC26891137002120C9 /* RandomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5EEFB26891137002120C9 /* RandomImage.swift */; };
@@ -53,6 +55,8 @@
 		89D0C70926A16748008FA33F /* SWHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWHero.swift; sourceTree = "<group>"; };
 		89D0C70B26A18955008FA33F /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
 		89D0C70E26A1A28A008FA33F /* DetailHeroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeroVC.swift; sourceTree = "<group>"; };
+		89D2134726AD530D0019B40C /* AnimalsApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimalsApp.storyboard; sourceTree = "<group>"; };
+		89D2134C26AD540B0019B40C /* AnimalsListViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsListViewContoller.swift; sourceTree = "<group>"; };
 		89E5EEF4268901D3002120C9 /* BottomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCollectionViewCell.swift; sourceTree = "<group>"; };
 		89E5EEF726890D24002120C9 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		89E5EEFB26891137002120C9 /* RandomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImage.swift; sourceTree = "<group>"; };
@@ -183,6 +187,39 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		89D2134626AD527A0019B40C /* AnimalsApp */ = {
+			isa = PBXGroup;
+			children = (
+				89D2134926AD53780019B40C /* Model */,
+				89D2134B26AD53880019B40C /* View */,
+				89D2134A26AD537E0019B40C /* Presenter */,
+				89D2134726AD530D0019B40C /* AnimalsApp.storyboard */,
+			);
+			path = AnimalsApp;
+			sourceTree = "<group>";
+		};
+		89D2134926AD53780019B40C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		89D2134A26AD537E0019B40C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		89D2134B26AD53880019B40C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				89D2134C26AD540B0019B40C /* AnimalsListViewContoller.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		89E5EEF626890D06002120C9 /* api */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +272,7 @@
 				89F903F3268875E100096068 /* Info.plist */,
 				894592D026A084920012B412 /* DogApp */,
 				894592D426A089570012B412 /* StarWarsApp */,
+				89D2134626AD527A0019B40C /* AnimalsApp */,
 			);
 			path = practice_2;
 			sourceTree = "<group>";
@@ -299,6 +337,7 @@
 			files = (
 				89F903F2268875E100096068 /* LaunchScreen.storyboard in Resources */,
 				89F903EF268875E100096068 /* Assets.xcassets in Resources */,
+				89D2134826AD530D0019B40C /* AnimalsApp.storyboard in Resources */,
 				89F903ED268875E000096068 /* Main.storyboard in Resources */,
 				894592D326A086E80012B412 /* DogApp.storyboard in Resources */,
 				894592D626A089820012B412 /* StarWars.storyboard in Resources */,
@@ -344,6 +383,7 @@
 				89D0C70026A157BF008FA33F /* Alert.swift in Sources */,
 				89F903EA268875E000096068 /* ViewController.swift in Sources */,
 				89D0C70F26A1A28A008FA33F /* DetailHeroVC.swift in Sources */,
+				89D2134D26AD540B0019B40C /* AnimalsListViewContoller.swift in Sources */,
 				89D0C70C26A18955008FA33F /* HeroModel.swift in Sources */,
 				89AB269226A1F21B0053C771 /* DatabaseStack.swift in Sources */,
 				898650DF268CB37B00482BB6 /* Model.swift in Sources */,
