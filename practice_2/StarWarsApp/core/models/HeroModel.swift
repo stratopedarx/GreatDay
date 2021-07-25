@@ -4,7 +4,7 @@ struct HeroModel {
     let name, height, mass, hairColor: String?
     let skinColor, eyeColor, birthYear, gender: String?
 
-    init(_ hero: Result) {
+    init(_ hero: SWResult) {
         self.name = hero.name ?? ""
         self.height = hero.height ?? ""
         self.mass = hero.mass ?? ""

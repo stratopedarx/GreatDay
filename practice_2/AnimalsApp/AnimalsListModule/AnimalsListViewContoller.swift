@@ -90,3 +90,14 @@ extension AnimalsListViewContoller {
         }
     }
 }
+
+extension AnimalsListViewContoller: AnimalsListViewProtocol {
+    func success() {
+        collectionView.reloadData()
+    }
+
+    func failure(error: Error) {
+        print("FAIL!!!")
+        print(error.localizedDescription)
+    }
+}

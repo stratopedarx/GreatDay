@@ -50,7 +50,7 @@ class DefaultDatabaseService: DatabaseService {
             let eyeColor = object.value(forKey: "eyeColor") as? String
             let birthYear = object.value(forKey: "birthYear") as? String
             let gender = object.value(forKey: "gender") as? String
-            let result = Result(name: name, height: height, mass: mass, hairColor: hairColor,
+            let result = SWResult(name: name, height: height, mass: mass, hairColor: hairColor,
                                 skinColor: skinColor, eyeColor: eyeColor, birthYear: birthYear, gender: gender,
                                 homeworld: nil, films: nil, species: nil, vehicles: nil,
                                 starships: nil, created: nil, edited: nil, url: nil)
