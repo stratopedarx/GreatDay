@@ -28,6 +28,10 @@
 		89D2134D26AD540B0019B40C /* AnimalsListViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2134C26AD540B0019B40C /* AnimalsListViewContoller.swift */; };
 		89D2135426AD5FCD0019B40C /* AnimalsTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2135226AD5FCD0019B40C /* AnimalsTopCell.swift */; };
 		89D2135526AD5FCD0019B40C /* AnimalsTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D2135326AD5FCD0019B40C /* AnimalsTopCell.xib */; };
+		89D2135926AD77150019B40C /* AnimalsMiddleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2135726AD77140019B40C /* AnimalsMiddleCell.swift */; };
+		89D2135A26AD77150019B40C /* AnimalsMiddleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D2135826AD77150019B40C /* AnimalsMiddleCell.xib */; };
+		89D2135D26AD85110019B40C /* AnimalsBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2135B26AD85110019B40C /* AnimalsBottomCell.swift */; };
+		89D2135E26AD85110019B40C /* AnimalsBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D2135C26AD85110019B40C /* AnimalsBottomCell.xib */; };
 		89E5EEF5268901D3002120C9 /* BottomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5EEF4268901D3002120C9 /* BottomCollectionViewCell.swift */; };
 		89E5EEF826890D24002120C9 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5EEF726890D24002120C9 /* ApiManager.swift */; };
 		89E5EEFC26891137002120C9 /* RandomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5EEFB26891137002120C9 /* RandomImage.swift */; };
@@ -61,6 +65,10 @@
 		89D2134C26AD540B0019B40C /* AnimalsListViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsListViewContoller.swift; sourceTree = "<group>"; };
 		89D2135226AD5FCD0019B40C /* AnimalsTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsTopCell.swift; sourceTree = "<group>"; };
 		89D2135326AD5FCD0019B40C /* AnimalsTopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalsTopCell.xib; sourceTree = "<group>"; };
+		89D2135726AD77140019B40C /* AnimalsMiddleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsMiddleCell.swift; sourceTree = "<group>"; };
+		89D2135826AD77150019B40C /* AnimalsMiddleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalsMiddleCell.xib; sourceTree = "<group>"; };
+		89D2135B26AD85110019B40C /* AnimalsBottomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsBottomCell.swift; sourceTree = "<group>"; };
+		89D2135C26AD85110019B40C /* AnimalsBottomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalsBottomCell.xib; sourceTree = "<group>"; };
 		89E5EEF4268901D3002120C9 /* BottomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCollectionViewCell.swift; sourceTree = "<group>"; };
 		89E5EEF726890D24002120C9 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		89E5EEFB26891137002120C9 /* RandomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImage.swift; sourceTree = "<group>"; };
@@ -230,6 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				89D2135226AD5FCD0019B40C /* AnimalsTopCell.swift */,
+				89D2135726AD77140019B40C /* AnimalsMiddleCell.swift */,
+				89D2135B26AD85110019B40C /* AnimalsBottomCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -238,6 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				89D2135326AD5FCD0019B40C /* AnimalsTopCell.xib */,
+				89D2135826AD77150019B40C /* AnimalsMiddleCell.xib */,
+				89D2135C26AD85110019B40C /* AnimalsBottomCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -359,9 +371,11 @@
 			files = (
 				89F903F2268875E100096068 /* LaunchScreen.storyboard in Resources */,
 				89F903EF268875E100096068 /* Assets.xcassets in Resources */,
+				89D2135A26AD77150019B40C /* AnimalsMiddleCell.xib in Resources */,
 				89D2135526AD5FCD0019B40C /* AnimalsTopCell.xib in Resources */,
 				89D2134826AD530D0019B40C /* AnimalsApp.storyboard in Resources */,
 				89F903ED268875E000096068 /* Main.storyboard in Resources */,
+				89D2135E26AD85110019B40C /* AnimalsBottomCell.xib in Resources */,
 				894592D326A086E80012B412 /* DogApp.storyboard in Resources */,
 				894592D626A089820012B412 /* StarWars.storyboard in Resources */,
 			);
@@ -397,10 +411,12 @@
 			files = (
 				89D0C70526A15DAD008FA33F /* SWApiManager.swift in Sources */,
 				89E5EEF826890D24002120C9 /* ApiManager.swift in Sources */,
+				89D2135D26AD85110019B40C /* AnimalsBottomCell.swift in Sources */,
 				89E5EEFC26891137002120C9 /* RandomImage.swift in Sources */,
 				8931C3232688D1B6009310AA /* TopTableViewCell.swift in Sources */,
 				89D0C70A26A16748008FA33F /* SWHero.swift in Sources */,
 				894592DA26A098E60012B412 /* HeroCell.swift in Sources */,
+				89D2135926AD77150019B40C /* AnimalsMiddleCell.swift in Sources */,
 				89AB269526A1F53C0053C771 /* DatabaseService.swift in Sources */,
 				89E5EEF5268901D3002120C9 /* BottomCollectionViewCell.swift in Sources */,
 				89D0C70026A157BF008FA33F /* Alert.swift in Sources */,
