@@ -15,16 +15,17 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
-        ApiManager.shared.getRandom { images in
-            for link in images.message! {
-                self.models.append(Model(imageLink: link))
-            }
-        }
+//        ApiManager.shared.getRandom { images in
+//            for link in images.message! {
+//                self.models.append(Model(imageLink: link))
+//            }
+//        }
 
         // we use test models if we get https errors or not corrected data
-        if models.count % 6 != 0 {
-            createTestModels()
-        }
+//        if models.count % 6 != 0 {
+//            createTestModels()
+//        }
+        createTestModels()
     }
 
     private func createTestModels() {
