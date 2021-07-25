@@ -4,7 +4,7 @@ class BottomTableViewCell: UITableViewCell {
     static let identifier = "idBottomCell"
 
     var collectionModels = [Model]()
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.delegate = self

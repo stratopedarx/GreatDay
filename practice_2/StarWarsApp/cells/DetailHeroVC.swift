@@ -4,8 +4,8 @@ class DetailHeroVC: UIViewController {
     var name = ""
     var text = ""
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var detailTextLabel: UITextView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var detailTextLabel: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         nameLabel.text = name

@@ -2,7 +2,7 @@ import UIKit
 
 class HeroCell: UITableViewCell {
     static let identifier = "heroCell"
-    @IBOutlet weak var heroNameLabel: UILabel!
+    @IBOutlet private weak var heroNameLabel: UILabel!
     func configure(with model: HeroModel) {
         self.heroNameLabel.text = model.name
     }

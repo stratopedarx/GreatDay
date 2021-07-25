@@ -2,10 +2,10 @@ import UIKit
 
 class MiddleTableViewCell: UITableViewCell {
     static let identifier = "idMiddleCell"
-    @IBOutlet weak var leftImageView: UIImageView!
-    @IBOutlet weak var rightImageView: UIImageView!
-    @IBOutlet weak var leftLabel: UILabel!
-    @IBOutlet weak var rightLabel: UILabel!
+    @IBOutlet private weak var leftImageView: UIImageView!
+    @IBOutlet private weak var rightImageView: UIImageView!
+    @IBOutlet private weak var leftLabel: UILabel!
+    @IBOutlet private weak var rightLabel: UILabel!
 
     func configure(leftModel: Model, rightModel: Model) {
         self.leftLabel.text = leftModel.breed
