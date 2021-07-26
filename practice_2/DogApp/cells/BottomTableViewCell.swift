@@ -19,10 +19,9 @@ extension BottomTableViewCell: UICollectionViewDataSource, UICollectionViewDeleg
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // swiftlint:disable force_cast
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BottomCollectionViewCell.identifier,
-                                                    for: indexPath) as! BottomCollectionViewCell
-        // swiftlint:enable force_cast
+        guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: BottomCollectionViewCell.identifier,
+                for: indexPath) as?  BottomCollectionViewCell else { fatalError("Can not create the cell") }
         cell.configure(with: collectionModels[indexPath.row])
         return cell
     }

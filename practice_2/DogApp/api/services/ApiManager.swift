@@ -14,7 +14,6 @@ enum ApiType {
         }
     }
     var request: URLRequest {
-        print(path)
         let url = URL(string: path, relativeTo: URL(string: baseUrl)!)!
         var request = URLRequest(url: url)
 
@@ -59,7 +58,6 @@ class ApiManager {
                 return
             }
             if let data = data, let images = try? JSONDecoder().decode(RandomImage.self, from: data) {
-                print(images)
                 completion(images)
             }
         }
