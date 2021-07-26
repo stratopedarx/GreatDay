@@ -39,7 +39,8 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+// MARK: - UITableViewDataSource
+extension ViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return models.count/6  // one block contains 3 cells (6 models)
@@ -60,14 +61,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch getScreenSpace(indexPath.row % 3) {
-        case .top:  return 120
-        case .middle: return 285
-        case .bottom: return 400
-        }
-    }
-
     private func getIndex(_ indexPath: IndexPath) -> Int {
         indexPath.row + indexPath.section * 6
     }
@@ -83,32 +76,40 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     private func createTopCell(_ indexPath: IndexPath) -> UITableViewCell {
-        // swiftlint:disable force_cast
-        let cell = tableView.dequeueReusableCell(withIdentifier: TopTableViewCell.identifier,
-                                                 for: indexPath) as! TopTableViewCell
-        // swiftlint:enable force_cast
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: TopTableViewCell.identifier,
+                for: indexPath) as? TopTableViewCell else { fatalError("Can not create the cell") }
         cell.configure(with: models[getIndex(indexPath)])
         return cell
     }
 
     private func createMiddleCell(_ indexPath: IndexPath) -> UITableViewCell {
-        // swiftlint:disable force_cast
-        let cell = tableView.dequeueReusableCell(withIdentifier: MiddleTableViewCell.identifier,
-                                                 for: indexPath) as! MiddleTableViewCell
-        // swiftlint:enable force_cast
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: MiddleTableViewCell.identifier,
+                for: indexPath) as? MiddleTableViewCell else { fatalError("Can not create the cell") }
         let index = getIndex(indexPath)
         cell.configure(leftModel: models[index], rightModel: models[index + 1])
         return cell
     }
 
     private func createBottomCell(_ indexPath: IndexPath) -> UITableViewCell {
-        // swiftlint:disable force_cast
-        let cell = tableView.dequeueReusableCell(withIdentifier: BottomTableViewCell.identifier,
-                                                 for: indexPath) as! BottomTableViewCell
-        // swiftlint:enable force_cast
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: BottomTableViewCell.identifier,
+                for: indexPath) as? BottomTableViewCell else { fatalError("Can not create the cell") }
         let index = getIndex(indexPath)
         cell.collectionModels = [models[index + 1], models[index + 2], models[index + 3]]
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch getScreenSpace(indexPath.row % 3) {
+        case .top:  return 120
+        case .middle: return 285
+        case .bottom: return 400
+        }
     }
 }
 
