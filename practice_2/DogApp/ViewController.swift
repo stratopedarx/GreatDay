@@ -8,7 +8,7 @@ enum ScreenSpace: Int {
 
 class ViewController: UIViewController {
     var models = [Model]()
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,8 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+// MARK: - UITableViewDataSource
+extension ViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return models.count/6  // one block contains 3 cells (6 models)
@@ -58,14 +59,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             return createMiddleCell(indexPath)
         case .bottom:
             return createBottomCell(indexPath)
-        }
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch getScreenSpace(indexPath.row % 3) {
-        case .top:  return 120
-        case .middle: return 285
-        case .bottom: return 400
         }
     }
 
@@ -110,6 +103,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let index = getIndex(indexPath)
         cell.collectionModels = [models[index + 1], models[index + 2], models[index + 3]]
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch getScreenSpace(indexPath.row % 3) {
+        case .top:  return 120
+        case .middle: return 285
+        case .bottom: return 400
+        }
     }
 }
 
