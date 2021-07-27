@@ -2,6 +2,8 @@ import UIKit
 
 class AnimalsListViewContoller: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
+    var presenter: AnimalsListViewPresenterProtocol!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCV()

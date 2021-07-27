@@ -37,6 +37,7 @@
 		89D2136726ADAA300019B40C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2136626ADAA300019B40C /* NetworkService.swift */; };
 		89D2136A26ADAE410019B40C /* DogBreeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2136926ADAE410019B40C /* DogBreeds.swift */; };
 		89D2136C26ADB0C70019B40C /* DogImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2136B26ADB0C70019B40C /* DogImages.swift */; };
+		89DD673126B047C8009AC456 /* DogRandomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DD673026B047C8009AC456 /* DogRandomImage.swift */; };
 		89E5EEF5268901D3002120C9 /* BottomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5EEF4268901D3002120C9 /* BottomCollectionViewCell.swift */; };
 		89E5EEF826890D24002120C9 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5EEF726890D24002120C9 /* ApiManager.swift */; };
 		89E5EEFC26891137002120C9 /* RandomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5EEFB26891137002120C9 /* RandomImage.swift */; };
@@ -79,6 +80,7 @@
 		89D2136626ADAA300019B40C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		89D2136926ADAE410019B40C /* DogBreeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreeds.swift; sourceTree = "<group>"; };
 		89D2136B26ADB0C70019B40C /* DogImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImages.swift; sourceTree = "<group>"; };
+		89DD673026B047C8009AC456 /* DogRandomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogRandomImage.swift; sourceTree = "<group>"; };
 		89E5EEF4268901D3002120C9 /* BottomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCollectionViewCell.swift; sourceTree = "<group>"; };
 		89E5EEF726890D24002120C9 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		89E5EEFB26891137002120C9 /* RandomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImage.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			children = (
 				89D2136926ADAE410019B40C /* DogBreeds.swift */,
 				89D2136B26ADB0C70019B40C /* DogImages.swift */,
+				89DD673026B047C8009AC456 /* DogRandomImage.swift */,
 			);
 			path = ApiModels;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				894592DA26A098E60012B412 /* HeroCell.swift in Sources */,
 				89D2135926AD77150019B40C /* AnimalsMiddleCell.swift in Sources */,
 				89AB269526A1F53C0053C771 /* DatabaseService.swift in Sources */,
+				89DD673126B047C8009AC456 /* DogRandomImage.swift in Sources */,
 				89E5EEF5268901D3002120C9 /* BottomCollectionViewCell.swift in Sources */,
 				89D0C70026A157BF008FA33F /* Alert.swift in Sources */,
 				89F903EA268875E000096068 /* ViewController.swift in Sources */,
