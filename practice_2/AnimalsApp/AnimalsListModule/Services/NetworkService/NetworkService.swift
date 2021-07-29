@@ -55,6 +55,7 @@ class NetworkService: ApiManager, NetworkServiceProtocol {
                 completion(.success(dogBreeds))
             }
         }
+        print("requesting getAllDogBreeds")
         task.resume()
     }
 
@@ -69,6 +70,7 @@ class NetworkService: ApiManager, NetworkServiceProtocol {
                 completion(.success(dogRandomImage))
             }
         }
+        print("requesting getRandomImage")
         task.resume()
     }
 }

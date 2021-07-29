@@ -214,8 +214,8 @@
 		89D2134626AD527A0019B40C /* AnimalsApp */ = {
 			isa = PBXGroup;
 			children = (
-				89D2136126ADA68A0019B40C /* AnimalsListModule */,
 				89D2134726AD530D0019B40C /* AnimalsApp.storyboard */,
+				89D2136126ADA68A0019B40C /* AnimalsListModule */,
 			);
 			path = AnimalsApp;
 			sourceTree = "<group>";

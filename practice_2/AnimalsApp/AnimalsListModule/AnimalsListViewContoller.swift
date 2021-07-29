@@ -6,9 +6,15 @@ class AnimalsListViewContoller: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         configureCV()
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
+
+    private func setup() {
+        let networkService = NetworkService()
+        presenter = AnimalsListPresenter(view: self, networkService: networkService)
     }
 
     private func configureCV() {

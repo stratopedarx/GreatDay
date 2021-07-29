@@ -31,28 +31,30 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
             getListOfBreeds()
             getImageLinks()
             createAnimals()
+            animals.shuffle()
         }
     }
 
     private func getListOfBreeds() {
+        // https://stackoverflow.com/questions/48869944/wait-response-before-proceeding
+        let group = DispatchGroup()
+        group.enter()
         networkService.getAllDogBreeds { [weak self] result in
             guard let self = self else { return }
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let dogBreeds):
-                    self.parseListOfBreeds(dogBreeds)
-                case .failure(let error):
-                    self.view?.failure(error: error)
-                }
+            switch result {
+            case .success(let dogBreeds):
+                self.parseListOfBreeds(dogBreeds)
+            case .failure(let error):
+                self.view?.failure(error: error)
             }
+            group.leave()
         }
+        group.wait()
     }
 
     private func parseListOfBreeds(_ dogBreeds: DogBreeds) {
         if let message = dogBreeds.message {
-            for row in message {
-                let breed: String = row.key
-                let typeBreeds: [String] = row.value
+            for (breed, typeBreeds) in message {
                 if typeBreeds.count == 0 {
                     self.listOfBreeds.append(breed)
                 } else {
@@ -66,21 +68,25 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
 
     private func getImageLinks() {
         var count = 0
+        let group = DispatchGroup()
+        group.enter()
         for breed in listOfBreeds {
-            if count > 6 { return } // DELETE LATER
+            if count > 6 {
+                group.leave()
+                return
+            } // DELETE LATER
             count += 1
             networkService.getRandomImage(by: breed) { [weak self] result in
                 guard let self = self else { return }
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let dogRandomImage):
-                        self.parseImageLinks(for: breed, in: dogRandomImage)
-                    case .failure(let error):
-                        self.view?.failure(error: error)
-                    }
+                switch result {
+                case .success(let dogRandomImage):
+                    self.parseImageLinks(for: breed, in: dogRandomImage)
+                case .failure(let error):
+                    self.view?.failure(error: error)
                 }
             }
         }
+        group.wait()
     }
 
     private func parseImageLinks(for breed: String, in dogRandomImage: DogRamdomImage) {
