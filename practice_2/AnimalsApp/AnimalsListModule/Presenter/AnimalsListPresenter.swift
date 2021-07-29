@@ -10,7 +10,7 @@ protocol AnimalsListViewPresenterProtocol: AnyObject {
     var animals: [Animal] { get set }
     var listOfBreeds: [String] { get set }
     var imageLinks: [String: String] { get set }
-    func getAnimals()
+    func fetchAnimals(in quantity: Int) -> [Animal]
 }
 
 class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
@@ -26,7 +26,22 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
         getAnimals()
     }
 
-    func getAnimals() {
+    // Returns a list of unused animals in an amount equal to the parameter `quantity`
+    func fetchAnimals(in quantity: Int) -> [Animal] {
+        var resultAnimals = [Animal]()
+        var count = 0
+        for animal in animals where !animal.isUsed {
+            resultAnimals.append(animal)
+            animal.isUsed = true
+            count += 1
+            if count == quantity {
+                return resultAnimals
+            }
+        }
+        return resultAnimals
+    }
+
+    private func getAnimals() {
         if animals.count == 0 {
             getListOfBreeds()
             getImageLinks()
@@ -67,26 +82,28 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
     }
 
     private func getImageLinks() {
-        var count = 0
-        let group = DispatchGroup()
-        group.enter()
+        var numberOfRequests = 0
         for breed in listOfBreeds {
-            if count > 6 {
-                group.leave()
+            let group = DispatchGroup()
+            group.enter()
+            if numberOfRequests >= 6 {
                 return
             } // DELETE LATER
-            count += 1
+            print()
             networkService.getRandomImage(by: breed) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let dogRandomImage):
+                    print(111111)
                     self.parseImageLinks(for: breed, in: dogRandomImage)
                 case .failure(let error):
                     self.view?.failure(error: error)
                 }
+                group.leave()
             }
+            numberOfRequests += 1
+            group.wait()
         }
-        group.wait()
     }
 
     private func parseImageLinks(for breed: String, in dogRandomImage: DogRamdomImage) {

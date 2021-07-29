@@ -14,7 +14,7 @@ class AnimalsListViewContoller: UIViewController {
 
     private func setup() {
         let networkService = NetworkService()
-        presenter = AnimalsListPresenter(view: self, networkService: networkService)
+        self.presenter = AnimalsListPresenter(view: self, networkService: networkService)
     }
 
     private func configureCV() {
@@ -30,9 +30,10 @@ class AnimalsListViewContoller: UIViewController {
 // MARK: UICollectionViewDataSource
 extension AnimalsListViewContoller: UICollectionViewDataSource {
 
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return models.count/6  // one block contains 3 cells (6 models)
-//    }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        print( self.presenter.animals.count/6 )
+        return self.presenter.animals.count/6 // one block contains 3 cells (6 animals)
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
@@ -45,19 +46,22 @@ extension AnimalsListViewContoller: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: AnimalsTopCell.identifier,
                     for: indexPath) as? AnimalsTopCell else { fatalError("Can`t create the cell") }
-            cell.configure()
+            let animals = presenter.fetchAnimals(in: AnimalsTopCell.quantityOfAnimals)
+            cell.configure(by: animals)
             return cell
         case .middle:
             guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: AnimalsMiddleCell.identifier,
                     for: indexPath) as? AnimalsMiddleCell else { fatalError("Can`t create the cell") }
-            cell.configure()
+            let animals = presenter.fetchAnimals(in: AnimalsMiddleCell.quantityOfAnimals)
+            cell.configure(by: animals)
             return cell
         case .bottom:
             guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: AnimalsBottomCell.identifier,
                     for: indexPath) as? AnimalsBottomCell else { fatalError("Can`t create the cell") }
-            cell.configure()
+            let animals = presenter.fetchAnimals(in: AnimalsBottomCell.quantityOfAnimals)
+            cell.configure(by: animals)
             return cell
 
         }

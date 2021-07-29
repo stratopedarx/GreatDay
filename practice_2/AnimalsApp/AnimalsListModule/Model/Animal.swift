@@ -1,6 +1,7 @@
-struct Animal {
+class Animal {
     var breed: String
     var imageLink: String
+    var isUsed: Bool = false
 
     init(_ breed: String, _ imageLink: String) {
         self.breed = breed.replacingOccurrences(of: "/", with: " ")
