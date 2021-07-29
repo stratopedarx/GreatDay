@@ -44,6 +44,7 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
     private func getAnimals() {
         if animals.count == 0 {
             getListOfBreeds()
+            listOfBreeds.shuffle()
             getImageLinks()
             createAnimals()
             animals.shuffle()

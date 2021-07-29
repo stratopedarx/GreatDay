@@ -31,7 +31,6 @@ class AnimalsListViewContoller: UIViewController {
 extension AnimalsListViewContoller: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        print( self.presenter.animals.count/6 )
         return self.presenter.animals.count/6 // one block contains 3 cells (6 animals)
     }
 
