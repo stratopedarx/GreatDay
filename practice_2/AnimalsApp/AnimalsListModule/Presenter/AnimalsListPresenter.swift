@@ -47,7 +47,6 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
             listOfBreeds.shuffle()
             getImageLinks()
             createAnimals()
-            animals.shuffle()
         }
     }
 

@@ -79,6 +79,12 @@ extension AnimalsListViewContoller: UICollectionViewDelegateFlowLayout {
 
 // MARK: UICollectionViewDelegate
 extension AnimalsListViewContoller: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("select \(indexPath)")
+        // let breed =
+        let detailsBreedVC = ModuleBuilder.createDetailsBreedModule(breed: "lala")
+        self.navigationController?.pushViewController(detailsBreedVC, animated: true)
+    }
 }
 
 // MARK: useful private methods
