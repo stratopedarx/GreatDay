@@ -7,6 +7,7 @@ protocol DetailsBreedViewProtocol: AnyObject {
 protocol DetailsBreedPresenterProtocol: AnyObject {
     init(view: DetailsBreedViewProtocol, networkService: NetworkServiceProtocol, breed: String)
     func setAnimals()
+    var breed: String! { get set }
 }
 
 class DetailsBreedPresenter: DetailsBreedPresenterProtocol {

@@ -5,7 +5,9 @@ class DetailsBreedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Hello")
+        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.barTintColor = .white
+        navigationItem.title = self.presenter.breed
         // presenter.setAnimals()
     }
 }

@@ -53,8 +53,10 @@ extension AnimalsListViewContoller: UICollectionViewDataSource {
                     withReuseIdentifier: AnimalsMiddleCell.identifier,
                     for: indexPath) as? AnimalsMiddleCell else { fatalError("Can`t create the cell") }
             let animals = presenter.fetchAnimals(in: AnimalsMiddleCell.quantityOfAnimals)
-            cell.configure(by: animals)
+            cell.animals = animals
+            cell.navigationController = self.navigationController
             return cell
+
         case .bottom:
             guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: AnimalsBottomCell.identifier,
@@ -80,9 +82,10 @@ extension AnimalsListViewContoller: UICollectionViewDelegateFlowLayout {
 // MARK: UICollectionViewDelegate
 extension AnimalsListViewContoller: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("select \(indexPath)")
-        // let breed =
-        let detailsBreedVC = ModuleBuilder.createDetailsBreedModule(breed: "lala")
+        print(indexPath)
+        let index = indexPath.section * 6 + indexPath.row
+        let breed = self.presenter.animals[index].breed
+        let detailsBreedVC = ModuleBuilder.createDetailsBreedModule(breed: breed)
         self.navigationController?.pushViewController(detailsBreedVC, animated: true)
     }
 }
