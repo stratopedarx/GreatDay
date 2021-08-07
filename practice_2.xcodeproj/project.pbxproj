@@ -232,6 +232,7 @@
 				89DFF7B626BC439700B24280 /* ModuleBuilder.swift */,
 				89D2136126ADA68A0019B40C /* AnimalsListModule */,
 				89DFF7AB26BC3ED200B24280 /* DetailsBreedModule */,
+				89D2136426ADA96C0019B40C /* Services */,
 			);
 			path = AnimalsApp;
 			sourceTree = "<group>";
@@ -277,7 +278,6 @@
 				89D2134926AD53780019B40C /* Model */,
 				89D2134B26AD53880019B40C /* View */,
 				89D2134A26AD537E0019B40C /* Presenter */,
-				89D2136426ADA96C0019B40C /* Services */,
 			);
 			path = AnimalsListModule;
 			sourceTree = "<group>";
