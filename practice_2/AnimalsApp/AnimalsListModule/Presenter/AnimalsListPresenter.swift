@@ -90,7 +90,7 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
                 return
             } // DELETE LATER
             print()
-            networkService.getRandomImage(by: breed) { [weak self] result in
+            networkService.getRandomDogImage(by: breed) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let dogRandomImage):

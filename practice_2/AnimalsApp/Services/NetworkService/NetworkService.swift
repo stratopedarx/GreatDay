@@ -2,14 +2,14 @@ import Foundation
 
 protocol NetworkServiceProtocol {
     func getAllDogBreeds(completion: @escaping (Result<DogBreeds, Error>) -> Void)
-    func getRandomImage(by breed: String, completion: @escaping (Result<DogRamdomImage, Error>) -> Void)
-    // func getAllImages(by breed: String, completion: @escaping (DogImages) -> Void)
+    func getRandomDogImage(by breed: String, completion: @escaping (Result<DogRamdomImage, Error>) -> Void)
+    func getAllDogImages(by breed: String, completion: @escaping (Result<DogImages, Error>) -> Void)
 }
 
 enum AnimalsApiType {
     case getAllDogBreeds
-    case getRandomImage
-    // case getAllImages(breed: String)
+    case getRandomDogImage
+    case getAllDogImages
 
     var baseUrl: String {
         "https://dog.ceo/api/"
@@ -18,10 +18,10 @@ enum AnimalsApiType {
         switch self {
         case .getAllDogBreeds:
             return "breeds/list/all"
-        case .getRandomImage:
+        case .getRandomDogImage:
             return "breed/{BREED}/images/random"
-//        case .getAllImages(let breed):
-//            return "breed/\(breed)/images"
+        case .getAllDogImages:
+            return "breed/{BREED}/images"
         }
     }
     func getRequest(urlParams: [String: String]?) -> URLRequest {
@@ -34,7 +34,7 @@ enum AnimalsApiType {
         var request = URLRequest(url: url)
 
         switch self {
-        case .getAllDogBreeds, .getRandomImage:
+        case .getAllDogBreeds, .getRandomDogImage, .getAllDogImages:
             request.httpMethod = "GET"
             return request
         }
@@ -59,8 +59,8 @@ class NetworkService: ApiManager, NetworkServiceProtocol {
         task.resume()
     }
 
-    func getRandomImage(by breed: String, completion: @escaping (Result<DogRamdomImage, Error>) -> Void) {
-        let request = AnimalsApiType.getRandomImage.getRequest(urlParams: ["breed": breed])
+    func getRandomDogImage(by breed: String, completion: @escaping (Result<DogRamdomImage, Error>) -> Void) {
+        let request = AnimalsApiType.getRandomDogImage.getRequest(urlParams: ["breed": breed])
         let task = URLSession(configuration: configuration).dataTask(with: request) { data, _, error in
             if let error = error {
                 completion(.failure(error))
@@ -70,7 +70,22 @@ class NetworkService: ApiManager, NetworkServiceProtocol {
                 completion(.success(dogRandomImage))
             }
         }
-        print("requesting getRandomImage")
+        print("requesting getRandomDogImage")
+        task.resume()
+    }
+
+    func getAllDogImages(by breed: String, completion: @escaping (Result<DogImages, Error>) -> Void) {
+        let request = AnimalsApiType.getAllDogImages.getRequest(urlParams: ["breed": breed])
+        let task = URLSession(configuration: configuration).dataTask(with: request) { data, _, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data, let dogImages = try? JSONDecoder().decode(DogImages.self, from: data) {
+                completion(.success(dogImages))
+            }
+        }
+        print("requesting getAllDogImages")
         task.resume()
     }
 }

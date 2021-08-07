@@ -13,6 +13,16 @@ class DetailsBreedViewController: UIViewController {
 }
 
 extension DetailsBreedViewController: DetailsBreedViewProtocol {
+    func success() {
+        // collectionView.reloadData()
+        print("success")
+    }
+
+    func failure(error: Error) {
+        print("FAIL!!!")
+        print(error.localizedDescription)
+    }
+    
     func setAnimals(by breed: String) {
         return
     }
