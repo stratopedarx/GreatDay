@@ -52,8 +52,7 @@ extension AnimalsListViewContoller: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: AnimalsMiddleCell.identifier,
                     for: indexPath) as? AnimalsMiddleCell else { fatalError("Can`t create the cell") }
-            let animals = presenter.fetchAnimals(in: AnimalsMiddleCell.quantityOfAnimals)
-            cell.animals = animals
+            cell.animals = presenter.fetchAnimals(in: AnimalsMiddleCell.quantityOfAnimals)
             cell.navigationController = self.navigationController
             return cell
 
@@ -61,8 +60,8 @@ extension AnimalsListViewContoller: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: AnimalsBottomCell.identifier,
                     for: indexPath) as? AnimalsBottomCell else { fatalError("Can`t create the cell") }
-            let animals = presenter.fetchAnimals(in: AnimalsBottomCell.quantityOfAnimals)
-            cell.configure(by: animals)
+            cell.animals = presenter.fetchAnimals(in: AnimalsBottomCell.quantityOfAnimals)
+            cell.navigationController = self.navigationController
             return cell
 
         }
