@@ -48,6 +48,8 @@
 		89E5EEFC26891137002120C9 /* RandomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5EEFB26891137002120C9 /* RandomImage.swift */; };
 		89E8124426BE5B6C00C4A943 /* AnimalsBottomCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8124226BE5B6C00C4A943 /* AnimalsBottomCVCell.swift */; };
 		89E8124526BE5B6C00C4A943 /* AnimalsBottomCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E8124326BE5B6C00C4A943 /* AnimalsBottomCVCell.xib */; };
+		89E8124926BE782A00C4A943 /* DetailsBreedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8124726BE782A00C4A943 /* DetailsBreedCell.swift */; };
+		89E8124A26BE782A00C4A943 /* DetailsBreedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E8124826BE782A00C4A943 /* DetailsBreedCell.xib */; };
 		89F903E6268875E000096068 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F903E5268875E000096068 /* AppDelegate.swift */; };
 		89F903E8268875E000096068 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F903E7268875E000096068 /* SceneDelegate.swift */; };
 		89F903EA268875E000096068 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F903E9268875E000096068 /* ViewController.swift */; };
@@ -98,6 +100,8 @@
 		89E5EEFB26891137002120C9 /* RandomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImage.swift; sourceTree = "<group>"; };
 		89E8124226BE5B6C00C4A943 /* AnimalsBottomCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsBottomCVCell.swift; sourceTree = "<group>"; };
 		89E8124326BE5B6C00C4A943 /* AnimalsBottomCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalsBottomCVCell.xib; sourceTree = "<group>"; };
+		89E8124726BE782A00C4A943 /* DetailsBreedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsBreedCell.swift; sourceTree = "<group>"; };
+		89E8124826BE782A00C4A943 /* DetailsBreedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsBreedCell.xib; sourceTree = "<group>"; };
 		89F903E2268875E000096068 /* practice_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = practice_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89F903E5268875E000096068 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89F903E7268875E000096068 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -330,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				89DFF7AE26BC3FAD00B24280 /* DetailsBreedViewController.swift */,
+				89E8124626BE77D400C4A943 /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -357,6 +362,15 @@
 				89E5EEF726890D24002120C9 /* ApiManager.swift */,
 			);
 			path = services;
+			sourceTree = "<group>";
+		};
+		89E8124626BE77D400C4A943 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				89E8124726BE782A00C4A943 /* DetailsBreedCell.swift */,
+				89E8124826BE782A00C4A943 /* DetailsBreedCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		89E8131F26BDBD7800B16519 /* TopCell */ = {
@@ -489,6 +503,7 @@
 				89F903ED268875E000096068 /* Main.storyboard in Resources */,
 				89D2135E26AD85110019B40C /* AnimalsBottomCell.xib in Resources */,
 				894592D326A086E80012B412 /* DogApp.storyboard in Resources */,
+				89E8124A26BE782A00C4A943 /* DetailsBreedCell.xib in Resources */,
 				89E8124526BE5B6C00C4A943 /* AnimalsBottomCVCell.xib in Resources */,
 				894592D626A089820012B412 /* StarWars.storyboard in Resources */,
 			);
@@ -555,6 +570,7 @@
 				894592D826A093670012B412 /* StarWarsVC.swift in Sources */,
 				89D2136026ADA6230019B40C /* AnimalsListPresenter.swift in Sources */,
 				89F903E8268875E000096068 /* SceneDelegate.swift in Sources */,
+				89E8124926BE782A00C4A943 /* DetailsBreedCell.swift in Sources */,
 				8931C3252688D1C7009310AA /* MiddleTableViewCell.swift in Sources */,
 				89AB269726A1FAC70053C771 /* DefaultDatabaseService.swift in Sources */,
 				89DFF7B526BC409200B24280 /* DetailsBreedPresenter.swift in Sources */,

@@ -3,13 +3,12 @@ import Foundation
 protocol DetailsBreedViewProtocol: AnyObject {
     func success()
     func failure(error: Error)
-    func setAnimals(by breed: String)
 }
 
 protocol DetailsBreedPresenterProtocol: AnyObject {
     init(view: DetailsBreedViewProtocol, networkService: NetworkServiceProtocol, breed: String)
-    func setAnimals()
     var breed: String! { get set }
+    var animals: [Animal] { get set }
 }
 
 class DetailsBreedPresenter: DetailsBreedPresenterProtocol {
@@ -50,9 +49,5 @@ class DetailsBreedPresenter: DetailsBreedPresenterProtocol {
                 animals.append(Animal(self.breed, imageLink))
             }
         }
-    }
-
-    func setAnimals() {
-        self.view?.setAnimals(by: breed)
     }
 }
