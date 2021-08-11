@@ -19,6 +19,7 @@
 		894BD1F926BDAD6100900929 /* AnimalsMiddleCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894BD1F726BDAD6100900929 /* AnimalsMiddleCVCell.swift */; };
 		894BD1FA26BDAD6100900929 /* AnimalsMiddleCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 894BD1F826BDAD6100900929 /* AnimalsMiddleCVCell.xib */; };
 		898650DF268CB37B00482BB6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898650DE268CB37B00482BB6 /* Model.swift */; };
+		899078BB26C397FC00CE6B80 /* AnimalImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899078BA26C397FC00CE6B80 /* AnimalImageScrollView.swift */; };
 		899AC45526A1F029002EF867 /* StarWarsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 899AC45326A1F029002EF867 /* StarWarsDataModel.xcdatamodeld */; };
 		89AB269226A1F21B0053C771 /* DatabaseStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB269126A1F21B0053C771 /* DatabaseStack.swift */; };
 		89AB269526A1F53C0053C771 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB269426A1F53C0053C771 /* DatabaseService.swift */; };
@@ -39,6 +40,7 @@
 		89D2136726ADAA300019B40C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2136626ADAA300019B40C /* NetworkService.swift */; };
 		89D2136A26ADAE410019B40C /* DogBreeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2136926ADAE410019B40C /* DogBreeds.swift */; };
 		89D2136C26ADB0C70019B40C /* DogImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2136B26ADB0C70019B40C /* DogImages.swift */; };
+		89D6503A26C308F30068A0B3 /* FullScreenBreedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D6503926C308F30068A0B3 /* FullScreenBreedViewController.swift */; };
 		89DD673126B047C8009AC456 /* DogRandomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DD673026B047C8009AC456 /* DogRandomImage.swift */; };
 		89DFF7B026BC3FAD00B24280 /* DetailsBreedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DFF7AE26BC3FAD00B24280 /* DetailsBreedViewController.swift */; };
 		89DFF7B526BC409200B24280 /* DetailsBreedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DFF7B426BC409200B24280 /* DetailsBreedPresenter.swift */; };
@@ -71,6 +73,7 @@
 		894BD1F726BDAD6100900929 /* AnimalsMiddleCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsMiddleCVCell.swift; sourceTree = "<group>"; };
 		894BD1F826BDAD6100900929 /* AnimalsMiddleCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalsMiddleCVCell.xib; sourceTree = "<group>"; };
 		898650DE268CB37B00482BB6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		899078BA26C397FC00CE6B80 /* AnimalImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalImageScrollView.swift; sourceTree = "<group>"; };
 		899AC45426A1F029002EF867 /* StarWarsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StarWarsDataModel.xcdatamodel; sourceTree = "<group>"; };
 		89AB269126A1F21B0053C771 /* DatabaseStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStack.swift; sourceTree = "<group>"; };
 		89AB269426A1F53C0053C771 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 		89D2136626ADAA300019B40C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		89D2136926ADAE410019B40C /* DogBreeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreeds.swift; sourceTree = "<group>"; };
 		89D2136B26ADB0C70019B40C /* DogImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImages.swift; sourceTree = "<group>"; };
+		89D6503926C308F30068A0B3 /* FullScreenBreedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenBreedViewController.swift; sourceTree = "<group>"; };
 		89DD673026B047C8009AC456 /* DogRandomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogRandomImage.swift; sourceTree = "<group>"; };
 		89DFF7AE26BC3FAD00B24280 /* DetailsBreedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsBreedViewController.swift; sourceTree = "<group>"; };
 		89DFF7B426BC409200B24280 /* DetailsBreedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsBreedPresenter.swift; sourceTree = "<group>"; };
@@ -334,6 +338,8 @@
 			isa = PBXGroup;
 			children = (
 				89DFF7AE26BC3FAD00B24280 /* DetailsBreedViewController.swift */,
+				89D6503926C308F30068A0B3 /* FullScreenBreedViewController.swift */,
+				899078BA26C397FC00CE6B80 /* AnimalImageScrollView.swift */,
 				89E8124626BE77D400C4A943 /* Cells */,
 			);
 			path = View;
@@ -537,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89D6503A26C308F30068A0B3 /* FullScreenBreedViewController.swift in Sources */,
 				89D0C70526A15DAD008FA33F /* SWApiManager.swift in Sources */,
 				89E5EEF826890D24002120C9 /* ApiManager.swift in Sources */,
 				89D2135D26AD85110019B40C /* AnimalsBottomCell.swift in Sources */,
@@ -557,6 +564,7 @@
 				89D2134D26AD540B0019B40C /* AnimalsListViewContoller.swift in Sources */,
 				89D0C70C26A18955008FA33F /* HeroModel.swift in Sources */,
 				89AB269226A1F21B0053C771 /* DatabaseStack.swift in Sources */,
+				899078BB26C397FC00CE6B80 /* AnimalImageScrollView.swift in Sources */,
 				898650DF268CB37B00482BB6 /* Model.swift in Sources */,
 				89D2136C26ADB0C70019B40C /* DogImages.swift in Sources */,
 				89D2136326ADA9120019B40C /* Animal.swift in Sources */,

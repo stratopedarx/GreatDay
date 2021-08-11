@@ -80,6 +80,21 @@
             </objects>
             <point key="canvasLocation" x="391" y="87"/>
         </scene>
+        <!--Full Screen Breed View Controller-->
+        <scene sceneID="H5I-it-7xa">
+            <objects>
+                <viewController storyboardIdentifier="FullScreenBreedViewController" id="V1O-Xr-Inr" customClass="FullScreenBreedViewController" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t8P-OL-m27">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="0BV-ou-hsk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XM9-dG-gTJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1281.5384615384614" y="86.729857819905206"/>
+        </scene>
     </scenes>
     <resources>
         <image name="globe" catalog="system" width="128" height="121"/>

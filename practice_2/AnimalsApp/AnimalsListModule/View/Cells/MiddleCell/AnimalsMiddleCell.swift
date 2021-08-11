@@ -6,7 +6,7 @@ class AnimalsMiddleCell: UICollectionViewCell {
 
     var navigationController: UINavigationController?
     var animals = [Animal]()
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

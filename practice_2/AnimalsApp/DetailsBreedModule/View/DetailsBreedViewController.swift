@@ -42,13 +42,13 @@ extension DetailsBreedViewController: UICollectionViewDataSource {
 }
 
 // MARK: UICollectionViewDelegate
-// extension DetailsBreedViewController: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let breed = animals[indexPath.row].breed
-//        let detailsBreedVC = ModuleBuilder.createDetailsBreedModule(breed: breed)
-//        self.navigationController?.pushViewController(detailsBreedVC, animated: true)
-//    }
-// }
+ extension DetailsBreedViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let fullScreenBreedVC = FullScreenBreedViewController()
+        fullScreenBreedVC.animal = self.presenter.animals[indexPath.row]
+        self.navigationController?.pushViewController(fullScreenBreedVC, animated: true)
+    }
+ }
 
 // MARK: UICollectionViewDelegateFlowLayout
 extension DetailsBreedViewController: UICollectionViewDelegateFlowLayout {
