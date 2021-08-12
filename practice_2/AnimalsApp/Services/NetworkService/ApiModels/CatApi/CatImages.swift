@@ -70,4 +70,4 @@ struct Breed: Codable {
     }
 }
 
-typealias CatImage = [CatImageElement]
+typealias CatImages = [CatImageElement]

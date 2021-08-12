@@ -8,9 +8,11 @@ protocol NetworkServiceProtocol {
 
     // Cat Api https://dog.ceo/dog-api/
     func getAllCatBreeds(completion: @escaping (Result<CatBreeds, Error>) -> Void)
+    func getCatImages(by breedId: String, in quantity: Int, completion: @escaping (Result<CatImages, Error>) -> Void)
 }
 
 enum AnimalsApiType {
+    static let scheme = "https"
     // Dog Api
     case getAllDogBreeds
     case getRandomDogImage
@@ -18,41 +20,63 @@ enum AnimalsApiType {
 
     // Cat Api
     case getAllCatBreeds
+    case getCatImages
 
-    var baseUrl: String {
+    var host: String {
         switch self {
         case .getAllDogBreeds, .getRandomDogImage, .getAllDogImages:
-            return "https://dog.ceo/api/"
-        case .getAllCatBreeds:
-            return "https://api.thecatapi.com/v1/"
+            return "dog.ceo"
+        case .getAllCatBreeds, .getCatImages:
+            return "api.thecatapi.com"
         }
     }
     var path: String {
         switch self {
         case .getAllDogBreeds:
-            return "breeds/list/all"
+            return "/api/breeds/list/all"
         case .getRandomDogImage:
-            return "breed/{BREED}/images/random"
+            return "/api/breed/{BREED}/images/random"
         case .getAllDogImages:
-            return "breed/{BREED}/images"
+            return "/api/breed/{BREED}/images"
         case .getAllCatBreeds:
-            return "breeds"
+            return "/v1/breeds"
+        case .getCatImages:
+            return "/v1/images/search"
         }
     }
-    func getRequest(urlParams: [String: String]?) -> URLRequest {
+
+    private func createUrl(urlParams: [String: String]?) -> URL {
         var path = path
         if let breed = urlParams?["breed"] {
             path = path.replacingOccurrences(of: "{BREED}", with: breed)
         }
 
-        let url = URL(string: path, relativeTo: URL(string: baseUrl)!)!
+        var urlComponents = URLComponents()
+        urlComponents.scheme = AnimalsApiType.scheme
+        urlComponents.host = host
+        urlComponents.path = path
+
+        if let breedId = urlParams?["breedId"], let limit = urlParams?["limit"] {
+            urlComponents.queryItems = [
+                URLQueryItem(name: "size", value: "small"),
+                URLQueryItem(name: "limit", value: "\(limit)"),
+                URLQueryItem(name: "breed_id", value: "\(breedId)")
+            ]
+        }
+
+        print("url: \(urlComponents.url!.absoluteString)")
+        return URL(string: urlComponents.url!.absoluteString)!
+    }
+
+    func getRequest(urlParams: [String: String]?) -> URLRequest {
+        let url = createUrl(urlParams: urlParams)
         var request = URLRequest(url: url)
 
         switch self {
         case .getAllDogBreeds, .getRandomDogImage, .getAllDogImages:
             request.httpMethod = "GET"
             return request
-        case .getAllCatBreeds:
+        case .getAllCatBreeds, .getCatImages:
             request.httpMethod = "GET"
             request.setValue("394c2aa6-1085-4c97-9bc1-e8ccd60050da", forHTTPHeaderField: "x-api-key")
             return request
@@ -119,11 +143,26 @@ extension NetworkService {
                 return
             }
             if let data = data, let catBreeds = try? JSONDecoder().decode(CatBreeds.self, from: data) {
-                print(catBreeds)
                 completion(.success(catBreeds))
             }
         }
         print("requesting getAllCatBreeds")
+        task.resume()
+    }
+
+    func getCatImages(by breedId: String, in quantity: Int, completion: @escaping (Result<CatImages, Error>) -> Void) {
+        let urlParams = ["breedId": breedId, "limit": "\(quantity)"]
+        let request = AnimalsApiType.getCatImages.getRequest(urlParams: urlParams)
+        let task = URLSession(configuration: configuration).dataTask(with: request) { data, _, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data, let catImages = try? JSONDecoder().decode(CatImages.self, from: data) {
+                completion(.success(catImages))
+            }
+        }
+        print("requesting getCatImages")
         task.resume()
     }
 }
