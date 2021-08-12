@@ -18,6 +18,7 @@
 		894BD1F626BDA55500900929 /* AnimalsMiddleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 894BD1F426BDA55500900929 /* AnimalsMiddleCell.xib */; };
 		894BD1F926BDAD6100900929 /* AnimalsMiddleCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894BD1F726BDAD6100900929 /* AnimalsMiddleCVCell.swift */; };
 		894BD1FA26BDAD6100900929 /* AnimalsMiddleCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 894BD1F826BDAD6100900929 /* AnimalsMiddleCVCell.xib */; };
+		8957C83A26C4362F0065CBA9 /* CatBreeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957C83926C4362F0065CBA9 /* CatBreeds.swift */; };
 		898650DF268CB37B00482BB6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898650DE268CB37B00482BB6 /* Model.swift */; };
 		899078BB26C397FC00CE6B80 /* AnimalImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899078BA26C397FC00CE6B80 /* AnimalImageScrollView.swift */; };
 		899AC45526A1F029002EF867 /* StarWarsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 899AC45326A1F029002EF867 /* StarWarsDataModel.xcdatamodeld */; };
@@ -72,6 +73,7 @@
 		894BD1F426BDA55500900929 /* AnimalsMiddleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalsMiddleCell.xib; sourceTree = "<group>"; };
 		894BD1F726BDAD6100900929 /* AnimalsMiddleCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsMiddleCVCell.swift; sourceTree = "<group>"; };
 		894BD1F826BDAD6100900929 /* AnimalsMiddleCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalsMiddleCVCell.xib; sourceTree = "<group>"; };
+		8957C83926C4362F0065CBA9 /* CatBreeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreeds.swift; sourceTree = "<group>"; };
 		898650DE268CB37B00482BB6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		899078BA26C397FC00CE6B80 /* AnimalImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalImageScrollView.swift; sourceTree = "<group>"; };
 		899AC45426A1F029002EF867 /* StarWarsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StarWarsDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -161,6 +163,24 @@
 				894592D526A089820012B412 /* StarWars.storyboard */,
 			);
 			path = StarWarsApp;
+			sourceTree = "<group>";
+		};
+		8957C83726C40EAA0065CBA9 /* DogApi */ = {
+			isa = PBXGroup;
+			children = (
+				89D2136926ADAE410019B40C /* DogBreeds.swift */,
+				89D2136B26ADB0C70019B40C /* DogImages.swift */,
+				89DD673026B047C8009AC456 /* DogRandomImage.swift */,
+			);
+			path = DogApi;
+			sourceTree = "<group>";
+		};
+		8957C83826C40ECA0065CBA9 /* CatApi */ = {
+			isa = PBXGroup;
+			children = (
+				8957C83926C4362F0065CBA9 /* CatBreeds.swift */,
+			);
+			path = CatApi;
 			sourceTree = "<group>";
 		};
 		899AC45126A1F003002EF867 /* core */ = {
@@ -310,9 +330,8 @@
 		89D2136826ADACD70019B40C /* ApiModels */ = {
 			isa = PBXGroup;
 			children = (
-				89D2136926ADAE410019B40C /* DogBreeds.swift */,
-				89D2136B26ADB0C70019B40C /* DogImages.swift */,
-				89DD673026B047C8009AC456 /* DogRandomImage.swift */,
+				8957C83826C40ECA0065CBA9 /* CatApi */,
+				8957C83726C40EAA0065CBA9 /* DogApi */,
 			);
 			path = ApiModels;
 			sourceTree = "<group>";
@@ -574,6 +593,7 @@
 				89D2135426AD5FCD0019B40C /* AnimalsTopCell.swift in Sources */,
 				894BD1F526BDA55500900929 /* AnimalsMiddleCell.swift in Sources */,
 				89F903E6268875E000096068 /* AppDelegate.swift in Sources */,
+				8957C83A26C4362F0065CBA9 /* CatBreeds.swift in Sources */,
 				89DFF7B726BC439700B24280 /* ModuleBuilder.swift in Sources */,
 				894592D826A093670012B412 /* StarWarsVC.swift in Sources */,
 				89D2136026ADA6230019B40C /* AnimalsListPresenter.swift in Sources */,

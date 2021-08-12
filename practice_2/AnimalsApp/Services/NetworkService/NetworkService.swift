@@ -1,18 +1,31 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
+    // Dog Api https://dog.ceo/dog-api/
     func getAllDogBreeds(completion: @escaping (Result<DogBreeds, Error>) -> Void)
     func getRandomDogImage(by breed: String, completion: @escaping (Result<DogRamdomImage, Error>) -> Void)
     func getAllDogImages(by breed: String, completion: @escaping (Result<DogImages, Error>) -> Void)
+
+    // Cat Api https://dog.ceo/dog-api/
+    func getAllCatBreeds(completion: @escaping (Result<CatBreeds, Error>) -> Void)
 }
 
 enum AnimalsApiType {
+    // Dog Api
     case getAllDogBreeds
     case getRandomDogImage
     case getAllDogImages
 
+    // Cat Api
+    case getAllCatBreeds
+
     var baseUrl: String {
-        "https://dog.ceo/api/"
+        switch self {
+        case .getAllDogBreeds, .getRandomDogImage, .getAllDogImages:
+            return "https://dog.ceo/api/"
+        case .getAllCatBreeds:
+            return "https://api.thecatapi.com/v1/"
+        }
     }
     var path: String {
         switch self {
@@ -22,6 +35,8 @@ enum AnimalsApiType {
             return "breed/{BREED}/images/random"
         case .getAllDogImages:
             return "breed/{BREED}/images"
+        case .getAllCatBreeds:
+            return "breeds"
         }
     }
     func getRequest(urlParams: [String: String]?) -> URLRequest {
@@ -36,6 +51,10 @@ enum AnimalsApiType {
         switch self {
         case .getAllDogBreeds, .getRandomDogImage, .getAllDogImages:
             request.httpMethod = "GET"
+            return request
+        case .getAllCatBreeds:
+            request.httpMethod = "GET"
+            request.setValue("394c2aa6-1085-4c97-9bc1-e8ccd60050da", forHTTPHeaderField: "x-api-key")
             return request
         }
     }
@@ -86,6 +105,25 @@ class NetworkService: ApiManager, NetworkServiceProtocol {
             }
         }
         print("requesting getAllDogImages")
+        task.resume()
+    }
+}
+
+// Cat Api
+extension NetworkService {
+    func getAllCatBreeds(completion: @escaping (Result<CatBreeds, Error>) -> Void) {
+        let request = AnimalsApiType.getAllCatBreeds.getRequest(urlParams: nil)
+        let task = URLSession(configuration: configuration).dataTask(with: request) { data, _, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data, let catBreeds = try? JSONDecoder().decode(CatBreeds.self, from: data) {
+                print(catBreeds)
+                completion(.success(catBreeds))
+            }
+        }
+        print("requesting getAllCatBreeds")
         task.resume()
     }
 }
