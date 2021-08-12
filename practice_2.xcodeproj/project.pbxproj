@@ -20,6 +20,7 @@
 		894BD1FA26BDAD6100900929 /* AnimalsMiddleCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 894BD1F826BDAD6100900929 /* AnimalsMiddleCVCell.xib */; };
 		8957C83A26C4362F0065CBA9 /* CatBreeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957C83926C4362F0065CBA9 /* CatBreeds.swift */; };
 		898650DF268CB37B00482BB6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898650DE268CB37B00482BB6 /* Model.swift */; };
+		898EAF4426C4DEAF000105DA /* CatImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EAF4326C4DEAF000105DA /* CatImages.swift */; };
 		899078BB26C397FC00CE6B80 /* AnimalImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899078BA26C397FC00CE6B80 /* AnimalImageScrollView.swift */; };
 		899AC45526A1F029002EF867 /* StarWarsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 899AC45326A1F029002EF867 /* StarWarsDataModel.xcdatamodeld */; };
 		89AB269226A1F21B0053C771 /* DatabaseStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB269126A1F21B0053C771 /* DatabaseStack.swift */; };
@@ -75,6 +76,7 @@
 		894BD1F826BDAD6100900929 /* AnimalsMiddleCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalsMiddleCVCell.xib; sourceTree = "<group>"; };
 		8957C83926C4362F0065CBA9 /* CatBreeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreeds.swift; sourceTree = "<group>"; };
 		898650DE268CB37B00482BB6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		898EAF4326C4DEAF000105DA /* CatImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImages.swift; sourceTree = "<group>"; };
 		899078BA26C397FC00CE6B80 /* AnimalImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalImageScrollView.swift; sourceTree = "<group>"; };
 		899AC45426A1F029002EF867 /* StarWarsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StarWarsDataModel.xcdatamodel; sourceTree = "<group>"; };
 		89AB269126A1F21B0053C771 /* DatabaseStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStack.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				8957C83926C4362F0065CBA9 /* CatBreeds.swift */,
+				898EAF4326C4DEAF000105DA /* CatImages.swift */,
 			);
 			path = CatApi;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				8957C83A26C4362F0065CBA9 /* CatBreeds.swift in Sources */,
 				89DFF7B726BC439700B24280 /* ModuleBuilder.swift in Sources */,
 				894592D826A093670012B412 /* StarWarsVC.swift in Sources */,
+				898EAF4426C4DEAF000105DA /* CatImages.swift in Sources */,
 				89D2136026ADA6230019B40C /* AnimalsListPresenter.swift in Sources */,
 				89F903E8268875E000096068 /* SceneDelegate.swift in Sources */,
 				89E8124926BE782A00C4A943 /* DetailsBreedCell.swift in Sources */,

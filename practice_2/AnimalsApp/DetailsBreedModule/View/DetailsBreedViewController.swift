@@ -26,7 +26,6 @@ class DetailsBreedViewController: UIViewController {
 // MARK: UICollectionViewDataSource
 extension DetailsBreedViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(self.presenter.animals.count)
         return self.presenter.animals.count
     }
 
@@ -35,7 +34,6 @@ extension DetailsBreedViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: DetailsBreedCell.identifier,
                 for: indexPath) as? DetailsBreedCell else { fatalError("Can`t create the cell") }
-        print(self.presenter.animals[indexPath.row])
         cell.configure(by: self.presenter.animals[indexPath.row])
         return cell
     }

@@ -1,5 +1,10 @@
 import Foundation
 
+enum AnimalType {
+    case cat
+    case dog
+}
+
 protocol AnimalsListViewProtocol: AnyObject {
     func success()
     func failure(error: Error)
@@ -8,8 +13,7 @@ protocol AnimalsListViewProtocol: AnyObject {
 protocol AnimalsListViewPresenterProtocol: AnyObject {
     init(view: AnimalsListViewProtocol, networkService: NetworkServiceProtocol)
     var animals: [Animal] { get set }
-    var listOfBreeds: [String] { get set }
-    var imageLinks: [String: String] { get set }
+    var animalsInfo: [(animalType: AnimalType, breed: String, breedId: String?)] { get set }
     func fetchAnimals(in quantity: Int) -> [Animal]
 }
 
@@ -17,8 +21,7 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
     weak var view: AnimalsListViewProtocol?
     let networkService: NetworkServiceProtocol!
     var animals: [Animal] = []
-    var listOfBreeds: [String] = []
-    var imageLinks: [String: String] = [:]
+    var animalsInfo: [(animalType: AnimalType, breed: String, breedId: String?)] = []
 
     required init(view: AnimalsListViewProtocol, networkService: NetworkServiceProtocol) {
         self.view = view
@@ -43,14 +46,59 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
 
     private func getAnimals() {
         if animals.count == 0 {
-            getListOfBreeds()
-            listOfBreeds.shuffle()
-            getImageLinks()
+            getAnimalsInfo()
+            animalsInfo.shuffle()
             createAnimals()
         }
     }
 
-    private func getListOfBreeds() {
+    private func getAnimalsInfo() {
+        getDogInfo()
+        getCatInfo()
+    }
+
+    // This func takes image links from api, parse them and create Animal object
+    private func createAnimals() {
+        var numberOfRequests = 0
+        for info in animalsInfo {
+            let group = DispatchGroup()
+            group.enter()
+            if numberOfRequests >= 6 {
+                return
+            } // DELETE LATER
+            switch info.animalType {
+            case .dog:
+                networkService.getRandomDogImage(by: info.breed) { [weak self] result in
+                    guard let self = self else { return }
+                    switch result {
+                    case .success(let dogRandomImage):
+                        self.createDog(info.breed, dogRandomImage)
+                    case .failure(let error):
+                        self.view?.failure(error: error)
+                    }
+                    group.leave()
+                }
+            case .cat:
+                networkService.getCatImages(by: info.breedId!, in: 1) { [weak self] result in
+                    guard let self = self else { return }
+                    switch result {
+                    case .success(let catImage):
+                        self.createCat(info.breed, info.breedId!, catImage)
+                    case .failure(let error):
+                        self.view?.failure(error: error)
+                    }
+                    group.leave()
+                }
+            }
+            numberOfRequests += 1
+            group.wait()
+        }
+    }
+}
+
+// MARK: Dog Api
+extension AnimalsListPresenter {
+    private func getDogInfo() {
         // https://stackoverflow.com/questions/48869944/wait-response-before-proceeding
         let group = DispatchGroup()
         group.enter()
@@ -58,7 +106,7 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let dogBreeds):
-                self.parseListOfBreeds(dogBreeds)
+                self.parseDogInfo(dogBreeds)
             case .failure(let error):
                 self.view?.failure(error: error)
             }
@@ -67,54 +115,55 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
         group.wait()
     }
 
-    private func parseListOfBreeds(_ dogBreeds: DogBreeds) {
+    private func parseDogInfo(_ dogBreeds: DogBreeds) {
         if let message = dogBreeds.message {
             for (breed, typeBreeds) in message {
                 if typeBreeds.count == 0 {
-                    self.listOfBreeds.append(breed)
+                    self.animalsInfo.append((animalType: AnimalType.dog, breed: breed, breedId: nil))
                 } else {
                     for typeBreed in typeBreeds {
-                        self.listOfBreeds.append(breed + "/" + typeBreed)
+                        let breedName = breed + "/" + typeBreed
+                        self.animalsInfo.append((animalType: AnimalType.dog, breed: breedName, breedId: nil))
                     }
                 }
             }
         }
     }
 
-    private func getImageLinks() {
-        var numberOfRequests = 0
-        for breed in listOfBreeds {
-            let group = DispatchGroup()
-            group.enter()
-            if numberOfRequests >= 6 {
-                return
-            } // DELETE LATER
-            print()
-            networkService.getRandomDogImage(by: breed) { [weak self] result in
-                guard let self = self else { return }
-                switch result {
-                case .success(let dogRandomImage):
-                    print(111111)
-                    self.parseImageLinks(for: breed, in: dogRandomImage)
-                case .failure(let error):
-                    self.view?.failure(error: error)
-                }
-                group.leave()
-            }
-            numberOfRequests += 1
-            group.wait()
-        }
-    }
-
-    private func parseImageLinks(for breed: String, in dogRandomImage: DogRamdomImage) {
+    private func createDog(_ breed: String, _ dogRandomImage: DogRamdomImage) {
         if let imageLink = dogRandomImage.message {
-            imageLinks[breed] = imageLink
+            animals.append(Animal(breed: breed, breedId: nil, imageLink: imageLink))
+        }
+    }
+}
+
+// MARK: Cat Api
+extension AnimalsListPresenter {
+    private func getCatInfo() {
+        let group = DispatchGroup()
+        group.enter()
+        networkService.getAllCatBreeds { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let catBreeds):
+                self.parseCatInfo(catBreeds)
+            case .failure(let error):
+                self.view?.failure(error: error)
+            }
+            group.leave()
+        }
+        group.wait()
+    }
+
+    private func parseCatInfo(_ catBreeds: CatBreeds) {
+        for cat in catBreeds {
+            self.animalsInfo.append((animalType: AnimalType.cat, breed: cat.name!, breedId: cat.id!))
         }
     }
 
-    private func createAnimals() {
-        for (breed, imageLink) in imageLinks {
-            animals.append(Animal(breed, imageLink))
+    private func createCat(_ breed: String, _ breedId: String, _ catImages: CatImages) {
+        if let catImage = catImages.first {
+            animals.append(Animal(breed: breed, breedId: breedId, imageLink: catImage.url!))
         }
     }
 }

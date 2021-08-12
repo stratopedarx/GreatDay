@@ -81,7 +81,6 @@ extension AnimalsListViewContoller: UICollectionViewDelegateFlowLayout {
 // MARK: UICollectionViewDelegate
 extension AnimalsListViewContoller: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
         let index = indexPath.section * 6 + indexPath.row
         let breed = self.presenter.animals[index].breed
         let detailsBreedVC = ModuleBuilder.createDetailsBreedModule(breed: breed)

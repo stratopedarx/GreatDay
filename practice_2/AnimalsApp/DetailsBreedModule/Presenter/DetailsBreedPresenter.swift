@@ -45,8 +45,7 @@ class DetailsBreedPresenter: DetailsBreedPresenterProtocol {
     private func parseDogImages(_ dogImages: DogImages) {
         if let imageLinks = dogImages.message {
             for imageLink in imageLinks {
-                print(imageLinks)
-                animals.append(Animal(self.breed, imageLink))
+                animals.append(Animal(breed: breed, breedId: nil, imageLink: imageLink))
             }
         }
     }
