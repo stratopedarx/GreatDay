@@ -14,9 +14,7 @@ struct CatBreedElement: Codable {
     let countryCode, countryCodes, catBreedDescription: String?
     let dogFriendly, energyLevel, experimental, grooming: Int?
     let hairless, healthIssues, hypoallergenic: Int?
-    // swiftlint:disable identifier_name
     let id: String?
-    // swiftlint:enable identifier_name
     let image: Image?
     let indoor, intelligence, lap: Int?
     let lifeSpan, name: String?
@@ -47,9 +45,7 @@ struct CatBreedElement: Codable {
         case energyLevel = "energy_level"
         case experimental, grooming, hairless
         case healthIssues = "health_issues"
-        // swiftlint:disable identifier_name
         case hypoallergenic, id, image, indoor, intelligence, lap
-        // swiftlint:enable identifier_name
         case lifeSpan = "life_span"
         case name, natural, origin, rare
         case referenceImageID = "reference_image_id"
@@ -72,9 +68,7 @@ struct CatBreedElement: Codable {
 // MARK: - Image
 struct Image: Codable {
     let height: Int?
-    // swiftlint:disable identifier_name
     let id: String?
-    // swiftlint:enable identifier_name
     let url: String?
     let width: Int?
 }
