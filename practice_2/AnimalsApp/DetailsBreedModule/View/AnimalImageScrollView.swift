@@ -35,8 +35,26 @@ class AnimalImageScrollView: UIScrollView {
     }
 
     func setCurrentMaxAndMinZoomScale() {
-        self.minimumZoomScale = 1.0
-        self.maximumZoomScale = 5.0
+        let boundSize = self.bounds.size
+        let imageSize = animalImageView.bounds.size
+
+        let xScale = boundSize.width / imageSize.width
+        let yScale = boundSize.height / imageSize.height
+        let minScale = min(xScale, yScale)
+
+        var maxScale: CGFloat = 1.0
+        if minScale < 0.1 {
+            maxScale = 0.3
+        }
+        if minScale >= 0.1 && minScale < 0.5 {
+            maxScale = 0.7
+        }
+        if minScale >= 0.5 {
+            maxScale = max(1.0, minScale)
+        }
+
+        self.minimumZoomScale = minScale
+        self.maximumZoomScale = maxScale
     }
 
     func centerImage() {
@@ -66,7 +84,7 @@ extension AnimalImageScrollView: UIScrollViewDelegate {
     }
 
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        self.zoomScale = 1.0
+        self.zoomScale = self.minimumZoomScale
     }
 
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
