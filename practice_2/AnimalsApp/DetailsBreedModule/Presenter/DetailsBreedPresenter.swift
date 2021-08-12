@@ -6,8 +6,9 @@ protocol DetailsBreedViewProtocol: AnyObject {
 }
 
 protocol DetailsBreedPresenterProtocol: AnyObject {
-    init(view: DetailsBreedViewProtocol, networkService: NetworkServiceProtocol, breed: String)
+    init(view: DetailsBreedViewProtocol, networkService: NetworkServiceProtocol, breed: String, breedId: String?)
     var breed: String! { get set }
+    var breedId: String? { get set }  // used only for cat
     var animals: [Animal] { get set }
 }
 
@@ -15,12 +16,15 @@ class DetailsBreedPresenter: DetailsBreedPresenterProtocol {
     weak var view: DetailsBreedViewProtocol?
     let networkService: NetworkServiceProtocol!
     var breed: String!
+    var breedId: String?  // used only for cat
     var animals = [Animal]()
 
-    required init(view: DetailsBreedViewProtocol, networkService: NetworkServiceProtocol, breed: String) {
+    required init(view: DetailsBreedViewProtocol, networkService: NetworkServiceProtocol,
+                  breed: String, breedId: String?) {
         self.view = view
         self.networkService = networkService
         self.breed = breed.replacingOccurrences(of: " ", with: "/")
+        self.breedId = breedId
         self.getAnimals()
         self.animals.shuffle()
     }
@@ -28,15 +32,29 @@ class DetailsBreedPresenter: DetailsBreedPresenterProtocol {
     private func getAnimals() {
         let group = DispatchGroup()
         group.enter()
-        networkService.getAllDogImages(by: self.breed) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let dogImages):
-                self.parseDogImages(dogImages)
-            case .failure(let error):
-                self.view?.failure(error: error)
+        if self.breedId == nil {
+            networkService.getAllDogImages(by: self.breed) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let dogImages):
+                    self.parseDogImages(dogImages)
+                case .failure(let error):
+                    self.view?.failure(error: error)
+                }
+                group.leave()
             }
-            group.leave()
+        } else {
+            networkService.getCatImages(by: self.breedId!, in: 100) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let catImages):
+                    self.parseCatImages(catImages)
+                case .failure(let error):
+                    self.view?.failure(error: error)
+                }
+                group.leave()
+            }
+
         }
         group.wait()
     }
@@ -47,6 +65,12 @@ class DetailsBreedPresenter: DetailsBreedPresenterProtocol {
             for imageLink in imageLinks {
                 animals.append(Animal(breed: breed, breedId: nil, imageLink: imageLink))
             }
+        }
+    }
+
+    private func parseCatImages(_ catImages: CatImages) {
+        for cat in catImages {
+            animals.append(Animal(breed: self.breed, breedId: self.breedId, imageLink: cat.url!))
         }
     }
 }

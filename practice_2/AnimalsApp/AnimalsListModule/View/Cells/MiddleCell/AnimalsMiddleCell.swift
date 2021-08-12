@@ -36,8 +36,8 @@ extension AnimalsMiddleCell: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegate
 extension AnimalsMiddleCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let breed = animals[indexPath.row].breed
-        let detailsBreedVC = ModuleBuilder.createDetailsBreedModule(breed: breed)
+        let animal = animals[indexPath.row]
+        let detailsBreedVC = ModuleBuilder.createDetailsBreedModule(breed: animal.breed, breedId: animal.breedId)
         self.navigationController?.pushViewController(detailsBreedVC, animated: true)
     }
 }
