@@ -1,5 +1,7 @@
 import Foundation
 
+let cacheExpired = 86400  // one day
+
 enum AnimalType {
     case cat
     case dog
@@ -18,6 +20,7 @@ protocol AnimalsListViewPresenterProtocol: AnyObject {
 }
 
 class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
+    let dbService = DefaultAnimalsDBService(context: AnimalsDatabaseStack.persistentContainer.viewContext)
     weak var view: AnimalsListViewProtocol?
     let networkService: NetworkServiceProtocol!
     var animals: [Animal] = []
@@ -45,10 +48,17 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
     }
 
     private func getAnimals() {
-        if animals.count == 0 {
+        let now = NSDate()
+        let lastApiDate = dbService.getDateFromDB()
+        if Int(lastApiDate.timeIntervalSince(now as Date)) > cacheExpired || animals.count == 0 {
             getAnimalsInfo()
             animalsInfo.shuffle()
             createAnimals()
+
+            var isSaved = false
+            while !isSaved {
+                isSaved = dbService.saveDateToDB(date: now)
+            }
         }
     }
 

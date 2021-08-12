@@ -23,6 +23,7 @@
 		898EAF4426C4DEAF000105DA /* CatImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EAF4326C4DEAF000105DA /* CatImages.swift */; };
 		899078BB26C397FC00CE6B80 /* AnimalImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899078BA26C397FC00CE6B80 /* AnimalImageScrollView.swift */; };
 		899AC45526A1F029002EF867 /* StarWarsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 899AC45326A1F029002EF867 /* StarWarsDataModel.xcdatamodeld */; };
+		89A3DC4E26C5957A00FC2551 /* AnimalsDatabaseStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3DC4D26C5957A00FC2551 /* AnimalsDatabaseStack.swift */; };
 		89AB269226A1F21B0053C771 /* DatabaseStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB269126A1F21B0053C771 /* DatabaseStack.swift */; };
 		89AB269526A1F53C0053C771 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB269426A1F53C0053C771 /* DatabaseService.swift */; };
 		89AB269726A1FAC70053C771 /* DefaultDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB269626A1FAC70053C771 /* DefaultDatabaseService.swift */; };
@@ -47,6 +48,9 @@
 		89DFF7B026BC3FAD00B24280 /* DetailsBreedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DFF7AE26BC3FAD00B24280 /* DetailsBreedViewController.swift */; };
 		89DFF7B526BC409200B24280 /* DetailsBreedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DFF7B426BC409200B24280 /* DetailsBreedPresenter.swift */; };
 		89DFF7B726BC439700B24280 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DFF7B626BC439700B24280 /* ModuleBuilder.swift */; };
+		89E365A426C58E910039814D /* AnimalsDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E365A326C58E910039814D /* AnimalsDatabaseService.swift */; };
+		89E365A626C58ED40039814D /* DefaultAnimalsDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E365A526C58ED40039814D /* DefaultAnimalsDBService.swift */; };
+		89E365A926C58F680039814D /* AnimalsAppDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89E365A726C58F680039814D /* AnimalsAppDataModel.xcdatamodeld */; };
 		89E5EEF5268901D3002120C9 /* BottomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5EEF4268901D3002120C9 /* BottomCollectionViewCell.swift */; };
 		89E5EEF826890D24002120C9 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5EEF726890D24002120C9 /* ApiManager.swift */; };
 		89E5EEFC26891137002120C9 /* RandomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5EEFB26891137002120C9 /* RandomImage.swift */; };
@@ -79,6 +83,7 @@
 		898EAF4326C4DEAF000105DA /* CatImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImages.swift; sourceTree = "<group>"; };
 		899078BA26C397FC00CE6B80 /* AnimalImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalImageScrollView.swift; sourceTree = "<group>"; };
 		899AC45426A1F029002EF867 /* StarWarsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StarWarsDataModel.xcdatamodel; sourceTree = "<group>"; };
+		89A3DC4D26C5957A00FC2551 /* AnimalsDatabaseStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsDatabaseStack.swift; sourceTree = "<group>"; };
 		89AB269126A1F21B0053C771 /* DatabaseStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStack.swift; sourceTree = "<group>"; };
 		89AB269426A1F53C0053C771 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		89AB269626A1FAC70053C771 /* DefaultDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDatabaseService.swift; sourceTree = "<group>"; };
@@ -103,6 +108,9 @@
 		89DFF7AE26BC3FAD00B24280 /* DetailsBreedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsBreedViewController.swift; sourceTree = "<group>"; };
 		89DFF7B426BC409200B24280 /* DetailsBreedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsBreedPresenter.swift; sourceTree = "<group>"; };
 		89DFF7B626BC439700B24280 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
+		89E365A326C58E910039814D /* AnimalsDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsDatabaseService.swift; sourceTree = "<group>"; };
+		89E365A526C58ED40039814D /* DefaultAnimalsDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAnimalsDBService.swift; sourceTree = "<group>"; };
+		89E365A826C58F680039814D /* AnimalsAppDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnimalsAppDataModel.xcdatamodel; sourceTree = "<group>"; };
 		89E5EEF4268901D3002120C9 /* BottomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCollectionViewCell.swift; sourceTree = "<group>"; };
 		89E5EEF726890D24002120C9 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		89E5EEFB26891137002120C9 /* RandomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImage.swift; sourceTree = "<group>"; };
@@ -316,6 +324,7 @@
 		89D2136426ADA96C0019B40C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				89E365A226C58E3A0039814D /* DatabaseService */,
 				89D2136526ADA9850019B40C /* NetworkService */,
 			);
 			path = Services;
@@ -365,6 +374,25 @@
 				89E8124626BE77D400C4A943 /* Cells */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		89E365A226C58E3A0039814D /* DatabaseService */ = {
+			isa = PBXGroup;
+			children = (
+				89E365AA26C58F750039814D /* models */,
+				89E365A326C58E910039814D /* AnimalsDatabaseService.swift */,
+				89E365A526C58ED40039814D /* DefaultAnimalsDBService.swift */,
+				89A3DC4D26C5957A00FC2551 /* AnimalsDatabaseStack.swift */,
+				89E365A726C58F680039814D /* AnimalsAppDataModel.xcdatamodeld */,
+			);
+			path = DatabaseService;
+			sourceTree = "<group>";
+		};
+		89E365AA26C58F750039814D /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 		89E5EEF626890D06002120C9 /* api */ = {
@@ -588,9 +616,13 @@
 				89AB269226A1F21B0053C771 /* DatabaseStack.swift in Sources */,
 				899078BB26C397FC00CE6B80 /* AnimalImageScrollView.swift in Sources */,
 				898650DF268CB37B00482BB6 /* Model.swift in Sources */,
+				89A3DC4E26C5957A00FC2551 /* AnimalsDatabaseStack.swift in Sources */,
+				89E365A626C58ED40039814D /* DefaultAnimalsDBService.swift in Sources */,
 				89D2136C26ADB0C70019B40C /* DogImages.swift in Sources */,
 				89D2136326ADA9120019B40C /* Animal.swift in Sources */,
+				89E365A926C58F680039814D /* AnimalsAppDataModel.xcdatamodeld in Sources */,
 				899AC45526A1F029002EF867 /* StarWarsDataModel.xcdatamodeld in Sources */,
+				89E365A426C58E910039814D /* AnimalsDatabaseService.swift in Sources */,
 				89D2136726ADAA300019B40C /* NetworkService.swift in Sources */,
 				8931C3272688D1D9009310AA /* BottomTableViewCell.swift in Sources */,
 				89D2135426AD5FCD0019B40C /* AnimalsTopCell.swift in Sources */,
@@ -816,6 +848,16 @@
 			);
 			currentVersion = 899AC45426A1F029002EF867 /* StarWarsDataModel.xcdatamodel */;
 			path = StarWarsDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		89E365A726C58F680039814D /* AnimalsAppDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				89E365A826C58F680039814D /* AnimalsAppDataModel.xcdatamodel */,
+			);
+			currentVersion = 89E365A826C58F680039814D /* AnimalsAppDataModel.xcdatamodel */;
+			path = AnimalsAppDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
