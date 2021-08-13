@@ -3,6 +3,8 @@ import UIKit
 class AnimalsBottomCell: UICollectionViewCell {
     static let identifier = "animalsBottomCell"
     static let quantityOfAnimals = 3
+    static let widthCell = 414
+    static let heightCell = 300
 
     var navigationController: UINavigationController?
     var animals = [Animal]()
@@ -50,6 +52,7 @@ extension AnimalsBottomCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: CGFloat(414), height: CGFloat(300))
+        return CGSize(width: CGFloat(AnimalsBottomCell.widthCell),
+                      height: CGFloat(AnimalsBottomCell.heightCell))
     }
 }
