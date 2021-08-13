@@ -1,5 +1,11 @@
 import UIKit
 
+let defaultMaxScale = CGFloat(1.0)
+let defaultMinScale = CGFloat(0.1)
+let scale03 = CGFloat(0.3)
+let scale05 = CGFloat(0.5)
+let scale07 = CGFloat(0.7)
+
 class AnimalImageScrollView: UIScrollView {
     var animalImageView: UIImageView!
 
@@ -42,15 +48,15 @@ class AnimalImageScrollView: UIScrollView {
         let yScale = boundSize.height / imageSize.height
         let minScale = min(xScale, yScale)
 
-        var maxScale: CGFloat = 1.0
-        if minScale < 0.1 {
-            maxScale = 0.3
+        var maxScale = defaultMaxScale
+        if minScale < defaultMinScale {
+            maxScale = scale03
         }
-        if minScale >= 0.1 && minScale < 0.5 {
-            maxScale = 0.7
+        if minScale >= defaultMinScale && minScale < scale05 {
+            maxScale = scale07
         }
-        if minScale >= 0.5 {
-            maxScale = max(1.0, minScale)
+        if minScale >= scale05 {
+            maxScale = max(defaultMaxScale, minScale)
         }
 
         self.minimumZoomScale = minScale

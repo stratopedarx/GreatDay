@@ -1,5 +1,8 @@
 import UIKit
 
+let animalsInOneBlock = 6 // one block contains 3 cells (6 animals)
+let numberOfItemsInSection = 3
+
 class AnimalsListViewContoller: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     var presenter: AnimalsListViewPresenterProtocol!
@@ -31,16 +34,16 @@ class AnimalsListViewContoller: UIViewController {
 extension AnimalsListViewContoller: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return self.presenter.animals.count/6 // one block contains 3 cells (6 animals)
+        return self.presenter.animals.count/animalsInOneBlock
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return numberOfItemsInSection
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch getScreenSpace(indexPath.row % 3) {
+        switch getScreenSpace(indexPath.row % numberOfItemsInSection) {
         case .top:
             guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: AnimalsTopCell.identifier,
@@ -63,7 +66,6 @@ extension AnimalsListViewContoller: UICollectionViewDataSource {
             cell.animals = presenter.fetchAnimals(in: AnimalsBottomCell.quantityOfAnimals)
             cell.navigationController = self.navigationController
             return cell
-
         }
     }
 }
@@ -81,7 +83,7 @@ extension AnimalsListViewContoller: UICollectionViewDelegateFlowLayout {
 // MARK: UICollectionViewDelegate
 extension AnimalsListViewContoller: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let index = indexPath.section * 6 + indexPath.row
+        let index = indexPath.section * animalsInOneBlock + indexPath.row
         let animal = self.presenter.animals[index]
         let breed = animal.breed
         let breedId = animal.breedId

@@ -7,7 +7,7 @@ protocol DetailsBreedViewProtocol: AnyObject {
 
 protocol DetailsBreedPresenterProtocol: AnyObject {
     init(view: DetailsBreedViewProtocol, networkService: NetworkServiceProtocol, breed: String, breedId: String?)
-    var breed: String! { get set }
+    var breed: String { get set }
     var breedId: String? { get set }  // used only for cat
     var animals: [Animal] { get set }
 }
@@ -15,7 +15,7 @@ protocol DetailsBreedPresenterProtocol: AnyObject {
 class DetailsBreedPresenter: DetailsBreedPresenterProtocol {
     weak var view: DetailsBreedViewProtocol?
     let networkService: NetworkServiceProtocol!
-    var breed: String!
+    var breed: String
     var breedId: String?  // used only for cat
     var animals = [Animal]()
 
@@ -32,7 +32,18 @@ class DetailsBreedPresenter: DetailsBreedPresenterProtocol {
     private func getAnimals() {
         let group = DispatchGroup()
         group.enter()
-        if self.breedId == nil {
+        if let breedId = self.breedId {
+            networkService.getCatImages(by: breedId, in: maxApiLimitCatImages) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let catImages):
+                    self.parseCatImages(catImages)
+                case .failure(let error):
+                    self.view?.failure(error: error)
+                }
+                group.leave()
+            }
+        } else {
             networkService.getAllDogImages(by: self.breed) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
@@ -43,18 +54,6 @@ class DetailsBreedPresenter: DetailsBreedPresenterProtocol {
                 }
                 group.leave()
             }
-        } else {
-            networkService.getCatImages(by: self.breedId!, in: 100) { [weak self] result in
-                guard let self = self else { return }
-                switch result {
-                case .success(let catImages):
-                    self.parseCatImages(catImages)
-                case .failure(let error):
-                    self.view?.failure(error: error)
-                }
-                group.leave()
-            }
-
         }
         group.wait()
     }

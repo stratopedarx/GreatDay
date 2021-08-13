@@ -379,20 +379,12 @@
 		89E365A226C58E3A0039814D /* DatabaseService */ = {
 			isa = PBXGroup;
 			children = (
-				89E365AA26C58F750039814D /* models */,
 				89E365A326C58E910039814D /* AnimalsDatabaseService.swift */,
 				89E365A526C58ED40039814D /* DefaultAnimalsDBService.swift */,
 				89A3DC4D26C5957A00FC2551 /* AnimalsDatabaseStack.swift */,
 				89E365A726C58F680039814D /* AnimalsAppDataModel.xcdatamodeld */,
 			);
 			path = DatabaseService;
-			sourceTree = "<group>";
-		};
-		89E365AA26C58F750039814D /* models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = models;
 			sourceTree = "<group>";
 		};
 		89E5EEF626890D06002120C9 /* api */ = {

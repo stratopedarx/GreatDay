@@ -63,11 +63,11 @@ extension DefaultAnimalsDBService {
 
     private func mapFetchedData(_ fetched: [NSManagedObject]) -> [Animal] {
         return fetched.map { object in
-            let breed = object.value(forKey: "breed") as? String
+            let breed = object.value(forKey: "breed") as? String ?? ""
             var breedId = object.value(forKey: "breedId") as? String
             if breedId == "" { breedId = nil }
-            let imageLink = object.value(forKey: "imageLink") as? String
-            return Animal(breed: breed!, breedId: breedId, imageLink: imageLink!)
+            let imageLink = object.value(forKey: "imageLink") as? String ?? ""
+            return Animal(breed: breed, breedId: breedId, imageLink: imageLink)
         }
     }
 

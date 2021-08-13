@@ -1,5 +1,7 @@
 import Foundation
 
+let maxApiLimitCatImages = 100
+
 protocol NetworkServiceProtocol {
     // Dog Api https://dog.ceo/dog-api/
     func getAllDogBreeds(completion: @escaping (Result<DogBreeds, Error>) -> Void)
@@ -45,7 +47,7 @@ enum AnimalsApiType {
         }
     }
 
-    private func createUrl(urlParams: [String: String]?) -> URL {
+    private func createUrl(urlParams: [String: String]?) -> URL? {
         var path = path
         if let breed = urlParams?["breed"] {
             path = path.replacingOccurrences(of: "{BREED}", with: breed)
@@ -63,14 +65,23 @@ enum AnimalsApiType {
                 URLQueryItem(name: "breed_id", value: "\(breedId)")
             ]
         }
+        if let url = urlComponents.url {
+            return URL(string: url.absoluteString)
+        }
+        return nil
+    }
 
-        return URL(string: urlComponents.url!.absoluteString)!
+    private func makeURLRequest(urlParams: [String: String]?) -> URLRequest {
+        if let url = createUrl(urlParams: urlParams) {
+                return URLRequest(url: url)
+            } else {
+                let urlString = "\(AnimalsApiType.scheme)://\(host)\(path)"
+                return URLRequest(url: URL(string: urlString)!)
+        }
     }
 
     func getRequest(urlParams: [String: String]?) -> URLRequest {
-        let url = createUrl(urlParams: urlParams)
-        var request = URLRequest(url: url)
-
+        var request = makeURLRequest(urlParams: urlParams)
         switch self {
         case .getAllDogBreeds, .getRandomDogImage, .getAllDogImages:
             request.httpMethod = "GET"
