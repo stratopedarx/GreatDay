@@ -28,6 +28,9 @@ extension AnimalsBottomCell: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: AnimalsBottomCVCell.identifier,
                 for: indexPath) as? AnimalsBottomCVCell else { fatalError("Can`t create the cell") }
+        if animals.count == 0 {
+            return cell
+        }
         cell.configure(by: animals[indexPath.row])
         return cell
     }

@@ -1,6 +1,7 @@
 import Foundation
 
 let cacheExpired = 86400  // one day
+let maxNumberOfRequests = 30
 
 enum AnimalType {
     case cat
@@ -50,15 +51,41 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
     private func getAnimals() {
         let now = NSDate()
         let lastApiDate = dbService.getDateFromDB()
-        if Int(lastApiDate.timeIntervalSince(now as Date)) > cacheExpired || animals.count == 0 {
-            getAnimalsInfo()
-            animalsInfo.shuffle()
-            createAnimals()
+        let timeSinceLastApiUpdate = Int(now.timeIntervalSince(lastApiDate as Date))  // in seconds
 
-            var isSaved = false
-            while !isSaved {
-                isSaved = dbService.saveDateToDB(date: now)
-            }
+        if timeSinceLastApiUpdate > cacheExpired {
+            dbService.deleteAllAnimalsFromDatabase()
+            getAnimalsFromApi()
+        } else {
+            print("Get data from DB")
+            dbService.getAnimalsFromDatabase(onComplete: { animals in
+                if animals.count == 0 {
+                    self.getAnimalsFromApi()
+                } else {
+                    self.animals = animals
+                    self.animals.shuffle()
+                }
+            })
+        }
+    }
+
+    /// Makes requests to api servers and save it to database
+    private func getAnimalsFromApi() {
+        print("Get data from API")
+        getAnimalsInfo()
+        animalsInfo.shuffle()
+        createAnimals()
+        saveAnimalsToDatabse()
+    }
+
+    private func saveAnimalsToDatabse() {
+        var isAnimalsSaved = false
+        var isDateSaved = false
+        var attempt = 0
+        while !isDateSaved && !isAnimalsSaved && attempt < 5 {
+            isAnimalsSaved = dbService.saveAnimalsToDB(animals: animals)
+            isDateSaved = dbService.saveDateToDB(date: NSDate())
+            attempt += 1
         }
     }
 
@@ -73,9 +100,9 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
         for info in animalsInfo {
             let group = DispatchGroup()
             group.enter()
-            if numberOfRequests >= 6 {
+            if numberOfRequests >= maxNumberOfRequests {
                 return
-            } // DELETE LATER
+            }
             switch info.animalType {
             case .dog:
                 networkService.getRandomDogImage(by: info.breed) { [weak self] result in

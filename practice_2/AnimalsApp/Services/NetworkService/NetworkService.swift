@@ -64,7 +64,6 @@ enum AnimalsApiType {
             ]
         }
 
-        print("url: \(urlComponents.url!.absoluteString)")
         return URL(string: urlComponents.url!.absoluteString)!
     }
 
