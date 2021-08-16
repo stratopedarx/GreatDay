@@ -1,7 +1,7 @@
 import Foundation
 
-let cacheExpired = 1  // one day
-let maxNumberOfRequests = 6
+let cacheExpired = 86400  // one day
+let maxNumberOfRequests = 30
 
 protocol AnimalsListViewProtocol: AnyObject {
     func success()

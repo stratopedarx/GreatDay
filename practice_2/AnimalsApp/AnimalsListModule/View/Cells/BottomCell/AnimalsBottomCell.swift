@@ -27,14 +27,14 @@ extension AnimalsBottomCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: AnimalsBottomCVCell.identifier,
-                for: indexPath) as? AnimalsBottomCVCell else { fatalError("Can`t create the cell") }
-        if animals.count == 0 {
+        if let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: AnimalsBottomCVCell.identifier, for: indexPath) as? AnimalsBottomCVCell {
+            cell.configure(by: animals[indexPath.row])
             return cell
+        } else {
+            print("Can`t create the cell AnimalsBottomCVCell")
+            return UICollectionViewCell()
         }
-        cell.configure(by: animals[indexPath.row])
-        return cell
     }
 }
 

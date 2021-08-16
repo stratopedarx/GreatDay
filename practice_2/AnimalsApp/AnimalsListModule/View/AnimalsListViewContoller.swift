@@ -45,27 +45,39 @@ extension AnimalsListViewContoller: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch getScreenSpace(indexPath.row % numberOfItemsInSection) {
         case .top:
-            guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: AnimalsTopCell.identifier,
-                    for: indexPath) as? AnimalsTopCell else { fatalError("Can`t create the cell") }
-            let animals = presenter.fetchAnimals(in: AnimalsTopCell.quantityOfAnimals)
-            cell.configure(by: animals)
-            return cell
-        case .middle:
-            guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: AnimalsMiddleCell.identifier,
-                    for: indexPath) as? AnimalsMiddleCell else { fatalError("Can`t create the cell") }
-            cell.animals = presenter.fetchAnimals(in: AnimalsMiddleCell.quantityOfAnimals)
-            cell.navigationController = self.navigationController
-            return cell
+            if let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: AnimalsTopCell.identifier, for: indexPath) as? AnimalsTopCell {
+                let animals = presenter.fetchAnimals(in: AnimalsTopCell.quantityOfAnimals)
+                cell.configure(by: animals)
+                return cell
+            } else {
+                print("Can`t create the cell AnimalsTopCell")
+                return UICollectionViewCell()
+            }
 
+        case .middle:
+            if let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: AnimalsMiddleCell.identifier, for: indexPath) as? AnimalsMiddleCell {
+                cell.animals = presenter.fetchAnimals(in: AnimalsMiddleCell.quantityOfAnimals)
+                cell.navigationController = self.navigationController
+                return cell
+            } else {
+                print("Can`t create the cell AnimalsMiddleCell")
+                return UICollectionViewCell()
+            }
         case .bottom:
-            guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: AnimalsBottomCell.identifier,
-                    for: indexPath) as? AnimalsBottomCell else { fatalError("Can`t create the cell") }
-            cell.animals = presenter.fetchAnimals(in: AnimalsBottomCell.quantityOfAnimals)
-            cell.navigationController = self.navigationController
-            return cell
+            if let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: AnimalsBottomCell.identifier, for: indexPath) as? AnimalsBottomCell {
+                cell.animals = presenter.fetchAnimals(in: AnimalsBottomCell.quantityOfAnimals)
+                if cell.animals.count == 0 {
+                    return cell
+                }
+                cell.navigationController = self.navigationController
+                return cell
+            } else {
+                print("Can`t create the cell AnimalsBottomCell")
+                return UICollectionViewCell()
+            }
         }
     }
 }

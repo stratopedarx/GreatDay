@@ -25,11 +25,14 @@ extension AnimalsMiddleCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: AnimalsMiddleCVCell.identifier,
-                for: indexPath) as? AnimalsMiddleCVCell else { fatalError("Can`t create the cell") }
-        cell.configure(by: animals[indexPath.row])
-        return cell
+        if let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: AnimalsMiddleCVCell.identifier, for: indexPath) as? AnimalsMiddleCVCell {
+            cell.configure(by: animals[indexPath.row])
+            return cell
+        } else {
+            print("Can`t create the cell AnimalsMiddleCVCell")
+            return UICollectionViewCell()
+        }
     }
 }
 
