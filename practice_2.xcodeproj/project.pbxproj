@@ -19,6 +19,7 @@
 		894BD1F926BDAD6100900929 /* AnimalsMiddleCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894BD1F726BDAD6100900929 /* AnimalsMiddleCVCell.swift */; };
 		894BD1FA26BDAD6100900929 /* AnimalsMiddleCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 894BD1F826BDAD6100900929 /* AnimalsMiddleCVCell.xib */; };
 		8957C83A26C4362F0065CBA9 /* CatBreeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957C83926C4362F0065CBA9 /* CatBreeds.swift */; };
+		897DC03226CA1E8200FDFAE5 /* AnimalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897DC03126CA1E8200FDFAE5 /* AnimalInfo.swift */; };
 		898650DF268CB37B00482BB6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898650DE268CB37B00482BB6 /* Model.swift */; };
 		898EAF4426C4DEAF000105DA /* CatImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EAF4326C4DEAF000105DA /* CatImages.swift */; };
 		899078BB26C397FC00CE6B80 /* AnimalImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899078BA26C397FC00CE6B80 /* AnimalImageScrollView.swift */; };
@@ -79,6 +80,7 @@
 		894BD1F726BDAD6100900929 /* AnimalsMiddleCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsMiddleCVCell.swift; sourceTree = "<group>"; };
 		894BD1F826BDAD6100900929 /* AnimalsMiddleCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalsMiddleCVCell.xib; sourceTree = "<group>"; };
 		8957C83926C4362F0065CBA9 /* CatBreeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreeds.swift; sourceTree = "<group>"; };
+		897DC03126CA1E8200FDFAE5 /* AnimalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalInfo.swift; sourceTree = "<group>"; };
 		898650DE268CB37B00482BB6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		898EAF4326C4DEAF000105DA /* CatImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImages.swift; sourceTree = "<group>"; };
 		899078BA26C397FC00CE6B80 /* AnimalImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalImageScrollView.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				89D2135F26ADA6230019B40C /* AnimalsListPresenter.swift */,
+				897DC03126CA1E8200FDFAE5 /* AnimalInfo.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				8931C3252688D1C7009310AA /* MiddleTableViewCell.swift in Sources */,
 				89AB269726A1FAC70053C771 /* DefaultDatabaseService.swift in Sources */,
 				89DFF7B526BC409200B24280 /* DetailsBreedPresenter.swift in Sources */,
+				897DC03226CA1E8200FDFAE5 /* AnimalInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

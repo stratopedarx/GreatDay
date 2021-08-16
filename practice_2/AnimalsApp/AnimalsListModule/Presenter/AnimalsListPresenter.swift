@@ -3,17 +3,6 @@ import Foundation
 let cacheExpired = 1  // one day
 let maxNumberOfRequests = 6
 
-enum AnimalType {
-    case cat
-    case dog
-}
-
-struct AnimalInfo {
-    let animalType: AnimalType
-    let breed: String
-    let breedId: String?
-}
-
 protocol AnimalsListViewProtocol: AnyObject {
     func success()
     func failure(error: Error)
@@ -22,7 +11,7 @@ protocol AnimalsListViewProtocol: AnyObject {
 protocol AnimalsListViewPresenterProtocol: AnyObject {
     init(view: AnimalsListViewProtocol, networkService: NetworkServiceProtocol)
     var animals: [Animal] { get set }
-    var animalsInfo: [AnimalInfo] { get set }
+    var animalsInfo: [AnimalInfoProtocol] { get set }
     func fetchAnimals(in quantity: Int) -> [Animal]
 }
 
@@ -30,8 +19,8 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
     let dbService = DefaultAnimalsDBService(context: AnimalsDatabaseStack.persistentContainer.viewContext)
     weak var view: AnimalsListViewProtocol?
     let networkService: NetworkServiceProtocol!
-    var animals: [Animal] = []
-    var animalsInfo: [AnimalInfo] = []
+    var animals = [Animal]()
+    var animalsInfo = [AnimalInfoProtocol]()
 
     required init(view: AnimalsListViewProtocol, networkService: NetworkServiceProtocol) {
         self.view = view
@@ -100,7 +89,7 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
         getCatInfo()
     }
 
-    // This func takes image links from api, parse them and create Animal object
+    /// This func takes image links from api, parse them and create Animal object
     private func createAnimals() {
         var numberOfRequests = 0
         for info in animalsInfo {
@@ -109,29 +98,8 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
             if numberOfRequests >= maxNumberOfRequests {
                 return
             }
-            switch info.animalType {
-            case .dog:
-                networkService.getRandomDogImage(by: info.breed) { [weak self] result in
-                    guard let self = self else { return }
-                    switch result {
-                    case .success(let dogRandomImage):
-                        self.createDog(breed: info.breed, from: dogRandomImage)
-                    case .failure(let error):
-                        self.view?.failure(error: error)
-                    }
-                    group.leave()
-                }
-            case .cat:
-                networkService.getCatImages(by: info.breedId!, in: 1) { [weak self] result in
-                    guard let self = self else { return }
-                    switch result {
-                    case .success(let catImage):
-                        self.createCat(breed: info.breed, breedId: info.breedId!, from: catImage)
-                    case .failure(let error):
-                        self.view?.failure(error: error)
-                    }
-                    group.leave()
-                }
+            info.createAnimalWithImage(network: networkService, group: group, view: self.view) { animal in
+                self.animals.append(animal)
             }
             numberOfRequests += 1
             group.wait()
@@ -162,22 +130,16 @@ extension AnimalsListPresenter {
         if let message = dogBreeds.message {
             for (breed, typeBreeds) in message {
                 if typeBreeds.count == 0 {
-                    let animalInfo = AnimalInfo(animalType: AnimalType.dog, breed: breed, breedId: nil)
+                    let animalInfo = DogInfo(breed: breed, breedId: nil)
                     self.animalsInfo.append(animalInfo)
                 } else {
                     for typeBreed in typeBreeds {
                         let breedName = breed + "/" + typeBreed
-                        let animalInfo = AnimalInfo(animalType: AnimalType.dog, breed: breedName, breedId: nil)
+                        let animalInfo = DogInfo(breed: breedName, breedId: nil)
                         self.animalsInfo.append(animalInfo)
                     }
                 }
             }
-        }
-    }
-
-    private func createDog(breed: String, from dogRandomImage: DogRamdomImage) {
-        if let imageLink = dogRandomImage.message {
-            animals.append(Animal(breed: breed, breedId: nil, imageLink: imageLink))
         }
     }
 }
@@ -202,14 +164,8 @@ extension AnimalsListPresenter {
 
     private func parseCatInfo(_ catBreeds: CatBreeds) {
         for cat in catBreeds {
-            let animalInfo = AnimalInfo(animalType: AnimalType.cat, breed: cat.name!, breedId: cat.id!)
+            let animalInfo = CatInfo(breed: cat.name!, breedId: cat.id!)
             self.animalsInfo.append(animalInfo)
-        }
-    }
-
-    private func createCat(breed: String, breedId: String, from catImages: CatImages) {
-        if let catImage = catImages.first {
-            animals.append(Animal(breed: breed, breedId: breedId, imageLink: catImage.url!))
         }
     }
 }
