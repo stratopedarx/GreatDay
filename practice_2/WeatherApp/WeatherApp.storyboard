@@ -26,21 +26,35 @@
             </objects>
             <point key="canvasLocation" x="-1403" y="76"/>
         </scene>
-        <!--View Controller-->
+        <!--Weather View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WeatherViewController" id="Y6W-OH-hqX" customClass="WeatherViewController" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8VC-l4-H41">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8VC-l4-H41" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="85a-RH-53R"/>
+                            <constraint firstItem="8VC-l4-H41" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="PU0-VN-asm"/>
+                            <constraint firstAttribute="bottom" secondItem="8VC-l4-H41" secondAttribute="bottom" id="bdS-Tl-CY2"/>
+                            <constraint firstItem="8VC-l4-H41" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="eIc-EC-zk1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hMP-dO-a8o"/>
+                    <connections>
+                        <outlet property="mapView" destination="8VC-l4-H41" id="GHk-62-6Ww"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-528" y="76"/>
+            <point key="canvasLocation" x="-528.98550724637687" y="75.669642857142847"/>
         </scene>
     </scenes>
     <resources>

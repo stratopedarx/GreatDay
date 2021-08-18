@@ -29,6 +29,7 @@
 		89AB269526A1F53C0053C771 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB269426A1F53C0053C771 /* DatabaseService.swift */; };
 		89AB269726A1FAC70053C771 /* DefaultDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB269626A1FAC70053C771 /* DefaultDatabaseService.swift */; };
 		89BE6D5826CD443E0054B5BC /* WeatherApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BE6D5726CD443E0054B5BC /* WeatherApp.storyboard */; };
+		89BE6D5A26CD4AEE0054B5BC /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE6D5926CD4AEE0054B5BC /* WeatherViewController.swift */; };
 		89D0C70026A157BF008FA33F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0C6FF26A157BF008FA33F /* Alert.swift */; };
 		89D0C70526A15DAD008FA33F /* SWApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0C70426A15DAD008FA33F /* SWApiManager.swift */; };
 		89D0C70A26A16748008FA33F /* SWHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0C70926A16748008FA33F /* SWHero.swift */; };
@@ -91,6 +92,7 @@
 		89AB269426A1F53C0053C771 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		89AB269626A1FAC70053C771 /* DefaultDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDatabaseService.swift; sourceTree = "<group>"; };
 		89BE6D5726CD443E0054B5BC /* WeatherApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WeatherApp.storyboard; sourceTree = "<group>"; };
+		89BE6D5926CD4AEE0054B5BC /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		89D0C6FF26A157BF008FA33F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		89D0C70426A15DAD008FA33F /* SWApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWApiManager.swift; sourceTree = "<group>"; };
 		89D0C70926A16748008FA33F /* SWHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWHero.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				89BE6D5726CD443E0054B5BC /* WeatherApp.storyboard */,
+				89BE6D5926CD4AEE0054B5BC /* WeatherViewController.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				899AC45526A1F029002EF867 /* StarWarsDataModel.xcdatamodeld in Sources */,
 				89E365A426C58E910039814D /* AnimalsDatabaseService.swift in Sources */,
 				89D2136726ADAA300019B40C /* NetworkService.swift in Sources */,
+				89BE6D5A26CD4AEE0054B5BC /* WeatherViewController.swift in Sources */,
 				8931C3272688D1D9009310AA /* BottomTableViewCell.swift in Sources */,
 				89D2135426AD5FCD0019B40C /* AnimalsTopCell.swift in Sources */,
 				894BD1F526BDA55500900929 /* AnimalsMiddleCell.swift in Sources */,
