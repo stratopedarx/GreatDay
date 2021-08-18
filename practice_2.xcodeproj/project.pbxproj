@@ -28,6 +28,7 @@
 		89AB269226A1F21B0053C771 /* DatabaseStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB269126A1F21B0053C771 /* DatabaseStack.swift */; };
 		89AB269526A1F53C0053C771 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB269426A1F53C0053C771 /* DatabaseService.swift */; };
 		89AB269726A1FAC70053C771 /* DefaultDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB269626A1FAC70053C771 /* DefaultDatabaseService.swift */; };
+		89BE6D5826CD443E0054B5BC /* WeatherApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BE6D5726CD443E0054B5BC /* WeatherApp.storyboard */; };
 		89D0C70026A157BF008FA33F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0C6FF26A157BF008FA33F /* Alert.swift */; };
 		89D0C70526A15DAD008FA33F /* SWApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0C70426A15DAD008FA33F /* SWApiManager.swift */; };
 		89D0C70A26A16748008FA33F /* SWHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0C70926A16748008FA33F /* SWHero.swift */; };
@@ -89,6 +90,7 @@
 		89AB269126A1F21B0053C771 /* DatabaseStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStack.swift; sourceTree = "<group>"; };
 		89AB269426A1F53C0053C771 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		89AB269626A1FAC70053C771 /* DefaultDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDatabaseService.swift; sourceTree = "<group>"; };
+		89BE6D5726CD443E0054B5BC /* WeatherApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WeatherApp.storyboard; sourceTree = "<group>"; };
 		89D0C6FF26A157BF008FA33F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		89D0C70426A15DAD008FA33F /* SWApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWApiManager.swift; sourceTree = "<group>"; };
 		89D0C70926A16748008FA33F /* SWHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWHero.swift; sourceTree = "<group>"; };
@@ -222,6 +224,14 @@
 				89D0C70B26A18955008FA33F /* HeroModel.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		89BE6D5626CD43E90054B5BC /* WeatherApp */ = {
+			isa = PBXGroup;
+			children = (
+				89BE6D5726CD443E0054B5BC /* WeatherApp.storyboard */,
+			);
+			path = WeatherApp;
 			sourceTree = "<group>";
 		};
 		89D0C70126A15CB5008FA33F /* api */ = {
@@ -483,6 +493,7 @@
 				894592D026A084920012B412 /* DogApp */,
 				894592D426A089570012B412 /* StarWarsApp */,
 				89D2134626AD527A0019B40C /* AnimalsApp */,
+				89BE6D5626CD43E90054B5BC /* WeatherApp */,
 			);
 			path = practice_2;
 			sourceTree = "<group>";
@@ -546,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89F903F2268875E100096068 /* LaunchScreen.storyboard in Resources */,
+				89BE6D5826CD443E0054B5BC /* WeatherApp.storyboard in Resources */,
 				89F903EF268875E100096068 /* Assets.xcassets in Resources */,
 				894BD1FA26BDAD6100900929 /* AnimalsMiddleCVCell.xib in Resources */,
 				894BD1F626BDA55500900929 /* AnimalsMiddleCell.xib in Resources */,
