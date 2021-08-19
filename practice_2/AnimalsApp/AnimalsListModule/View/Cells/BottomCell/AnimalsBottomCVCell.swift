@@ -7,7 +7,10 @@ class AnimalsBottomCVCell: UICollectionViewCell {
 
     func configure(by animal: Animal) {
         self.breedLabel.text = animal.breed
-        self.animalImage.load(url: URL(string: animal.imageLink)!)
+        if let url = URL(string: animal.imageLink) {
+            self.animalImage.load(url: url)
+        } else {
+            print("Could not create URL object for \(animal.imageLink)")
+        }
     }
-
 }

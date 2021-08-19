@@ -54,10 +54,12 @@ extension AnimalsListViewContoller: UICollectionViewDataSource {
                 print("Can`t create the cell AnimalsTopCell")
                 return UICollectionViewCell()
             }
-
         case .middle:
             if let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: AnimalsMiddleCell.identifier, for: indexPath) as? AnimalsMiddleCell {
+                if cell.animals.count != 0 {
+                    return cell
+                }
                 cell.animals = presenter.fetchAnimals(in: AnimalsMiddleCell.quantityOfAnimals)
                 cell.navigationController = self.navigationController
                 return cell
@@ -68,10 +70,10 @@ extension AnimalsListViewContoller: UICollectionViewDataSource {
         case .bottom:
             if let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: AnimalsBottomCell.identifier, for: indexPath) as? AnimalsBottomCell {
-                cell.animals = presenter.fetchAnimals(in: AnimalsBottomCell.quantityOfAnimals)
-                if cell.animals.count == 0 {
+                if cell.animals.count != 0 {
                     return cell
                 }
+                cell.animals = presenter.fetchAnimals(in: AnimalsBottomCell.quantityOfAnimals)
                 cell.navigationController = self.navigationController
                 return cell
             } else {
@@ -117,7 +119,7 @@ extension AnimalsListViewContoller {
     }
 
     private func getHeight(_ indexPath: IndexPath) -> Int {
-        switch getScreenSpace(indexPath.row % 3) {
+        switch getScreenSpace(indexPath.row % numberOfItemsInSection) {
         case .top:  return 120
         case .middle: return 260
         case .bottom: return 300
