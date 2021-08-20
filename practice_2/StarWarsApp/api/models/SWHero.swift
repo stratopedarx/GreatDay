@@ -9,11 +9,11 @@ import Foundation
 struct SWHero: Codable {
     let count: Int?
     let next, previous: JSONNull?
-    let results: [Result]?
+    let results: [SWResult]?
 }
 
 // MARK: - Result
-struct Result: Codable {
+struct SWResult: Codable {
     let name, height, mass, hairColor: String?
     let skinColor, eyeColor, birthYear, gender: String?
     let homeworld: String?

@@ -2,9 +2,12 @@ import UIKit
 
 class StarWarsVC: UIViewController {
     var heroModels = [HeroModel]()
+    let databaseService = DefaultDatabaseService(context: DatabaseStack.persistentContainer.viewContext)
 
     @IBOutlet private weak var searchTextField: UITextField!
     @IBOutlet private weak var starWarsTableView: UITableView!
+    @IBOutlet private weak var searchButton: UIButton!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,17 +21,38 @@ class StarWarsVC: UIViewController {
         if name == "" {
             Alert.showAlert(title: "wrong input data", message: "try again", on: self)
         } else {
-            SWApiManager.sharedSW.searchHero(by: name) { hero in
-                if hero.count! == 0 {
+            SWApiManager.sharedSW.searchHero(by: name) { response in
+                self.removeModels()
+                if response.count! == 0 {
                     DispatchQueue.main.async {
                         Alert.showAlert(title: "Not found", message: "try again", on: self)
                     }
                 } else {
-                    for res in hero.results! {
-                        self.heroModels.append(HeroModel(res))
-                    }
+                    self.handleResults(response)
                     self.reloadView()
+                    return
                 }
+            }
+        }
+        // databaseService.deleteAllObjectsFromDatabase()
+        handleResultsFromDB(by: name)
+        self.reloadView()
+    }
+
+    private func handleResultsFromDB(by name: String) {
+        databaseService.getObjects(by: name) { heroModels in
+            for heroModel in heroModels {
+                self.heroModels.append(heroModel)
+            }
+        }
+    }
+
+    private func handleResults(_ response: SWHero) {
+        for res in response.results! {
+            let newHeroModel = HeroModel(res)
+            self.heroModels.append(newHeroModel)
+            if !self.databaseService.saveToDatabase(newHeroModel) {
+                print("Could not save the object: \(newHeroModel)")
             }
         }
     }
@@ -67,5 +91,20 @@ extension StarWarsVC: UITableViewDelegate, UITableViewDataSource {
                 for: indexPath) as? HeroCell else { fatalError("Can not create the cell") }
         cell.configure(with: heroModels[indexPath.row])
         return cell
+    }
+}
+
+// This extension updates searchButton color for dark mode
+extension StarWarsVC {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        userInterfaceChangeToDarkMode()
+    }
+
+    func userInterfaceChangeToDarkMode() {
+        if traitCollection.userInterfaceStyle == .dark {
+            searchButton.layer.backgroundColor = UIColor.yellow.cgColor
+            searchButton.setTitleColor(UIColor.black, for: .normal)
+        }
     }
 }

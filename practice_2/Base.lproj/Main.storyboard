@@ -18,6 +18,7 @@
                     <connections>
                         <segue destination="656-SJ-wz2" kind="relationship" relationship="viewControllers" id="hj9-fK-h32"/>
                         <segue destination="A7m-6r-GKb" kind="relationship" relationship="viewControllers" id="RKY-Da-N1U"/>
+                        <segue destination="UV1-Vg-Zpc" kind="relationship" relationship="viewControllers" id="A93-6K-omu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DC0-Ag-TGu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -32,7 +33,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0x6-qc-fMT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1627" y="311"/>
+            <point key="canvasLocation" x="1622" y="155"/>
+        </scene>
+        <!--AnimalsApp-->
+        <scene sceneID="2Ng-U0-ykg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AnimalsApp" id="UV1-Vg-Zpc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="bEk-bs-5MS"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U34-9e-jel" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1627" y="288"/>
         </scene>
         <!--DogApp-->
         <scene sceneID="fSe-U7-Yd5">
@@ -42,7 +53,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="18n-LM-wQm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1627" y="-92"/>
+            <point key="canvasLocation" x="1627" y="28"/>
         </scene>
     </scenes>
 </document>
