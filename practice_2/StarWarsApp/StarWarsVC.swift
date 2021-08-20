@@ -8,7 +8,6 @@ class StarWarsVC: UIViewController {
     @IBOutlet private weak var starWarsTableView: UITableView!
     @IBOutlet private weak var searchButton: UIButton!
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         starWarsTableView.dataSource = self

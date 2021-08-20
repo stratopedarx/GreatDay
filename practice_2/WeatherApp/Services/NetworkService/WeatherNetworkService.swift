@@ -8,6 +8,8 @@ protocol WeatherNetworkServiceProtocol {
 
 enum WeatherApiType {
     static let scheme = "https"
+    private static let apiKey = "c64b9be891024003e21d85eb99c06ba0"
+
     case fetchWeather
 
     var host: String {
@@ -31,9 +33,10 @@ enum WeatherApiType {
 
         if let lat = params?["latitude"], let lon = params?["longtitude"], let units = params?["units"] {
             urlComponents.queryItems = [
-                URLQueryItem(name: "lat", value: "\(lat)"),
-                URLQueryItem(name: "lon", value: "\(lon)"),
-                URLQueryItem(name: "units", value: "\(units)")
+                URLQueryItem(name: "lat", value: lat),
+                URLQueryItem(name: "lon", value: lon),
+                URLQueryItem(name: "units", value: units),
+                URLQueryItem(name: "appid", value: WeatherApiType.apiKey)
             ]
         }
         if let url = urlComponents.url {
@@ -63,8 +66,21 @@ enum WeatherApiType {
 
 class WeatherNetworkService: ApiManager, WeatherNetworkServiceProtocol {
     static let sharedWeather = WeatherNetworkService()
+
     func fetchWeather(latitude: CLLocationDegrees, longtitude: CLLocationDegrees, units: String,
                       completion: @escaping (Result<Weather, Error>) -> Void) {
-        return
+        let params = ["latitude": String(latitude), "longtitude": String(longtitude), "units": units]
+        let request = WeatherApiType.fetchWeather.getRequest(params: params)
+        let task = URLSession(configuration: configuration).dataTask(with: request) { data, _, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data, let weather = try? JSONDecoder().decode(Weather.self, from: data) {
+                completion(.success(weather))
+            }
+        }
+        print("requesting fetchWeather")
+        task.resume()
     }
 }
