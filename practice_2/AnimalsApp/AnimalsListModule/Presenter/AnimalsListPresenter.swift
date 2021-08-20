@@ -1,7 +1,8 @@
 import Foundation
 
 let cacheExpired = 86400  // one day
-let maxNumberOfRequests = 30
+let maxNumberOfRequests = 12
+let maxNumberOfConnectionAttempts = 5
 
 protocol AnimalsListViewProtocol: AnyObject {
     func success()
@@ -18,7 +19,7 @@ protocol AnimalsListViewPresenterProtocol: AnyObject {
 class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
     let dbService = DefaultAnimalsDBService(context: AnimalsDatabaseStack.persistentContainer.viewContext)
     weak var view: AnimalsListViewProtocol?
-    let networkService: NetworkServiceProtocol!
+    let networkService: NetworkServiceProtocol
     var animals = [Animal]()
     var animalsInfo = [AnimalInfoProtocol]()
 
@@ -53,11 +54,11 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
             getAnimalsFromApi()
         } else {
             print("Get data from DB")
-            dbService.getAnimalsFromDatabase(onComplete: { animals in
-                if animals.count == 0 {
+            dbService.getAnimalsFromDatabase(onComplete: { animalsDB in
+                if animalsDB.count == 0 {
                     self.getAnimalsFromApi()
                 } else {
-                    self.animals = animals
+                    self.animals = animalsDB
                     self.animals.shuffle()
                 }
             })
@@ -77,7 +78,7 @@ class AnimalsListPresenter: AnimalsListViewPresenterProtocol {
         var isAnimalsSaved = false
         var isDateSaved = false
         var attempt = 0
-        while !isDateSaved && !isAnimalsSaved && attempt < 5 {
+        while !isDateSaved && !isAnimalsSaved && attempt < maxNumberOfConnectionAttempts {
             isAnimalsSaved = dbService.saveAnimalsToDB(animals: animals)
             isDateSaved = dbService.saveDateToDB(date: NSDate())
             attempt += 1

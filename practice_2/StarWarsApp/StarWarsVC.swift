@@ -4,9 +4,10 @@ class StarWarsVC: UIViewController {
     var heroModels = [HeroModel]()
     let databaseService = DefaultDatabaseService(context: DatabaseStack.persistentContainer.viewContext)
 
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var starWarsTableView: UITableView!
-    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet private weak var searchTextField: UITextField!
+    @IBOutlet private weak var starWarsTableView: UITableView!
+    @IBOutlet private weak var searchButton: UIButton!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,10 +86,9 @@ extension StarWarsVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // swiftlint:disable force_cast
-        let cell = starWarsTableView.dequeueReusableCell(withIdentifier: HeroCell.identifier,
-                                                         for: indexPath) as! HeroCell
-        // swiftlint:enable force_cast
+        guard let cell = starWarsTableView.dequeueReusableCell(
+                withIdentifier: HeroCell.identifier,
+                for: indexPath) as? HeroCell else { fatalError("Can not create the cell") }
         cell.configure(with: heroModels[indexPath.row])
         return cell
     }
