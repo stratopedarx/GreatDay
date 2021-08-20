@@ -7,12 +7,21 @@ let longitudeNN = 44.003519
 class WeatherViewController: UIViewController {
 
     @IBOutlet private weak var mapView: MKMapView!
+    var presenter: WeatherPresenterProtocol?
+    var units = "metric"
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         mapView.delegate = self
 
         initLocation()
         initRecognizer()
+    }
+
+    private func setup() {
+        let networkService = WeatherNetworkService.sharedWeather
+        self.presenter = WeatherPresenter(view: self, networkService: networkService)
     }
 
     private func initLocation() {
@@ -27,9 +36,8 @@ class WeatherViewController: UIViewController {
 
     @objc func tapAnnotationAction(gestureRecognizer: UIGestureRecognizer) {
         let location = getLocation(from: gestureRecognizer)
-        print(location)
-        // fetch http request
-        addAnnotation(by: location)
+        self.presenter?.getTemperature(by: location, units: units)
+        addAnnotation(by: location, temperature: presenter?.temperature ?? "")
     }
 
     private func getLocation(from gestureRecognizer: UIGestureRecognizer) -> CLLocationCoordinate2D {
@@ -38,9 +46,13 @@ class WeatherViewController: UIViewController {
         return location
     }
 
-    private func addAnnotation(by location: CLLocationCoordinate2D) {
+    private func addAnnotation(by location: CLLocationCoordinate2D, temperature: String) {
         let annotation = MKPointAnnotation()
-        annotation.title = "weather"
+        if temperature != "" {
+            annotation.title = temperature + " °C"
+        } else {
+            annotation.title = temperature
+        }
         annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         mapView.addAnnotation(annotation)
     }
@@ -74,5 +86,12 @@ extension WeatherViewController: MKMapViewDelegate {
         print("did select")
         let detailsWeatherVC = DetailsWeatherViewController()
         self.navigationController?.pushViewController(detailsWeatherVC, animated: true)
+    }
+}
+
+extension WeatherViewController: WeatherViewProtocol {
+   func failure(error: Error) {
+        print("FAIL!!!")
+        print(error.localizedDescription)
     }
 }
