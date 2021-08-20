@@ -72,5 +72,7 @@ extension WeatherViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         print("did select")
+        let detailsWeatherVC = DetailsWeatherViewController()
+        self.navigationController?.pushViewController(detailsWeatherVC, animated: true)
     }
 }

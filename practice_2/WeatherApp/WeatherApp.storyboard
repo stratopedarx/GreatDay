@@ -56,6 +56,21 @@
             </objects>
             <point key="canvasLocation" x="-528.98550724637687" y="75.669642857142847"/>
         </scene>
+        <!--Details Weather View Controller-->
+        <scene sceneID="XK4-u6-AV0">
+            <objects>
+                <viewController storyboardIdentifier="DetailsWeatherViewController" id="dPO-Y9-Vgg" customClass="DetailsWeatherViewController" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Fj-mC-aBl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Uy2-YB-K4S"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6B1-5X-E0a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="381" y="76"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cloud.sun" catalog="system" width="128" height="93"/>
