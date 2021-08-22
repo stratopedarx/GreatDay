@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		890E58D326D2B1C50083CF60 /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890E58D226D2B1C50083CF60 /* WeatherInfo.swift */; };
 		8931C3232688D1B6009310AA /* TopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931C3222688D1B6009310AA /* TopTableViewCell.swift */; };
 		8931C3252688D1C7009310AA /* MiddleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931C3242688D1C7009310AA /* MiddleTableViewCell.swift */; };
 		8931C3272688D1D9009310AA /* BottomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931C3262688D1D9009310AA /* BottomTableViewCell.swift */; };
@@ -74,6 +75,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		890E58D226D2B1C50083CF60 /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
 		8931C3222688D1B6009310AA /* TopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTableViewCell.swift; sourceTree = "<group>"; };
 		8931C3242688D1C7009310AA /* MiddleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleTableViewCell.swift; sourceTree = "<group>"; };
 		8931C3262688D1D9009310AA /* BottomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTableViewCell.swift; sourceTree = "<group>"; };
@@ -153,6 +155,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		890E58D126D2B1A30083CF60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				890E58D226D2B1C50083CF60 /* WeatherInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8931C3212688D179009310AA /* cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +293,7 @@
 			children = (
 				89BE6D5726CD443E0054B5BC /* WeatherApp.storyboard */,
 				898D578926CFD5AC00416E68 /* Services */,
+				890E58D126D2B1A30083CF60 /* Model */,
 				898D579026CFF30800416E68 /* Presenter */,
 				898D578626CFCCA500416E68 /* VIew */,
 			);
@@ -673,6 +684,7 @@
 				89F903EA268875E000096068 /* ViewController.swift in Sources */,
 				89D0C70F26A1A28A008FA33F /* DetailHeroVC.swift in Sources */,
 				89D2136A26ADAE410019B40C /* DogBreeds.swift in Sources */,
+				890E58D326D2B1C50083CF60 /* WeatherInfo.swift in Sources */,
 				89D2134D26AD540B0019B40C /* AnimalsListViewContoller.swift in Sources */,
 				89D0C70C26A18955008FA33F /* HeroModel.swift in Sources */,
 				89AB269226A1F21B0053C771 /* DatabaseStack.swift in Sources */,
