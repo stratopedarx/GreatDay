@@ -36,8 +36,9 @@ class WeatherViewController: UIViewController {
 
     @objc func tapAnnotationAction(gestureRecognizer: UIGestureRecognizer) {
         let location = getLocation(from: gestureRecognizer)
-        self.presenter?.getTemperature(by: location, units: units)
-        addAnnotation(by: location, temperature: presenter?.temperature ?? "")
+        presenter?.fetchWeather(by: location, units: units)
+        let temperature = presenter?.weatherInfo?.temperature
+        addAnnotation(by: location, temperature: temperature)
     }
 
     private func getLocation(from gestureRecognizer: UIGestureRecognizer) -> CLLocationCoordinate2D {
@@ -46,12 +47,12 @@ class WeatherViewController: UIViewController {
         return location
     }
 
-    private func addAnnotation(by location: CLLocationCoordinate2D, temperature: String) {
+    private func addAnnotation(by location: CLLocationCoordinate2D, temperature: Double?) {
         let annotation = MKPointAnnotation()
-        if temperature != "" {
-            annotation.title = temperature + " °C"
+        if let temperature = temperature {
+            annotation.title = "\(temperature) °C"
         } else {
-            annotation.title = temperature
+            annotation.title = "\(temperature as Double?)"
         }
         annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         mapView.addAnnotation(annotation)
@@ -69,22 +70,16 @@ private extension MKMapView {
 
 // MARK: MKMapViewDelegate
 extension WeatherViewController: MKMapViewDelegate {
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
-//        annotationView.image = UIImage(systemName: "cloud.sun")
-//
-//        annotationView.canShowCallout = true
-//        return annotationView
-//    }
-
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
                  calloutAccessoryControlTapped control: UIControl) {
         print("22222222222")
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print("did select")
-        let detailsWeatherVC = DetailsWeatherViewController()
+        let storyboard = UIStoryboard(name: "WeatherApp", bundle: nil)
+        guard let detailsWeatherVC = storyboard.instantiateViewController(
+                identifier: "DetailsWeatherVC") as? DetailsWeatherViewController else { return }
+        detailsWeatherVC.weatherInfo = presenter?.weatherInfo
         self.navigationController?.pushViewController(detailsWeatherVC, animated: true)
     }
 }

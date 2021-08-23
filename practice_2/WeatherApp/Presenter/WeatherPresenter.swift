@@ -6,13 +6,13 @@ protocol WeatherViewProtocol: AnyObject {
 }
 
 protocol WeatherPresenterProtocol: AnyObject {
-    var temperature: String? { get set }
+    var weatherInfo: WeatherInfo? { get set }
     init(view: WeatherViewProtocol, networkService: WeatherNetworkServiceProtocol)
-    func getTemperature(by location: CLLocationCoordinate2D, units: String)
+    func fetchWeather(by location: CLLocationCoordinate2D, units: String)
 }
 
 class WeatherPresenter: WeatherPresenterProtocol {
-    var temperature: String?
+    var weatherInfo: WeatherInfo?
     weak var view: WeatherViewProtocol?
     let networkService: WeatherNetworkServiceProtocol
 
@@ -21,7 +21,7 @@ class WeatherPresenter: WeatherPresenterProtocol {
         self.networkService = networkService
     }
 
-    func getTemperature(by location: CLLocationCoordinate2D, units: String) {
+    func fetchWeather(by location: CLLocationCoordinate2D, units: String) {
         let group = DispatchGroup()
         group.enter()
         networkService.fetchWeather(
@@ -39,8 +39,24 @@ class WeatherPresenter: WeatherPresenterProtocol {
     }
 
     private func parseWeather(_ weather: Weather) {
-        if let main = weather.main, let temperature = main.temp {
-            self.temperature = String(temperature)
+        if let coord = weather.coord, let longitude = coord.lon, let latitude = coord.lat,
+           let weatherList = weather.weather, let weatherId = weatherList.first?.id,
+           let main = weather.main, let tempareture = main.temp, let feelsLikeTemperature = main.feelsLike,
+           let humidity = main.humidity, let pressure = main.pressure,
+           let wind = weather.wind, let windSpeed = wind.speed, let windDeg = wind.deg,
+           let cloudsBlock = weather.clouds, let cloudsAll = cloudsBlock.all {
+            self.weatherInfo = WeatherInfo(
+                weatherId: weatherId,
+                temperature: tempareture,
+                feelsLikeTemperature: feelsLikeTemperature,
+                humidity: humidity,
+                pressure: pressure,
+                latitude: latitude,
+                longitude: longitude,
+                windSpeed: windSpeed,
+                windDeg: windDeg,
+                cloudsAll: cloudsAll
+            )
         }
     }
 }
