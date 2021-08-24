@@ -28,6 +28,7 @@
 		898D578F26CFD68900416E68 /* WeatherNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898D578E26CFD68900416E68 /* WeatherNetworkService.swift */; };
 		898D579226CFF35700416E68 /* WeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898D579126CFF35700416E68 /* WeatherPresenter.swift */; };
 		898EAF4426C4DEAF000105DA /* CatImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EAF4326C4DEAF000105DA /* CatImages.swift */; };
+		898F612626D560CB00902C35 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F612526D560CB00902C35 /* LocationSearchTable.swift */; };
 		899078BB26C397FC00CE6B80 /* AnimalImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899078BA26C397FC00CE6B80 /* AnimalImageScrollView.swift */; };
 		899AC45526A1F029002EF867 /* StarWarsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 899AC45326A1F029002EF867 /* StarWarsDataModel.xcdatamodeld */; };
 		89A3DC4E26C5957A00FC2551 /* AnimalsDatabaseStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3DC4D26C5957A00FC2551 /* AnimalsDatabaseStack.swift */; };
@@ -97,6 +98,7 @@
 		898D578E26CFD68900416E68 /* WeatherNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetworkService.swift; sourceTree = "<group>"; };
 		898D579126CFF35700416E68 /* WeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenter.swift; sourceTree = "<group>"; };
 		898EAF4326C4DEAF000105DA /* CatImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImages.swift; sourceTree = "<group>"; };
+		898F612526D560CB00902C35 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		899078BA26C397FC00CE6B80 /* AnimalImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalImageScrollView.swift; sourceTree = "<group>"; };
 		899AC45426A1F029002EF867 /* StarWarsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StarWarsDataModel.xcdatamodel; sourceTree = "<group>"; };
 		89A3DC4D26C5957A00FC2551 /* AnimalsDatabaseStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsDatabaseStack.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				89BE6D5926CD4AEE0054B5BC /* WeatherViewController.swift */,
 				898D578726CFCD2400416E68 /* DetailsWeatherViewController.swift */,
 				897D8F6126D4AC270051631E /* SettingsViewController.swift */,
+				898F612526D560CB00902C35 /* LocationSearchTable.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				898D578D26CFD5FF00416E68 /* Weather.swift in Sources */,
 				894BD1F526BDA55500900929 /* AnimalsMiddleCell.swift in Sources */,
 				89F903E6268875E000096068 /* AppDelegate.swift in Sources */,
+				898F612626D560CB00902C35 /* LocationSearchTable.swift in Sources */,
 				8957C83A26C4362F0065CBA9 /* CatBreeds.swift in Sources */,
 				89DFF7B726BC439700B24280 /* ModuleBuilder.swift in Sources */,
 				894592D826A093670012B412 /* StarWarsVC.swift in Sources */,
