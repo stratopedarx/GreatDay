@@ -3,18 +3,17 @@ import MapKit
 
 let latitudeNN = 56.327395
 let longitudeNN = 44.003519
+let defaultUnits = (unit: "°C", urlUnits: "metric")
 
 class WeatherViewController: UIViewController {
 
     @IBOutlet private weak var mapView: MKMapView!
     var presenter: WeatherPresenterProtocol?
-    var units = "metric"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         mapView.delegate = self
-
         initLocation()
         initRecognizer()
     }
@@ -36,9 +35,22 @@ class WeatherViewController: UIViewController {
 
     @objc func tapAnnotationAction(gestureRecognizer: UIGestureRecognizer) {
         let location = getLocation(from: gestureRecognizer)
-        presenter?.fetchWeather(by: location, units: units)
+        let tempUnits = getTemperatureUnits()
+        presenter?.fetchWeather(by: location, units: tempUnits.urlUnits)
         let temperature = presenter?.weatherInfo?.temperature
-        addAnnotation(by: location, temperature: temperature)
+        addAnnotation(by: location, temperature: temperature, unit: tempUnits.unit)
+    }
+
+    private func getTemperatureUnits() -> (unit: String, urlUnits: String) {
+        if let unit = UserDefaults.standard.string(forKey: "temperutureUnit") {
+            if unit == "°C" {
+                return (unit: "°C", urlUnits: "metric")
+            } else {
+                return (unit: "°F", urlUnits: "imperial")
+            }
+        } else {
+            return defaultUnits
+        }
     }
 
     private func getLocation(from gestureRecognizer: UIGestureRecognizer) -> CLLocationCoordinate2D {
@@ -47,10 +59,10 @@ class WeatherViewController: UIViewController {
         return location
     }
 
-    private func addAnnotation(by location: CLLocationCoordinate2D, temperature: Double?) {
+    private func addAnnotation(by location: CLLocationCoordinate2D, temperature: Double?, unit: String) {
         let annotation = MKPointAnnotation()
         if let temperature = temperature {
-            annotation.title = "\(temperature) °C"
+            annotation.title = "\(temperature) \(unit)"
         } else {
             annotation.title = "\(temperature as Double?)"
         }

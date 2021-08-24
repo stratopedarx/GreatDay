@@ -47,7 +47,13 @@
                             <constraint firstItem="8VC-l4-H41" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="eIc-EC-zk1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hMP-dO-a8o"/>
+                    <navigationItem key="navigationItem" id="hMP-dO-a8o">
+                        <barButtonItem key="rightBarButtonItem" image="gearshape" catalog="system" id="CCa-JX-Hvz">
+                            <connections>
+                                <segue destination="Jnh-Bo-Yuv" kind="show" id="3dh-Bi-EVs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="8VC-l4-H41" id="GHk-62-6Ww"/>
                     </connections>
@@ -107,7 +113,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Uj-YX-Fhd">
-                                <rect key="frame" x="169" y="446" width="52" height="27"/>
+                                <rect key="frame" x="169" y="129" width="52" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -150,13 +156,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6B1-5X-E0a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="378.46153846153845" y="75.355450236966817"/>
+            <point key="canvasLocation" x="1503" y="75"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="s3H-Ng-hMs">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="Jnh-Bo-Yuv" customClass="SettingsViewController" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sdM-D8-gVd">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HD5-Hf-NER">
+                                <rect key="frame" x="259" y="125" width="121" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <segments>
+                                    <segment title="°C"/>
+                                    <segment title="°F"/>
+                                </segments>
+                                <connections>
+                                    <action selector="unitChanged:" destination="Jnh-Bo-Yuv" eventType="valueChanged" id="h1T-Ci-s8s"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKt-M7-FGX">
+                                <rect key="frame" x="10" y="129" width="111.33333333333331" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GtB-uN-S8Z"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SvN-HL-R2S"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fUQ-Mg-css" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="433.84615384615381" y="74.644549763033169"/>
         </scene>
     </scenes>
     <resources>
         <image name="cloud.sun" catalog="system" width="128" height="93"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

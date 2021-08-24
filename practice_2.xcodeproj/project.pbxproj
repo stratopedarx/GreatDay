@@ -20,6 +20,7 @@
 		894BD1F926BDAD6100900929 /* AnimalsMiddleCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894BD1F726BDAD6100900929 /* AnimalsMiddleCVCell.swift */; };
 		894BD1FA26BDAD6100900929 /* AnimalsMiddleCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 894BD1F826BDAD6100900929 /* AnimalsMiddleCVCell.xib */; };
 		8957C83A26C4362F0065CBA9 /* CatBreeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957C83926C4362F0065CBA9 /* CatBreeds.swift */; };
+		897D8F6226D4AC270051631E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897D8F6126D4AC270051631E /* SettingsViewController.swift */; };
 		897DC03226CA1E8200FDFAE5 /* AnimalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897DC03126CA1E8200FDFAE5 /* AnimalInfo.swift */; };
 		898650DF268CB37B00482BB6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898650DE268CB37B00482BB6 /* Model.swift */; };
 		898D578826CFCD2400416E68 /* DetailsWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898D578726CFCD2400416E68 /* DetailsWeatherViewController.swift */; };
@@ -88,6 +89,7 @@
 		894BD1F726BDAD6100900929 /* AnimalsMiddleCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsMiddleCVCell.swift; sourceTree = "<group>"; };
 		894BD1F826BDAD6100900929 /* AnimalsMiddleCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalsMiddleCVCell.xib; sourceTree = "<group>"; };
 		8957C83926C4362F0065CBA9 /* CatBreeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreeds.swift; sourceTree = "<group>"; };
+		897D8F6126D4AC270051631E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		897DC03126CA1E8200FDFAE5 /* AnimalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalInfo.swift; sourceTree = "<group>"; };
 		898650DE268CB37B00482BB6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		898D578726CFCD2400416E68 /* DetailsWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWeatherViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			children = (
 				89BE6D5926CD4AEE0054B5BC /* WeatherViewController.swift */,
 				898D578726CFCD2400416E68 /* DetailsWeatherViewController.swift */,
+				897D8F6126D4AC270051631E /* SettingsViewController.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				89DFF7B726BC439700B24280 /* ModuleBuilder.swift in Sources */,
 				894592D826A093670012B412 /* StarWarsVC.swift in Sources */,
 				898EAF4426C4DEAF000105DA /* CatImages.swift in Sources */,
+				897D8F6226D4AC270051631E /* SettingsViewController.swift in Sources */,
 				89D2136026ADA6230019B40C /* AnimalsListPresenter.swift in Sources */,
 				898D579226CFF35700416E68 /* WeatherPresenter.swift in Sources */,
 				89F903E8268875E000096068 /* SceneDelegate.swift in Sources */,

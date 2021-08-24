@@ -19,9 +19,10 @@ class DetailsWeatherViewController: UIViewController {
     }
 
     private func setUp() {
+        let unit = getUnit()
         if let info = self.weatherInfo {
-            temperatureLabel.text = "Temperature: \(info.temperature)°"
-            feelsLikeTemperatureLabel.text = "Feels like: \(info.feelsLikeTemperature)°"
+            temperatureLabel.text = "Temperature: \(info.temperature) \(unit)"
+            feelsLikeTemperatureLabel.text = "Feels like: \(info.feelsLikeTemperature) \(unit)"
             humidityLabel.text = "Humidity: \(info.humidity)%"
             pressureLabel.text = "Pressure: \(info.pressure) in"
             windSpeedLabel.text = "Wind speed: \(info.windSpeed) m/s"
@@ -29,5 +30,12 @@ class DetailsWeatherViewController: UIViewController {
             cloudsAllLabel.text = "Cloudness: \(info.cloudsAll)%"
             weatherImage.image = UIImage(systemName: info.weatherImage)
         }
+    }
+
+    private func getUnit() -> String {
+        if let unit = UserDefaults.standard.string(forKey: "temperutureUnit") {
+            return unit
+        }
+        return defaultUnits.unit
     }
 }
