@@ -234,6 +234,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="SvN-HL-R2S"/>
+                    <connections>
+                        <outlet property="unitSegment" destination="HD5-Hf-NER" id="CeL-gR-d4w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUQ-Mg-css" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
