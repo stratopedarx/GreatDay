@@ -74,6 +74,7 @@
 		89F903ED268875E000096068 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F903EB268875E000096068 /* Main.storyboard */; };
 		89F903EF268875E100096068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F903EE268875E100096068 /* Assets.xcassets */; };
 		89F903F2268875E100096068 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F903F0268875E100096068 /* LaunchScreen.storyboard */; };
+		89FAF80C26D60448009B7461 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FAF80B26D60448009B7461 /* Forecast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -146,6 +147,7 @@
 		89F903EE268875E100096068 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89F903F1268875E100096068 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89F903F3268875E100096068 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89FAF80B26D60448009B7461 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				898D578C26CFD5FF00416E68 /* Weather.swift */,
+				89FAF80B26D60448009B7461 /* Forecast.swift */,
 			);
 			path = ApiModels;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				8931C3232688D1B6009310AA /* TopTableViewCell.swift in Sources */,
 				89D0C70A26A16748008FA33F /* SWHero.swift in Sources */,
 				894BD1F926BDAD6100900929 /* AnimalsMiddleCVCell.swift in Sources */,
+				89FAF80C26D60448009B7461 /* Forecast.swift in Sources */,
 				894592DA26A098E60012B412 /* HeroCell.swift in Sources */,
 				89AB269526A1F53C0053C771 /* DatabaseService.swift in Sources */,
 				89DD673126B047C8009AC456 /* DogRandomImage.swift in Sources */,

@@ -4,6 +4,8 @@ import CoreLocation
 protocol WeatherNetworkServiceProtocol {
     func fetchWeather(latitude: CLLocationDegrees, longtitude: CLLocationDegrees, units: String,
                       completion: @escaping (Result<Weather, Error>) -> Void)
+    func fetchForecast(latitude: CLLocationDegrees, longtitude: CLLocationDegrees, units: String,
+                       completion: @escaping (Result<Forecast, Error>) -> Void)
 }
 
 enum WeatherApiType {
@@ -11,10 +13,11 @@ enum WeatherApiType {
     private static let apiKey = "c64b9be891024003e21d85eb99c06ba0"
 
     case fetchWeather
+    case fetchForecast
 
     var host: String {
         switch self {
-        case .fetchWeather:
+        case .fetchWeather, .fetchForecast:
             return "api.openweathermap.org"
         }
     }
@@ -22,6 +25,8 @@ enum WeatherApiType {
         switch self {
         case .fetchWeather:
             return "/data/2.5/weather"
+        case .fetchForecast:
+            return "/data/2.5/onecall"
         }
     }
 
@@ -39,7 +44,18 @@ enum WeatherApiType {
                 URLQueryItem(name: "appid", value: WeatherApiType.apiKey)
             ]
         }
+
+        if self == .fetchForecast {
+            if let exclude = params?["exclude"] {
+                urlComponents.queryItems?.append(URLQueryItem(name: "exclude", value: exclude))
+            } else {
+                urlComponents.queryItems?.append(
+                    URLQueryItem(name: "exclude", value: "current,minutely,hourly,alerts"))
+            }
+        }
+
         if let url = urlComponents.url {
+            print(url.absoluteString)
             return URL(string: url.absoluteString)
         }
         return nil
@@ -57,7 +73,7 @@ enum WeatherApiType {
     func getRequest(params: [String: String]?) -> URLRequest {
         var request = makeURLRequest(params: params)
         switch self {
-        case .fetchWeather:
+        case .fetchWeather, .fetchForecast:
             request.httpMethod = "GET"
             return request
         }
@@ -81,6 +97,23 @@ class WeatherNetworkService: ApiManager, WeatherNetworkServiceProtocol {
             }
         }
         print("requesting fetchWeather")
+        task.resume()
+    }
+
+    func fetchForecast(latitude: CLLocationDegrees, longtitude: CLLocationDegrees, units: String,
+                       completion: @escaping (Result<Forecast, Error>) -> Void) {
+        let params = ["latitude": String(latitude), "longtitude": String(longtitude), "units": units]
+        let request = WeatherApiType.fetchWeather.getRequest(params: params)
+        let task = URLSession(configuration: configuration).dataTask(with: request) { data, _, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data, let forecast = try? JSONDecoder().decode(Forecast.self, from: data) {
+                completion(.success(forecast))
+            }
+        }
+        print("requesting fetchForecast")
         task.resume()
     }
 }
