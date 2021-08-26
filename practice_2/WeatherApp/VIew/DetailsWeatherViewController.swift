@@ -1,9 +1,10 @@
 import UIKit
 
 class DetailsWeatherViewController: UIViewController {
-    var weatherInfo: WeatherInfo?
+    var weather: Weather?
+    var forecastInfo: Forecast?
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var temperatureLabel: UILabel!
     @IBOutlet private weak var feelsLikeTemperatureLabel: UILabel!
     @IBOutlet private weak var humidityLabel: UILabel!
@@ -20,7 +21,7 @@ class DetailsWeatherViewController: UIViewController {
 
     private func setUp() {
         let unit = getUnit()
-        if let info = self.weatherInfo {
+        if let info = self.weather {
             temperatureLabel.text = "Temperature: \(info.temperature) \(unit)"
             feelsLikeTemperatureLabel.text = "Feels like: \(info.feelsLikeTemperature) \(unit)"
             humidityLabel.text = "Humidity: \(info.humidity)%"

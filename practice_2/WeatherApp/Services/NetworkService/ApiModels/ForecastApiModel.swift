@@ -1,7 +1,7 @@
 import Foundation
 
 // MARK: - Forecast
-struct Forecast: Codable {
+struct ForecastApiModel: Codable {
     let lat, lon: Double?
     let timezone: String?
     let timezoneOffset: Int?
@@ -26,8 +26,8 @@ struct Daily: Codable {
     let windDeg: Int?
     let windGust: Double?
     let weather: [WeatherApiInfo]?
-    let clouds, pop: Int?
-    let uvi, rain: Double?
+    let clouds: Int?
+    let pop, rain, uvi: Double?
 
     enum CodingKeys: String, CodingKey {
         case dt, sunrise, sunset, moonrise, moonset
@@ -39,7 +39,7 @@ struct Daily: Codable {
         case windSpeed = "wind_speed"
         case windDeg = "wind_deg"
         case windGust = "wind_gust"
-        case weather, clouds, pop, uvi, rain
+        case weather, clouds, pop, rain, uvi
     }
 }
 

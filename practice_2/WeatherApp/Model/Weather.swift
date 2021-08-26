@@ -1,6 +1,6 @@
 import Foundation
 
-struct WeatherInfo {
+struct Weather {
     let weatherId: Int
     let temperature: Double
     let feelsLikeTemperature: Double

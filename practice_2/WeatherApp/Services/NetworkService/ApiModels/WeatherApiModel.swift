@@ -1,7 +1,7 @@
 import Foundation
 
 // MARK: - Weather
-struct Weather: Codable {
+struct WeatherApiModel: Codable {
     let coord: Coord?
     let weather: [WeatherElement]?
     let base: String?

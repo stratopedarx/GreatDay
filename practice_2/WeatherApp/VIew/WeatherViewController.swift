@@ -58,7 +58,8 @@ class WeatherViewController: UIViewController {
         let location = getLocation(from: gestureRecognizer)
         let tempUnits = getTemperatureUnits()
         presenter?.fetchWeather(by: location, units: tempUnits.urlUnits)
-        let temperature = presenter?.weatherInfo?.temperature
+        presenter?.fetchForecast(by: location, units: tempUnits.urlUnits)
+        let temperature = presenter?.weather?.temperature
         addAnnotation(by: location, temperature: temperature, unit: tempUnits.unit)
     }
 
@@ -108,7 +109,8 @@ extension WeatherViewController: MKMapViewDelegate {
         let storyboard = UIStoryboard(name: "WeatherApp", bundle: nil)
         guard let detailsWeatherVC = storyboard.instantiateViewController(
                 identifier: "DetailsWeatherVC") as? DetailsWeatherViewController else { return }
-        detailsWeatherVC.weatherInfo = presenter?.weatherInfo
+        detailsWeatherVC.weather = presenter?.weather
+        detailsWeatherVC.forecastInfo = presenter?.forecastInfo
         self.navigationController?.pushViewController(detailsWeatherVC, animated: true)
     }
 }
