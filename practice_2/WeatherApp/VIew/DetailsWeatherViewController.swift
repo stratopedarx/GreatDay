@@ -2,7 +2,8 @@ import UIKit
 
 class DetailsWeatherViewController: UIViewController {
     var weather: Weather?
-    var forecastInfo: Forecast?
+    var forecastDays = [Forecast?]()
+    var unit: String = defaultUnits.unit
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var temperatureLabel: UILabel!
@@ -16,11 +17,12 @@ class DetailsWeatherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
         setUp()
     }
 
     private func setUp() {
-        let unit = getUnit()
+        unit = getUnit()
         if let info = self.weather {
             temperatureLabel.text = "Temperature: \(info.temperature) \(unit)"
             feelsLikeTemperatureLabel.text = "Feels like: \(info.feelsLikeTemperature) \(unit)"
@@ -38,5 +40,25 @@ class DetailsWeatherViewController: UIViewController {
             return unit
         }
         return defaultUnits.unit
+    }
+}
+
+// MARK: UITableViewDataSource
+extension DetailsWeatherViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        forecastDays.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(
+            withIdentifier: ForecastCell.identifier, for: indexPath) as? ForecastCell {
+            if let forecast = forecastDays[indexPath.row] {
+                cell.configure(by: forecast, unit: unit)
+            }
+            return cell
+        } else {
+            print("Can`t create the cell ForecastCell")
+            return UITableViewCell()
+        }
     }
 }

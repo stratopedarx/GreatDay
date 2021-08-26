@@ -55,6 +55,7 @@
 		89D2136A26ADAE410019B40C /* DogBreeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2136926ADAE410019B40C /* DogBreeds.swift */; };
 		89D2136C26ADB0C70019B40C /* DogImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2136B26ADB0C70019B40C /* DogImages.swift */; };
 		89D6503A26C308F30068A0B3 /* FullScreenBreedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D6503926C308F30068A0B3 /* FullScreenBreedViewController.swift */; };
+		89D9BCB826D76E5B00E748D1 /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D9BCB726D76E5B00E748D1 /* ForecastCell.swift */; };
 		89DD673126B047C8009AC456 /* DogRandomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DD673026B047C8009AC456 /* DogRandomImage.swift */; };
 		89DFF7B026BC3FAD00B24280 /* DetailsBreedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DFF7AE26BC3FAD00B24280 /* DetailsBreedViewController.swift */; };
 		89DFF7B526BC409200B24280 /* DetailsBreedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DFF7B426BC409200B24280 /* DetailsBreedPresenter.swift */; };
@@ -127,6 +128,7 @@
 		89D2136926ADAE410019B40C /* DogBreeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreeds.swift; sourceTree = "<group>"; };
 		89D2136B26ADB0C70019B40C /* DogImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImages.swift; sourceTree = "<group>"; };
 		89D6503926C308F30068A0B3 /* FullScreenBreedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenBreedViewController.swift; sourceTree = "<group>"; };
+		89D9BCB726D76E5B00E748D1 /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
 		89DD673026B047C8009AC456 /* DogRandomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogRandomImage.swift; sourceTree = "<group>"; };
 		89DFF7AE26BC3FAD00B24280 /* DetailsBreedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsBreedViewController.swift; sourceTree = "<group>"; };
 		89DFF7B426BC409200B24280 /* DetailsBreedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsBreedPresenter.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 		898D578626CFCCA500416E68 /* VIew */ = {
 			isa = PBXGroup;
 			children = (
+				89D9BCB626D76E3200E748D1 /* Cell */,
 				89BE6D5926CD4AEE0054B5BC /* WeatherViewController.swift */,
 				898D578726CFCD2400416E68 /* DetailsWeatherViewController.swift */,
 				897D8F6126D4AC270051631E /* SettingsViewController.swift */,
@@ -437,6 +440,14 @@
 				8957C83726C40EAA0065CBA9 /* DogApi */,
 			);
 			path = ApiModels;
+			sourceTree = "<group>";
+		};
+		89D9BCB626D76E3200E748D1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				89D9BCB726D76E5B00E748D1 /* ForecastCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		89DFF7AB26BC3ED200B24280 /* DetailsBreedModule */ = {
@@ -685,6 +696,7 @@
 				89E5EEFC26891137002120C9 /* RandomImage.swift in Sources */,
 				89DFF7B026BC3FAD00B24280 /* DetailsBreedViewController.swift in Sources */,
 				8931C3232688D1B6009310AA /* TopTableViewCell.swift in Sources */,
+				89D9BCB826D76E5B00E748D1 /* ForecastCell.swift in Sources */,
 				89D0C70A26A16748008FA33F /* SWHero.swift in Sources */,
 				894BD1F926BDAD6100900929 /* AnimalsMiddleCVCell.swift in Sources */,
 				89FAF80C26D60448009B7461 /* ForecastApiModel.swift in Sources */,

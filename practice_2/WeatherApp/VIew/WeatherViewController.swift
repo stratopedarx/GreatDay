@@ -110,7 +110,9 @@ extension WeatherViewController: MKMapViewDelegate {
         guard let detailsWeatherVC = storyboard.instantiateViewController(
                 identifier: "DetailsWeatherVC") as? DetailsWeatherViewController else { return }
         detailsWeatherVC.weather = presenter?.weather
-        detailsWeatherVC.forecastInfo = presenter?.forecastInfo
+        if let forecastDays = presenter?.forecastDays {
+            detailsWeatherVC.forecastDays = forecastDays
+        }
         self.navigationController?.pushViewController(detailsWeatherVC, animated: true)
     }
 }

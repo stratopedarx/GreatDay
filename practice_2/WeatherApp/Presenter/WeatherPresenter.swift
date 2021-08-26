@@ -7,7 +7,7 @@ protocol WeatherViewProtocol: AnyObject {
 
 protocol WeatherPresenterProtocol: AnyObject {
     var weather: Weather? { get set }
-    var forecastInfo: Forecast? { get set }
+    var forecastDays: [Forecast?] { get set }
     init(view: WeatherViewProtocol, networkService: WeatherNetworkServiceProtocol)
     func fetchWeather(by location: CLLocationCoordinate2D, units: String)
     func fetchForecast(by location: CLLocationCoordinate2D, units: String)
@@ -15,7 +15,7 @@ protocol WeatherPresenterProtocol: AnyObject {
 
 class WeatherPresenter: WeatherPresenterProtocol {
     var weather: Weather?
-    var forecastInfo: Forecast?
+    var forecastDays = [Forecast?]()
     weak var view: WeatherViewProtocol?
     let networkService: WeatherNetworkServiceProtocol
 
@@ -44,13 +44,13 @@ extension WeatherPresenter {
         group.wait()
     }
 
-    private func parseWeather(_ weather: WeatherApiModel) {
-        if let coord = weather.coord, let longitude = coord.lon, let latitude = coord.lat,
-           let weatherList = weather.weather, let weatherId = weatherList.first?.id,
-           let main = weather.main, let tempareture = main.temp, let feelsLikeTemperature = main.feelsLike,
+    private func parseWeather(_ weatherApi: WeatherApiModel) {
+        if let coord = weatherApi.coord, let longitude = coord.lon, let latitude = coord.lat,
+           let weatherList = weatherApi.weather, let weatherId = weatherList.first?.id,
+           let main = weatherApi.main, let tempareture = main.temp, let feelsLikeTemperature = main.feelsLike,
            let humidity = main.humidity, let pressure = main.pressure,
-           let wind = weather.wind, let windSpeed = wind.speed, let windDeg = wind.deg,
-           let cloudsBlock = weather.clouds, let cloudsAll = cloudsBlock.all {
+           let wind = weatherApi.wind, let windSpeed = wind.speed, let windDeg = wind.deg,
+           let cloudsBlock = weatherApi.clouds, let cloudsAll = cloudsBlock.all {
             self.weather = Weather(
                 weatherId: weatherId,
                 temperature: tempareture,
@@ -82,14 +82,13 @@ extension WeatherPresenter {
         }
     }
 
-    private func parseForecast(_ forecast: ForecastApiModel) {
-        var forecastInfo = Forecast()
-        if let days = forecast.daily {
+    private func parseForecast(_ forecastApiModel: ForecastApiModel) {
+        forecastDays = []
+        if let days = forecastApiModel.daily {
             for day in days {
-                forecastInfo.unixtime.append(day.dt)
-                forecastInfo.temperature.append(day.temp?.day)
+                forecastDays.append(Forecast(unixtime: day.dt, temperature: day.temp?.day))
+
             }
         }
-        self.forecastInfo = forecastInfo
     }
 }

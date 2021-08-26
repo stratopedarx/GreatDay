@@ -160,6 +160,41 @@
                                 <rect key="frame" x="169" y="129" width="52" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ClZ-zp-mit">
+                                <rect key="frame" x="0.0" y="391.66666666666674" width="390" height="452.33333333333326"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="forecastCell" id="Cyj-wE-kWJ" customClass="ForecastCell" customModule="practice_2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cyj-wE-kWJ" id="SMO-Og-mlo">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJ6-F0-nsB">
+                                                    <rect key="frame" x="20" y="10" width="172" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFh-DY-9c5">
+                                                    <rect key="frame" x="195" y="10.999999364217047" width="172" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.89663772119999996" green="1" blue="0.94875835480000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="RJ6-F0-nsB" id="OjE-7H-lHF"/>
+                                            <outlet property="temperatureLabel" destination="fFh-DY-9c5" id="qLA-TX-EGt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Uy2-YB-K4S"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -168,9 +203,12 @@
                             <constraint firstItem="Uy2-YB-K4S" firstAttribute="trailing" secondItem="acc-fk-ZjO" secondAttribute="trailing" constant="20" id="3aX-5g-Eqo"/>
                             <constraint firstItem="Ouv-YH-KV2" firstAttribute="leading" secondItem="Uy2-YB-K4S" secondAttribute="leading" constant="20" id="3tv-Hs-Q0e"/>
                             <constraint firstItem="p8J-J9-D1b" firstAttribute="top" secondItem="Nac-Zg-dg7" secondAttribute="bottom" constant="17" id="7jU-2h-X9K"/>
+                            <constraint firstItem="ClZ-zp-mit" firstAttribute="top" secondItem="p8J-J9-D1b" secondAttribute="bottom" constant="17" id="7x7-uN-go2"/>
                             <constraint firstItem="Uy2-YB-K4S" firstAttribute="trailing" secondItem="iTU-Fm-KIh" secondAttribute="trailing" constant="20" id="8JR-Ic-NYS"/>
                             <constraint firstItem="qBe-UZ-a9N" firstAttribute="leading" secondItem="Uy2-YB-K4S" secondAttribute="leading" constant="20" id="Bf9-9P-Opy"/>
+                            <constraint firstAttribute="bottom" secondItem="ClZ-zp-mit" secondAttribute="bottom" id="BfK-q9-dNZ"/>
                             <constraint firstItem="292-FV-4Hh" firstAttribute="leading" secondItem="Uy2-YB-K4S" secondAttribute="leading" constant="20" id="C4s-NW-iMf"/>
+                            <constraint firstItem="ClZ-zp-mit" firstAttribute="leading" secondItem="Uy2-YB-K4S" secondAttribute="leading" id="CZg-Pj-PwE"/>
                             <constraint firstItem="acc-fk-ZjO" firstAttribute="leading" secondItem="Uy2-YB-K4S" secondAttribute="leading" constant="20" id="EMb-13-wPs"/>
                             <constraint firstItem="iTU-Fm-KIh" firstAttribute="top" secondItem="Ouv-YH-KV2" secondAttribute="bottom" constant="17" id="K4D-Ej-ewP"/>
                             <constraint firstItem="acc-fk-ZjO" firstAttribute="top" secondItem="292-FV-4Hh" secondAttribute="bottom" constant="17" id="Ooy-3M-ajW"/>
@@ -184,6 +222,7 @@
                             <constraint firstItem="Uy2-YB-K4S" firstAttribute="trailing" secondItem="292-FV-4Hh" secondAttribute="trailing" constant="20" id="qFg-x4-03t"/>
                             <constraint firstItem="qBe-UZ-a9N" firstAttribute="top" secondItem="Uy2-YB-K4S" secondAttribute="top" constant="83" id="qXt-LR-IKk"/>
                             <constraint firstItem="Uy2-YB-K4S" firstAttribute="trailing" secondItem="p8J-J9-D1b" secondAttribute="trailing" constant="20" id="rcb-Nn-Eox"/>
+                            <constraint firstItem="ClZ-zp-mit" firstAttribute="trailing" secondItem="Uy2-YB-K4S" secondAttribute="trailing" id="v8L-Vw-NJw"/>
                             <constraint firstItem="Nac-Zg-dg7" firstAttribute="leading" secondItem="Uy2-YB-K4S" secondAttribute="leading" constant="20" id="yRQ-ZD-nfy"/>
                         </constraints>
                     </view>
@@ -192,6 +231,7 @@
                         <outlet property="feelsLikeTemperatureLabel" destination="Ouv-YH-KV2" id="4s9-Qm-ihs"/>
                         <outlet property="humidityLabel" destination="iTU-Fm-KIh" id="WcC-Rf-zZQ"/>
                         <outlet property="pressureLabel" destination="292-FV-4Hh" id="mux-9n-p8t"/>
+                        <outlet property="tableView" destination="ClZ-zp-mit" id="2Wv-9g-JSc"/>
                         <outlet property="temperatureLabel" destination="qBe-UZ-a9N" id="J6I-pq-op9"/>
                         <outlet property="weatherImage" destination="4Uj-YX-Fhd" id="oMw-iC-d0d"/>
                         <outlet property="windDegLabel" destination="Nac-Zg-dg7" id="JW3-4f-jfB"/>
@@ -200,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6B1-5X-E0a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1503" y="75"/>
+            <point key="canvasLocation" x="1501.5384615384614" y="74.644549763033169"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="s3H-Ng-hMs">
