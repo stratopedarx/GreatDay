@@ -3,9 +3,16 @@ import UIKit
 class NewsCollectionViewController: UICollectionViewController {
     private let itemsPerRow: CGFloat = 2
     private let sectionInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    var presenter: NewsPresenterProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+
+    private func setup() {
+        let networkService = NewsNetworkService.sharedNews
+        self.presenter = NewsPresenter(view: self, networkService: networkService)
     }
 
     // MARK: UICollectionViewDataSource
@@ -59,5 +66,13 @@ extension NewsCollectionViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+}
+
+// MARK: NewsViewProtocol
+extension NewsCollectionViewController: NewsViewProtocol {
+   func failure(error: Error) {
+        print("FAIL!!!")
+        print(error.localizedDescription)
     }
 }
