@@ -11,6 +11,8 @@
 		8931C3232688D1B6009310AA /* TopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931C3222688D1B6009310AA /* TopTableViewCell.swift */; };
 		8931C3252688D1C7009310AA /* MiddleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931C3242688D1C7009310AA /* MiddleTableViewCell.swift */; };
 		8931C3272688D1D9009310AA /* BottomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931C3262688D1D9009310AA /* BottomTableViewCell.swift */; };
+		89415C0826DE499600EBFACE /* NewsApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89415C0726DE499600EBFACE /* NewsApp.storyboard */; };
+		89415C0A26DE4ADB00EBFACE /* NewsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89415C0926DE4ADB00EBFACE /* NewsCollectionViewController.swift */; };
 		894592D326A086E80012B412 /* DogApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894592D226A086E80012B412 /* DogApp.storyboard */; };
 		894592D626A089820012B412 /* StarWars.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894592D526A089820012B412 /* StarWars.storyboard */; };
 		894592D826A093670012B412 /* StarWarsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894592D726A093670012B412 /* StarWarsVC.swift */; };
@@ -20,6 +22,7 @@
 		894BD1F926BDAD6100900929 /* AnimalsMiddleCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894BD1F726BDAD6100900929 /* AnimalsMiddleCVCell.swift */; };
 		894BD1FA26BDAD6100900929 /* AnimalsMiddleCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 894BD1F826BDAD6100900929 /* AnimalsMiddleCVCell.xib */; };
 		8957C83A26C4362F0065CBA9 /* CatBreeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8957C83926C4362F0065CBA9 /* CatBreeds.swift */; };
+		8970DDB626DE9066007B6D3F /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8970DDB526DE9066007B6D3F /* NewsCell.swift */; };
 		897D8F6226D4AC270051631E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897D8F6126D4AC270051631E /* SettingsViewController.swift */; };
 		897DC03226CA1E8200FDFAE5 /* AnimalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897DC03126CA1E8200FDFAE5 /* AnimalInfo.swift */; };
 		898650DF268CB37B00482BB6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898650DE268CB37B00482BB6 /* Model.swift */; };
@@ -84,6 +87,8 @@
 		8931C3222688D1B6009310AA /* TopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTableViewCell.swift; sourceTree = "<group>"; };
 		8931C3242688D1C7009310AA /* MiddleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleTableViewCell.swift; sourceTree = "<group>"; };
 		8931C3262688D1D9009310AA /* BottomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTableViewCell.swift; sourceTree = "<group>"; };
+		89415C0726DE499600EBFACE /* NewsApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsApp.storyboard; sourceTree = "<group>"; };
+		89415C0926DE4ADB00EBFACE /* NewsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewController.swift; sourceTree = "<group>"; };
 		894592D226A086E80012B412 /* DogApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DogApp.storyboard; sourceTree = "<group>"; };
 		894592D526A089820012B412 /* StarWars.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StarWars.storyboard; sourceTree = "<group>"; };
 		894592D726A093670012B412 /* StarWarsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsVC.swift; sourceTree = "<group>"; };
@@ -93,6 +98,7 @@
 		894BD1F726BDAD6100900929 /* AnimalsMiddleCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsMiddleCVCell.swift; sourceTree = "<group>"; };
 		894BD1F826BDAD6100900929 /* AnimalsMiddleCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalsMiddleCVCell.xib; sourceTree = "<group>"; };
 		8957C83926C4362F0065CBA9 /* CatBreeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreeds.swift; sourceTree = "<group>"; };
+		8970DDB526DE9066007B6D3F /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		897D8F6126D4AC270051631E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		897DC03126CA1E8200FDFAE5 /* AnimalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalInfo.swift; sourceTree = "<group>"; };
 		898650DE268CB37B00482BB6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -185,6 +191,48 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		89415C0126DE491C00EBFACE /* NewsApp */ = {
+			isa = PBXGroup;
+			children = (
+				89415C0726DE499600EBFACE /* NewsApp.storyboard */,
+				89415C0226DE493800EBFACE /* Services */,
+				89415C0426DE495800EBFACE /* Model */,
+				89415C0526DE496900EBFACE /* View */,
+				89415C0626DE497A00EBFACE /* Presenter */,
+			);
+			path = NewsApp;
+			sourceTree = "<group>";
+		};
+		89415C0226DE493800EBFACE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		89415C0426DE495800EBFACE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		89415C0526DE496900EBFACE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8970DDB426DE903E007B6D3F /* Cells */,
+				89415C0926DE4ADB00EBFACE /* NewsCollectionViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		89415C0626DE497A00EBFACE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		894592D026A084920012B412 /* DogApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +275,14 @@
 				898EAF4326C4DEAF000105DA /* CatImages.swift */,
 			);
 			path = CatApi;
+			sourceTree = "<group>";
+		};
+		8970DDB426DE903E007B6D3F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8970DDB526DE9066007B6D3F /* NewsCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		898D578626CFCCA500416E68 /* VIew */ = {
@@ -583,6 +639,7 @@
 				894592D426A089570012B412 /* StarWarsApp */,
 				89D2134626AD527A0019B40C /* AnimalsApp */,
 				89BE6D5626CD43E90054B5BC /* WeatherApp */,
+				89415C0126DE491C00EBFACE /* NewsApp */,
 			);
 			path = practice_2;
 			sourceTree = "<group>";
@@ -648,6 +705,7 @@
 				89F903F2268875E100096068 /* LaunchScreen.storyboard in Resources */,
 				89BE6D5826CD443E0054B5BC /* WeatherApp.storyboard in Resources */,
 				89F903EF268875E100096068 /* Assets.xcassets in Resources */,
+				89415C0826DE499600EBFACE /* NewsApp.storyboard in Resources */,
 				894BD1FA26BDAD6100900929 /* AnimalsMiddleCVCell.xib in Resources */,
 				894BD1F626BDA55500900929 /* AnimalsMiddleCell.xib in Resources */,
 				89D2135526AD5FCD0019B40C /* AnimalsTopCell.xib in Resources */,
@@ -708,6 +766,7 @@
 				89D0C70026A157BF008FA33F /* Alert.swift in Sources */,
 				89F903EA268875E000096068 /* ViewController.swift in Sources */,
 				89D0C70F26A1A28A008FA33F /* DetailHeroVC.swift in Sources */,
+				89415C0A26DE4ADB00EBFACE /* NewsCollectionViewController.swift in Sources */,
 				89D2136A26ADAE410019B40C /* DogBreeds.swift in Sources */,
 				890E58D326D2B1C50083CF60 /* Weather.swift in Sources */,
 				89D2134D26AD540B0019B40C /* AnimalsListViewContoller.swift in Sources */,
@@ -746,6 +805,7 @@
 				89AB269726A1FAC70053C771 /* DefaultDatabaseService.swift in Sources */,
 				89DFF7B526BC409200B24280 /* DetailsBreedPresenter.swift in Sources */,
 				897DC03226CA1E8200FDFAE5 /* AnimalInfo.swift in Sources */,
+				8970DDB626DE9066007B6D3F /* NewsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
