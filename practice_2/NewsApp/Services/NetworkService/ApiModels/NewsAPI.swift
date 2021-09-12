@@ -5,8 +5,8 @@
 
 import Foundation
 
-// MARK: - TopNewsAPI
-struct TopNewsAPI: Codable {
+// MARK: - NewsAPI
+struct NewsAPI: Codable {
     let status: String?
     let totalResults: Int?
     let articles: [Article]?

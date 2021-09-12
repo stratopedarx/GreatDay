@@ -84,6 +84,27 @@ extension NewsCollectionViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: UISearchBarDelegate
+extension NewsCollectionViewController: UISearchBarDelegate {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 viewForSupplementaryElementOfKind kind: String,
+                                 at indexPath: IndexPath) -> UICollectionReusableView {
+        let searchView = collectionView.dequeueReusableSupplementaryView(
+            ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "searchBar", for: indexPath)
+
+        return searchView
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let keyword = searchBar.text {
+            presenter?.fetchArticles(by: keyword)
+            if presenter?.topArticles.count != 0 {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+}
+
 // MARK: NewsViewProtocol
 extension NewsCollectionViewController: NewsViewProtocol {
    func failure(error: Error) {

@@ -8,7 +8,11 @@ class NewsCell: UICollectionViewCell {
 
     func configure() {
         guard let article = article else { return }
-        newsTitleLabel.text = article.title[0...35] + "..."
+        let numberOfCharactersInLine = 35
+        let title = article.title.count > numberOfCharactersInLine ?
+            "\(article.title[0...numberOfCharactersInLine])..." : article.title
+
+        newsTitleLabel.text = title
         if let url = URL(string: article.urlToImage) {
             newsImage.load(url: url)
         } else {

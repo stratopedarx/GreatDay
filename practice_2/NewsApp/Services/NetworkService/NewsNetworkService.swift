@@ -1,7 +1,10 @@
 import Foundation
 
+let daysInWeek = 7  // news for the last 7 days
+
 protocol NewsNetworkServiceProtocol {
-    func fetchTopNews(country: String, completion: @escaping (Result<TopNewsAPI, Error>) -> Void)
+    func fetchTopNews(country: String, completion: @escaping (Result<NewsAPI, Error>) -> Void)
+    func fetchArticles(by keyword: String, completion: @escaping (Result<NewsAPI, Error>) -> Void)
 }
 
 enum NewsApiType {
@@ -9,11 +12,11 @@ enum NewsApiType {
     private static let apiKey = "4808c54b823e41a69ac812420555cf96"
 
     case fetchTopNews
-//    case fetchForecast
+    case fetchArticles
 
     var host: String {
         switch self {
-        case .fetchTopNews:
+        case .fetchTopNews, .fetchArticles:
             return "newsapi.org"
         }
     }
@@ -21,9 +24,19 @@ enum NewsApiType {
         switch self {
         case .fetchTopNews:
             return "/v2/top-headlines"
-//        case .fetchForecast:
-//            return "/data/2.5/onecall"
+        case .fetchArticles:
+            return "/v2/everything"
         }
+    }
+
+    private func getDate() -> String {
+        guard let date = Calendar.current.date(byAdding: .day, value: -daysInWeek, to: Date())
+        else { return "2021-01-01" }
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let dateString = formatter.string(from: date)
+        return dateString
     }
 
     private func createUrl(params: [String: String]?) -> URL? {
@@ -32,21 +45,22 @@ enum NewsApiType {
         urlComponents.host = host
         urlComponents.path = path
 
-        if let country = params?["country"] {
-            urlComponents.queryItems = [
-                URLQueryItem(name: "country", value: country),
-                URLQueryItem(name: "apiKey", value: NewsApiType.apiKey)
-            ]
+        switch self {
+        case .fetchTopNews:
+            if let country = params?["country"] {
+                urlComponents.queryItems = [URLQueryItem(name: "country", value: country)]
+            }
+        case .fetchArticles:
+            if let q = params?["q"] {
+                urlComponents.queryItems = [
+                    URLQueryItem(name: "q", value: q),
+                    URLQueryItem(name: "sortBy", value: "popularity"),
+                    URLQueryItem(name: "from", value: getDate())
+                ]
+            }
         }
-//
-//        if self == .fetchForecast {
-//            if let exclude = params?["exclude"] {
-//                urlComponents.queryItems?.append(URLQueryItem(name: "exclude", value: exclude))
-//            } else {
-//                urlComponents.queryItems?.append(
-//                    URLQueryItem(name: "exclude", value: "current,minutely,hourly,alerts"))
-//            }
-//        }
+
+        urlComponents.queryItems?.append(URLQueryItem(name: "apiKey", value: NewsApiType.apiKey))
 
         if let url = urlComponents.url {
             return URL(string: url.absoluteString)
@@ -66,7 +80,7 @@ enum NewsApiType {
     func getRequest(params: [String: String]?) -> URLRequest {
         var request = makeURLRequest(params: params)
         switch self {
-        case .fetchTopNews:
+        case .fetchTopNews, .fetchArticles:
             request.httpMethod = "GET"
             return request
         }
@@ -76,7 +90,7 @@ enum NewsApiType {
 class NewsNetworkService: ApiManager, NewsNetworkServiceProtocol {
     static let sharedNews = NewsNetworkService()
 
-    func fetchTopNews(country: String, completion: @escaping (Result<TopNewsAPI, Error>) -> Void) {
+    func fetchTopNews(country: String, completion: @escaping (Result<NewsAPI, Error>) -> Void) {
         let params = ["country": country]
         let request = NewsApiType.fetchTopNews.getRequest(params: params)
         let task = URLSession(configuration: configuration).dataTask(with: request) { data, _, error in
@@ -84,11 +98,27 @@ class NewsNetworkService: ApiManager, NewsNetworkServiceProtocol {
                 completion(.failure(error))
                 return
             }
-            if let data = data, let topNews = try? JSONDecoder().decode(TopNewsAPI.self, from: data) {
+            if let data = data, let topNews = try? JSONDecoder().decode(NewsAPI.self, from: data) {
                 completion(.success(topNews))
             }
         }
         print("requesting fetchTopNews")
+        task.resume()
+    }
+
+    func fetchArticles(by keyword: String, completion: @escaping (Result<NewsAPI, Error>) -> Void) {
+        let params = ["q": keyword]
+        let request = NewsApiType.fetchArticles.getRequest(params: params)
+        let task = URLSession(configuration: configuration).dataTask(with: request) { data, _, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let data = data, let articles = try? JSONDecoder().decode(NewsAPI.self, from: data) {
+                completion(.success(articles))
+            }
+        }
+        print("requesting fetchArticles by keyword")
         task.resume()
     }
 }
