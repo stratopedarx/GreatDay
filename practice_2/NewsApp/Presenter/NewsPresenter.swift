@@ -8,6 +8,7 @@ protocol NewsPresenterProtocol: AnyObject {
     var topArticles: [TopArticle] { get set }
     init(view: NewsViewProtocol, networkService: NewsNetworkServiceProtocol)
     func fetchArticles(by keyword: String)
+    func sortAlphabetically(inOrder: String)
 }
 
 class NewsPresenter: NewsPresenterProtocol {
@@ -19,7 +20,6 @@ class NewsPresenter: NewsPresenterProtocol {
         self.view = view
         self.networkService = networkService
         fetchTopNews(country: "ru")
-        print(topArticles)
     }
 }
 
@@ -70,6 +70,17 @@ extension NewsPresenter {
                     )
                 }
             }
+        }
+    }
+}
+
+// MARK: Sort alphabetically
+extension NewsPresenter {
+    func sortAlphabetically(inOrder: String) {
+        if inOrder == "up" {
+            topArticles = topArticles.sorted { $0.title.lowercased() < $1.title.lowercased() }
+        } else {
+            topArticles = topArticles.sorted { $0.title.lowercased() > $1.title.lowercased() }
         }
     }
 }

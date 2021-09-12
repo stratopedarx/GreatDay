@@ -72,7 +72,14 @@
                             <outlet property="delegate" destination="RJL-RG-HbF" id="B3y-Qv-PmT"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="News" id="avc-Rx-O06"/>
+                    <navigationItem key="navigationItem" title="News" id="avc-Rx-O06">
+                        <barButtonItem key="rightBarButtonItem" title="up" image="arrow.up" catalog="system" id="j2Z-Bh-KpR">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="sortAction:" destination="RJL-RG-HbF" id="Xuu-On-cGY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tuj-2V-mXL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -167,6 +174,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.up" catalog="system" width="120" height="128"/>
         <image name="newspaper" catalog="system" width="128" height="108"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
     </resources>

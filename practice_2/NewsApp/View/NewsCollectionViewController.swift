@@ -24,6 +24,21 @@ class NewsCollectionViewController: UICollectionViewController {
         self.presenter = NewsPresenter(view: self, networkService: networkService)
     }
 
+    // MARK: Sort alphabetically
+    @IBAction func sortAction(_ sender: UIBarButtonItem) {
+        guard let title = sender.title else { return }
+        if title == "up" {
+            self.presenter?.sortAlphabetically(inOrder: title)
+            sender.title = "down"
+            sender.image = UIImage(systemName: "arrow.down")
+        } else {
+            self.presenter?.sortAlphabetically(inOrder: title)
+            sender.title = "up"
+            sender.image = UIImage(systemName: "arrow.up")
+        }
+        self.collectionView.reloadData()
+    }
+
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
