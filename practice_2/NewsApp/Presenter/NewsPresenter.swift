@@ -5,12 +5,12 @@ protocol NewsViewProtocol: AnyObject {
 }
 
 protocol NewsPresenterProtocol: AnyObject {
-    var topArticles: [TopArticle?] { get set }
+    var topArticles: [TopArticle] { get set }
     init(view: NewsViewProtocol, networkService: NewsNetworkServiceProtocol)
 }
 
 class NewsPresenter: NewsPresenterProtocol {
-    var topArticles = [TopArticle?]()
+    var topArticles = [TopArticle]()
     weak var view: NewsViewProtocol?
     let networkService: NewsNetworkServiceProtocol
 
@@ -18,7 +18,6 @@ class NewsPresenter: NewsPresenterProtocol {
         self.view = view
         self.networkService = networkService
         fetchTopNews(country: "ru")
-        print(topArticles)
     }
 }
 

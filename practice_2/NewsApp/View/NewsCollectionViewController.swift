@@ -2,7 +2,8 @@ import UIKit
 
 class NewsCollectionViewController: UICollectionViewController {
     private let itemsPerRow: CGFloat = 2
-    private let sectionInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    private let itemsPerColumn: CGFloat = 3
+    private let sectionInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     var presenter: NewsPresenterProtocol?
 
     override func viewDidLoad() {
@@ -21,19 +22,20 @@ class NewsCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return presenter?.topArticles.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView,
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let defaultCell = UICollectionViewCell()
         if let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: NewsCell.identifier, for: indexPath) as? NewsCell {
-            // cell.configure(by: self.presenter.animals[indexPath.row])
-            cell.backgroundColor = .black
+            guard let article = self.presenter?.topArticles[indexPath.item] else { return defaultCell }
+            cell.configure(article: article)
             return cell
         } else {
             print("Can`t create the cell NewsCell")
-            return UICollectionViewCell()
+            return defaultCell
         }
     }
 
@@ -47,7 +49,11 @@ extension NewsCollectionViewController: UICollectionViewDelegateFlowLayout {
         let paddingWidth = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = collectionView.frame.width - paddingWidth
         let widthPerItem = availableWidth / itemsPerRow
-        return CGSize(width: widthPerItem, height: widthPerItem)
+        let paddingHeight = sectionInsets.left * (itemsPerColumn + 1)
+        let availableHeight = collectionView.frame.height - paddingHeight
+        let heightPerItem = availableHeight / itemsPerColumn
+
+        return CGSize(width: widthPerItem, height: heightPerItem)
     }
 
     func collectionView(_ collectionView: UICollectionView,
