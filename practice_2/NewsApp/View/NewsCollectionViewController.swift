@@ -11,6 +11,14 @@ class NewsCollectionViewController: UICollectionViewController {
         setup()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailsNewsSegue" {
+            guard let detailsNewsVC = segue.destination as? DetailsNewsViewController else { return }
+            guard let cell = sender as? NewsCell else { return }
+            detailsNewsVC.article = cell.article
+        }
+    }
+
     private func setup() {
         let networkService = NewsNetworkService.sharedNews
         self.presenter = NewsPresenter(view: self, networkService: networkService)
@@ -31,7 +39,8 @@ class NewsCollectionViewController: UICollectionViewController {
         if let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: NewsCell.identifier, for: indexPath) as? NewsCell {
             guard let article = self.presenter?.topArticles[indexPath.item] else { return defaultCell }
-            cell.configure(article: article)
+            cell.article = article
+            cell.configure()
             return cell
         } else {
             print("Can`t create the cell NewsCell")
