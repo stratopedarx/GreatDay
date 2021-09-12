@@ -46,6 +46,10 @@
 		89AC783F26EE446700534DEC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AC783E26EE446700534DEC /* String.swift */; };
 		89AC784226EE469500534DEC /* DetailsNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AC784126EE469500534DEC /* DetailsNewsViewController.swift */; };
 		89AC784426EE650200534DEC /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AC784326EE650200534DEC /* SearchBarView.swift */; };
+		89AC784A26EEA00500534DEC /* NewsDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AC784926EEA00500534DEC /* NewsDatabaseService.swift */; };
+		89AC784C26EEA05B00534DEC /* NewsDatabaseStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AC784B26EEA05B00534DEC /* NewsDatabaseStack.swift */; };
+		89AC785126EEA0B500534DEC /* DefaultNewsDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AC785026EEA0B500534DEC /* DefaultNewsDBService.swift */; };
+		89AC785426EEA12100534DEC /* NewsAppDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89AC785226EEA12100534DEC /* NewsAppDataModel.xcdatamodeld */; };
 		89BE6D5826CD443E0054B5BC /* WeatherApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BE6D5726CD443E0054B5BC /* WeatherApp.storyboard */; };
 		89BE6D5A26CD4AEE0054B5BC /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE6D5926CD4AEE0054B5BC /* WeatherViewController.swift */; };
 		89D0C70026A157BF008FA33F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0C6FF26A157BF008FA33F /* Alert.swift */; };
@@ -129,6 +133,10 @@
 		89AC783E26EE446700534DEC /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		89AC784126EE469500534DEC /* DetailsNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsNewsViewController.swift; sourceTree = "<group>"; };
 		89AC784326EE650200534DEC /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		89AC784926EEA00500534DEC /* NewsDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDatabaseService.swift; sourceTree = "<group>"; };
+		89AC784B26EEA05B00534DEC /* NewsDatabaseStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDatabaseStack.swift; sourceTree = "<group>"; };
+		89AC785026EEA0B500534DEC /* DefaultNewsDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNewsDBService.swift; sourceTree = "<group>"; };
+		89AC785326EEA12100534DEC /* NewsAppDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsAppDataModel.xcdatamodel; sourceTree = "<group>"; };
 		89BE6D5726CD443E0054B5BC /* WeatherApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WeatherApp.storyboard; sourceTree = "<group>"; };
 		89BE6D5926CD4AEE0054B5BC /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		89D0C6FF26A157BF008FA33F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -221,6 +229,7 @@
 		89415C0226DE493800EBFACE /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				89AC784826EE9FE300534DEC /* DatabaseService */,
 				8970DDB926DE961A007B6D3F /* NetworkService */,
 			);
 			path = Services;
@@ -402,6 +411,17 @@
 				89AC783E26EE446700534DEC /* String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		89AC784826EE9FE300534DEC /* DatabaseService */ = {
+			isa = PBXGroup;
+			children = (
+				89AC784926EEA00500534DEC /* NewsDatabaseService.swift */,
+				89AC785026EEA0B500534DEC /* DefaultNewsDBService.swift */,
+				89AC784B26EEA05B00534DEC /* NewsDatabaseStack.swift */,
+				89AC785226EEA12100534DEC /* NewsAppDataModel.xcdatamodeld */,
+			);
+			path = DatabaseService;
 			sourceTree = "<group>";
 		};
 		89BE6D5626CD43E90054B5BC /* WeatherApp */ = {
@@ -797,12 +817,14 @@
 				89E5EEF826890D24002120C9 /* ApiManager.swift in Sources */,
 				89D2135D26AD85110019B40C /* AnimalsBottomCell.swift in Sources */,
 				89E5EEFC26891137002120C9 /* RandomImage.swift in Sources */,
+				89AC784A26EEA00500534DEC /* NewsDatabaseService.swift in Sources */,
 				89DFF7B026BC3FAD00B24280 /* DetailsBreedViewController.swift in Sources */,
 				8931C3232688D1B6009310AA /* TopTableViewCell.swift in Sources */,
 				89D9BCB826D76E5B00E748D1 /* ForecastCell.swift in Sources */,
 				89D0C70A26A16748008FA33F /* SWHero.swift in Sources */,
 				894BD1F926BDAD6100900929 /* AnimalsMiddleCVCell.swift in Sources */,
 				89FAF80C26D60448009B7461 /* ForecastApiModel.swift in Sources */,
+				89AC784C26EEA05B00534DEC /* NewsDatabaseStack.swift in Sources */,
 				894592DA26A098E60012B412 /* HeroCell.swift in Sources */,
 				89AB269526A1F53C0053C771 /* DatabaseService.swift in Sources */,
 				89DD673126B047C8009AC456 /* DogRandomImage.swift in Sources */,
@@ -826,6 +848,7 @@
 				89AC784226EE469500534DEC /* DetailsNewsViewController.swift in Sources */,
 				8970DDBB26DE9635007B6D3F /* NewsNetworkService.swift in Sources */,
 				898D578F26CFD68900416E68 /* WeatherNetworkService.swift in Sources */,
+				89AC785426EEA12100534DEC /* NewsAppDataModel.xcdatamodeld in Sources */,
 				89D2136C26ADB0C70019B40C /* DogImages.swift in Sources */,
 				89D2136326ADA9120019B40C /* Animal.swift in Sources */,
 				89E365A926C58F680039814D /* AnimalsAppDataModel.xcdatamodeld in Sources */,
@@ -838,6 +861,7 @@
 				89D2135426AD5FCD0019B40C /* AnimalsTopCell.swift in Sources */,
 				898D578D26CFD5FF00416E68 /* WeatherApiModel.swift in Sources */,
 				894BD1F526BDA55500900929 /* AnimalsMiddleCell.swift in Sources */,
+				89AC785126EEA0B500534DEC /* DefaultNewsDBService.swift in Sources */,
 				89F903E6268875E000096068 /* AppDelegate.swift in Sources */,
 				898F612626D560CB00902C35 /* LocationSearchTable.swift in Sources */,
 				8957C83A26C4362F0065CBA9 /* CatBreeds.swift in Sources */,
@@ -1068,6 +1092,16 @@
 			);
 			currentVersion = 899AC45426A1F029002EF867 /* StarWarsDataModel.xcdatamodel */;
 			path = StarWarsDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		89AC785226EEA12100534DEC /* NewsAppDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				89AC785326EEA12100534DEC /* NewsAppDataModel.xcdatamodel */,
+			);
+			currentVersion = 89AC785326EEA12100534DEC /* NewsAppDataModel.xcdatamodel */;
+			path = NewsAppDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
