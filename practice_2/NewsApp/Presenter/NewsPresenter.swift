@@ -1,5 +1,8 @@
 import Foundation
 
+let newsCacheExpired = 900  // 15 minutes
+let newsMaxNumberOfConnectionAttempts = 5
+
 protocol NewsViewProtocol: AnyObject {
     func failure(error: Error)
 }
@@ -15,11 +18,51 @@ class NewsPresenter: NewsPresenterProtocol {
     var topArticles = [TopArticle]()
     weak var view: NewsViewProtocol?
     let networkService: NewsNetworkServiceProtocol
+    let dbService = DefaultNewsDBService(context: NewsDatabaseStack.persistentContainer.viewContext)
 
     required init(view: NewsViewProtocol, networkService: NewsNetworkServiceProtocol) {
         self.view = view
         self.networkService = networkService
-        fetchTopNews(country: "ru")
+        getTopNews()
+    }
+
+    private func getTopNews() {
+        let now = NSDate()
+        let lastApiDate = dbService.getDateFromDB()
+        let timeSinceLastApiUpdate = Int(now.timeIntervalSince(lastApiDate as Date))  // in seconds
+
+        if timeSinceLastApiUpdate > newsCacheExpired {
+            dbService.deleteAllArticlesFromDatabase()
+            getArticlesFromApi()
+        } else {
+            print("Get data from DB")
+            dbService.getArticlesFromDatabase(onComplete: { articlesDB in
+                if articlesDB.count == 0 {
+                    self.getArticlesFromApi()
+                } else {
+                    self.topArticles = articlesDB
+                    self.topArticles.shuffle()
+                }
+            })
+        }
+    }
+
+    /// Makes requests to api servers and save it to database
+    private func getArticlesFromApi() {
+        print("Get data from API")
+        self.fetchTopNews(country: "ru")
+        saveArticlesToDatabse()
+    }
+
+    private func saveArticlesToDatabse() {
+        var isArticlesSaved = false
+        var isDateSaved = false
+        var attempt = 0
+        while !isDateSaved && !isArticlesSaved && attempt < newsMaxNumberOfConnectionAttempts {
+            isArticlesSaved = dbService.saveArticlesToDB(articles: topArticles)
+            isDateSaved = dbService.saveDateToDB(date: NSDate())
+            attempt += 1
+        }
     }
 }
 
