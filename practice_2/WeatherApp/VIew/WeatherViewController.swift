@@ -4,6 +4,7 @@ import MapKit
 let latitudeNN = 56.327395
 let longitudeNN = 44.003519
 let defaultUnits = (unit: "°C", urlUnits: "metric")
+let storyboardName = "WeatherApp"
 
 protocol HandleMapSearch: AnyObject {
     func dropPinZoomIn(placemark: MKPlacemark)
@@ -36,7 +37,7 @@ class WeatherViewController: UIViewController {
     }
 
     private func initSearchController() {
-        let storyboard = UIStoryboard(name: "WeatherApp", bundle: nil)
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         guard let locationSearchTable = storyboard.instantiateViewController(
                 identifier: "LocationSearchTable") as? LocationSearchTable else { return }
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
@@ -106,7 +107,7 @@ extension MKMapView {
 // MARK: MKMapViewDelegate
 extension WeatherViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        let storyboard = UIStoryboard(name: "WeatherApp", bundle: nil)
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         guard let detailsWeatherVC = storyboard.instantiateViewController(
                 identifier: "DetailsWeatherVC") as? DetailsWeatherViewController else { return }
         detailsWeatherVC.weather = presenter?.weather
