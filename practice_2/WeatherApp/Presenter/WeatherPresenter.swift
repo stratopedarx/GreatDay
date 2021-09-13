@@ -45,12 +45,21 @@ extension WeatherPresenter {
     }
 
     private func parseWeather(_ weatherApi: WeatherApiModel) {
-        if let coord = weatherApi.coord, let longitude = coord.lon, let latitude = coord.lat,
-           let weatherList = weatherApi.weather, let weatherId = weatherList.first?.id,
-           let main = weatherApi.main, let tempareture = main.temp, let feelsLikeTemperature = main.feelsLike,
-           let humidity = main.humidity, let pressure = main.pressure,
-           let wind = weatherApi.wind, let windSpeed = wind.speed, let windDeg = wind.deg,
-           let cloudsBlock = weatherApi.clouds, let cloudsAll = cloudsBlock.all {
+        if let coord = weatherApi.coord,
+           let longitude = coord.lon,
+           let latitude = coord.lat,
+           let weatherList = weatherApi.weather,
+           let weatherId = weatherList.first?.id,
+           let main = weatherApi.main,
+           let tempareture = main.temp,
+           let feelsLikeTemperature = main.feelsLike,
+           let humidity = main.humidity,
+           let pressure = main.pressure,
+           let wind = weatherApi.wind,
+           let windSpeed = wind.speed,
+           let windDeg = wind.deg,
+           let cloudsBlock = weatherApi.clouds,
+           let cloudsAll = cloudsBlock.all {
             self.weather = Weather(
                 weatherId: weatherId,
                 temperature: tempareture,
