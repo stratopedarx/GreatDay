@@ -1,11 +1,11 @@
 import UIKit
 
 class ForecastCell: UITableViewCell {
-    static let identifier = "forecastCell"
-    static let formatter = DateFormatter()
-
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var temperatureLabel: UILabel!
+
+    static let identifier = "forecastCell"
+    static let formatter = DateFormatter()
 
     override func awakeFromNib() {
         super.awakeFromNib()

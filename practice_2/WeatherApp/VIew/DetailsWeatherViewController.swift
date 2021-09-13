@@ -1,10 +1,6 @@
 import UIKit
 
 class DetailsWeatherViewController: UIViewController {
-    var weather: Weather?
-    var forecastDays = [Forecast?]()
-    var unit: String = defaultUnits.unit
-
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var temperatureLabel: UILabel!
     @IBOutlet private weak var feelsLikeTemperatureLabel: UILabel!
@@ -14,6 +10,10 @@ class DetailsWeatherViewController: UIViewController {
     @IBOutlet private weak var windDegLabel: UILabel!
     @IBOutlet private weak var cloudsAllLabel: UILabel!
     @IBOutlet private weak var weatherImage: UIImageView!
+
+    var weather: Weather?
+    var forecastDays = [Forecast?]()
+    var unit: String = defaultUnits.unit
 
     override func viewDidLoad() {
         super.viewDidLoad()

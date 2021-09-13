@@ -7,7 +7,6 @@ enum SegmentIndex: Int {
 }
 
 class SettingsViewController: UIViewController {
-
     @IBOutlet weak var unitSegment: UISegmentedControl!
 
     override func viewDidLoad() {

@@ -10,8 +10,8 @@ protocol HandleMapSearch: AnyObject {
 }
 
 class WeatherViewController: UIViewController {
-
     @IBOutlet private weak var mapView: MKMapView!
+
     var presenter: WeatherPresenterProtocol?
     var resultSearchController: UISearchController?
     var selectedPin: MKPlacemark?
