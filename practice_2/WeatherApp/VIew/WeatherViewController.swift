@@ -125,7 +125,7 @@ extension WeatherViewController: MKMapViewDelegate {
 extension WeatherViewController: WeatherViewProtocol {
    func failure(error: Error) {
         print("FAIL!!!")
-        print(error.localizedDescription)
+        Alert.showAlert(title: "Error!", message: error.localizedDescription, on: self)
     }
 }
 
