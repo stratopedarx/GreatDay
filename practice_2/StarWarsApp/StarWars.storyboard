@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="86M-Pm-khN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e0W-iI-KWn">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -17,12 +17,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter hero name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="arY-fm-0fZ">
-                                <rect key="frame" x="72" y="104" width="270" height="45.5"/>
+                                <rect key="frame" x="72" y="148" width="270" height="45.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKl-7J-b0L">
-                                <rect key="frame" x="72" y="164.5" width="270" height="48"/>
+                                <rect key="frame" x="72" y="208.5" width="270" height="48"/>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Search">
@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="493-lR-6p9">
-                                <rect key="frame" x="0.0" y="227.5" width="414" height="585.5"/>
+                                <rect key="frame" x="0.0" y="271.5" width="414" height="541.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="heroCell" id="ud8-LX-RX1" customClass="HeroCell" customModule="practice_2" customModuleProvider="target">
@@ -78,7 +78,14 @@
                             <constraint firstItem="493-lR-6p9" firstAttribute="trailing" secondItem="fre-Xt-lMF" secondAttribute="trailing" id="tz1-Mp-zc4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Star Wars" image="star" catalog="system" id="RT0-H8-abA"/>
+                    <navigationItem key="navigationItem" title="Star Wars" id="k6v-L3-KCs">
+                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="WIx-JB-R3d">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="slideMenuTapped:" destination="86M-Pm-khN" id="uay-eZ-nai"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchButton" destination="PKl-7J-b0L" id="8no-01-lFz"/>
@@ -89,18 +96,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="itJ-1X-Fe5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1680" y="358"/>
+            <point key="canvasLocation" x="2589.8550724637685" y="357.58928571428572"/>
         </scene>
         <!--Detail HeroVC-->
         <scene sceneID="5uJ-Zq-Ael">
             <objects>
                 <viewController storyboardIdentifier="DetailHeroVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BjP-eP-aE3" customClass="DetailHeroVC" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hsO-5J-hiy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yuv-IW-Rts">
-                                <rect key="frame" x="15" y="15" width="74" height="42"/>
+                                <rect key="frame" x="15" y="103" width="74" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="&lt; back">
                                     <color key="titleColor" systemColor="labelColor"/>
@@ -110,14 +117,14 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="text dfdsfs" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sWQ-XN-oV7">
-                                <rect key="frame" x="15" y="157" width="384" height="611"/>
+                                <rect key="frame" x="15" y="245" width="384" height="528"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXX-VM-uy1">
-                                <rect key="frame" x="15" y="87" width="384" height="30"/>
+                                <rect key="frame" x="15" y="175" width="384" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -153,10 +160,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D7M-Gf-hUT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2513.04347826087" y="357.58928571428572"/>
+            <point key="canvasLocation" x="3423.1884057971015" y="357.58928571428572"/>
+        </scene>
+        <!--Star Wars-->
+        <scene sceneID="WgI-jD-xTW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e0W-iI-KWn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Star Wars" image="star" catalog="system" id="MaS-Sm-n6D"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cb8-Gs-shd">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="86M-Pm-khN" kind="relationship" relationship="rootViewController" id="pHI-ns-vXo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VWc-Kd-QxI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1679.7101449275362" y="357.58928571428572"/>
         </scene>
     </scenes>
     <resources>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

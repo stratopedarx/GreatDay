@@ -24,6 +24,10 @@ class NewsCollectionViewController: UICollectionViewController {
         self.presenter = NewsPresenter(view: self, networkService: networkService)
     }
 
+    @IBAction func slideMenuTapped(_ sender: UIBarButtonItem) {
+        HamburgerMenu().triggerSideMenu()
+    }
+
     // MARK: Sort alphabetically
     @IBAction func sortAction(_ sender: UIBarButtonItem) {
         guard let title = sender.title else { return }

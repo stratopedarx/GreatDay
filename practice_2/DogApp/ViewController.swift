@@ -27,6 +27,10 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBAction func slideMenuTapped(_ sender: UIBarButtonItem) {
+        HamburgerMenu().triggerSideMenu()
+    }
+
     private func createTestModels() {
         self.models = [Model]()
         models.append(Model(imageLink: "https://images.dog.ceo/breeds/bulldog-boston/n02096585_318.jpg"))

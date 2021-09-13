@@ -15,6 +15,10 @@ class AnimalsListViewContoller: UIViewController {
         collectionView.delegate = self
     }
 
+    @IBAction func slideMenuTapped(_ sender: UIBarButtonItem) {
+        HamburgerMenu().triggerSideMenu()
+    }
+
     private func setup() {
         let networkService = NetworkService()
         self.presenter = AnimalsListPresenter(view: self, networkService: networkService)

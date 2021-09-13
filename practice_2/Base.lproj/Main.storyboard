@@ -50,7 +50,7 @@
         <!--Slide Menu View Controller-->
         <scene sceneID="mSS-Gl-fuW">
             <objects>
-                <viewController storyboardIdentifier="slideMenuView" id="uZX-uS-W3k" customClass="SlideMenuViewController" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rearVC" id="uZX-uS-W3k" customClass="SlideMenuViewController" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hh4-M5-jFp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,43 +58,67 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8Q-1D-bDc">
                                 <rect key="frame" x="0.0" y="0.0" width="331" height="896"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="t26-dw-lrF">
-                                        <rect key="frame" x="27" y="82" width="136" height="352"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="t26-dw-lrF">
+                                        <rect key="frame" x="40" y="351" width="98" height="273"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pl6-pW-58E">
-                                                <rect key="frame" x="0.0" y="0.0" width="136" height="42"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="98" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                 <state key="normal" title="Star Wars"/>
+                                                <connections>
+                                                    <action selector="openStarWarsAppButton:" destination="uZX-uS-W3k" eventType="touchUpInside" id="fkh-dq-l7Q"/>
+                                                    <segue destination="A7m-6r-GKb" kind="show" identifier="starWarsSegue" id="5gP-h2-WQ3"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPy-Hh-nb5">
-                                                <rect key="frame" x="0.0" y="62" width="136" height="42"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                <rect key="frame" x="0.0" y="48" width="98" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                 <state key="normal" title="Dogs"/>
+                                                <connections>
+                                                    <action selector="openDogsAppButton:" destination="uZX-uS-W3k" eventType="touchUpInside" id="myf-MY-UN2"/>
+                                                    <segue destination="656-SJ-wz2" kind="show" identifier="dogsSegue" id="L4W-OJ-5qW"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjH-GY-pbZ">
-                                                <rect key="frame" x="0.0" y="124" width="136" height="42"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                <rect key="frame" x="0.0" y="96" width="98" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                 <state key="normal" title="Animals"/>
+                                                <connections>
+                                                    <action selector="openAnimalsAppButton:" destination="uZX-uS-W3k" eventType="touchUpInside" id="INc-yc-ln4"/>
+                                                    <segue destination="UV1-Vg-Zpc" kind="show" identifier="animalsSegue" id="AQY-Bw-3gM"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqR-ly-or4">
-                                                <rect key="frame" x="0.0" y="186" width="136" height="42"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqR-ly-or4">
+                                                <rect key="frame" x="0.0" y="144" width="98" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                 <state key="normal" title="Weather"/>
+                                                <connections>
+                                                    <action selector="openWeatherAppButton:" destination="uZX-uS-W3k" eventType="touchUpInside" id="y9A-0y-rpc"/>
+                                                    <segue destination="aE8-De-HhO" kind="show" identifier="weatherSegue" id="15b-vd-A68"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeb-a8-FcC">
-                                                <rect key="frame" x="0.0" y="248" width="136" height="42"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                <rect key="frame" x="0.0" y="192" width="98" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                 <state key="normal" title="News Portal"/>
+                                                <connections>
+                                                    <action selector="openNewsAppButton:" destination="uZX-uS-W3k" eventType="touchUpInside" id="TF4-NJ-3yV"/>
+                                                    <segue destination="ZqB-tn-85h" kind="show" identifier="newsSegue" id="AsT-2A-gzl"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVr-aN-pZg">
-                                                <rect key="frame" x="0.0" y="310" width="136" height="42"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                <rect key="frame" x="0.0" y="240" width="98" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                 <state key="normal" title="Future app"/>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstItem="t26-dw-lrF" firstAttribute="leading" secondItem="h8Q-1D-bDc" secondAttribute="leading" constant="40" id="RO9-Ln-6tA"/>
+                                    <constraint firstAttribute="bottom" secondItem="t26-dw-lrF" secondAttribute="bottom" constant="272" id="Tma-6k-IrB"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HPy-kW-qZ6"/>
@@ -109,12 +133,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VrD-XB-RYa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2452" y="155"/>
+            <point key="canvasLocation" x="2546" y="155"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="XbV-io-hz6">
             <objects>
-                <tabBarController storyboardIdentifier="tabbarView" id="dTB-hR-BJ7" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="frontTabbar" id="dTB-hR-BJ7" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LiY-94-rfk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -137,6 +161,7 @@
             <objects>
                 <viewControllerPlaceholder storyboardName="StarWars" id="A7m-6r-GKb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="QZw-Ma-rcl"/>
+                    <navigationItem key="navigationItem" id="qtw-By-MaY"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0x6-qc-fMT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -147,6 +172,7 @@
             <objects>
                 <viewControllerPlaceholder storyboardName="AnimalsApp" id="UV1-Vg-Zpc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="bEk-bs-5MS"/>
+                    <navigationItem key="navigationItem" id="8ZW-8W-XFi"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U34-9e-jel" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -157,6 +183,7 @@
             <objects>
                 <viewControllerPlaceholder storyboardName="WeatherApp" id="aE8-De-HhO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="URq-3T-9K9"/>
+                    <navigationItem key="navigationItem" id="D8T-WK-QBB"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmm-TY-HJK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -167,6 +194,7 @@
             <objects>
                 <viewControllerPlaceholder storyboardName="NewsApp" id="ZqB-tn-85h" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="6kK-aF-jBr"/>
+                    <navigationItem key="navigationItem" id="hQc-RD-Zaw"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfm-7W-CPL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -177,15 +205,26 @@
             <objects>
                 <viewControllerPlaceholder storyboardName="DogApp" id="656-SJ-wz2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="TdU-Ov-Ixb"/>
+                    <navigationItem key="navigationItem" id="ZB1-NQ-1gP"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="18n-LM-wQm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1627" y="28"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="L4W-OJ-5qW"/>
+        <segue reference="AsT-2A-gzl"/>
+        <segue reference="15b-vd-A68"/>
+        <segue reference="AQY-Bw-3gM"/>
+        <segue reference="5gP-h2-WQ3"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

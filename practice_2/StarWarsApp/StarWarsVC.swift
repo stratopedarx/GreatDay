@@ -14,6 +14,10 @@ class StarWarsVC: UIViewController {
         starWarsTableView.delegate = self
     }
 
+    @IBAction func slideMenuTapped(_ sender: UIBarButtonItem) {
+        HamburgerMenu().triggerSideMenu()
+    }
+
     @IBAction func searchHero(_ sender: UIButton) {
         removeModels()
         let name = searchTextField.text!

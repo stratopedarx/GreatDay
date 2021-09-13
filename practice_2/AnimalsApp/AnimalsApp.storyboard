@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-1460" y="88"/>
         </scene>
-        <!--Animals List View Contoller-->
+        <!--Animals-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="AnimalsListViewContoller" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,7 +55,14 @@
                             <constraint firstItem="Bzc-Fb-2GZ" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="mIZ-FL-gBq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QUY-pP-ecE"/>
+                    <navigationItem key="navigationItem" title="Animals" id="QUY-pP-ecE">
+                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="t8q-no-YeM">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="slideMenuTapped:" destination="Y6W-OH-hqX" id="Fm9-y8-IOT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="Bzc-Fb-2GZ" id="QzY-MP-PwM"/>
@@ -73,7 +80,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="1zY-DT-pGG"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSG-ln-u4U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -88,7 +95,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="0BV-ou-hsk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XM9-dG-gTJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -98,6 +105,10 @@
     </scenes>
     <resources>
         <image name="globe" catalog="system" width="128" height="121"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
