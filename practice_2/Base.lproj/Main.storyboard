@@ -1,15 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dTB-hR-BJ7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mXx-Is-ELj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="PSE-gc-Qa3">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" id="mXx-Is-ELj" customClass="MainViewController" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Shf-yh-mmt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1Y-2z-UcJ" userLabel="Slide Menu View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tku-tu-exn" userLabel="Tabbar Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="baq-wY-IIv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Tku-tu-exn" firstAttribute="leading" secondItem="Shf-yh-mmt" secondAttribute="leading" id="1FZ-Tl-G9M"/>
+                            <constraint firstAttribute="bottom" secondItem="F1Y-2z-UcJ" secondAttribute="bottom" id="1gl-OC-llN"/>
+                            <constraint firstItem="F1Y-2z-UcJ" firstAttribute="top" secondItem="Shf-yh-mmt" secondAttribute="top" id="6py-Kd-JPE"/>
+                            <constraint firstAttribute="bottom" secondItem="Tku-tu-exn" secondAttribute="bottom" id="D3f-za-Cbj"/>
+                            <constraint firstItem="F1Y-2z-UcJ" firstAttribute="trailing" secondItem="Shf-yh-mmt" secondAttribute="trailing" id="EaR-UF-dFa"/>
+                            <constraint firstItem="F1Y-2z-UcJ" firstAttribute="leading" secondItem="Shf-yh-mmt" secondAttribute="leading" id="I8B-ck-4lS"/>
+                            <constraint firstItem="Tku-tu-exn" firstAttribute="trailing" secondItem="Shf-yh-mmt" secondAttribute="trailing" id="IdU-Ax-ZTF"/>
+                            <constraint firstItem="Tku-tu-exn" firstAttribute="top" secondItem="Shf-yh-mmt" secondAttribute="top" id="eKi-U9-VVg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="slideMenuView" destination="F1Y-2z-UcJ" id="4UX-vG-MGU"/>
+                        <outlet property="tabbarContainerView" destination="Tku-tu-exn" id="PK5-PH-OJ7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WAE-Yt-ds1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-181" y="155"/>
+        </scene>
+        <!--Slide Menu View Controller-->
+        <scene sceneID="mSS-Gl-fuW">
+            <objects>
+                <viewController storyboardIdentifier="slideMenuView" id="uZX-uS-W3k" customClass="SlideMenuViewController" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hh4-M5-jFp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8Q-1D-bDc">
+                                <rect key="frame" x="0.0" y="0.0" width="331" height="896"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="t26-dw-lrF">
+                                        <rect key="frame" x="27" y="82" width="136" height="352"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pl6-pW-58E">
+                                                <rect key="frame" x="0.0" y="0.0" width="136" height="42"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                <state key="normal" title="Star Wars"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPy-Hh-nb5">
+                                                <rect key="frame" x="0.0" y="62" width="136" height="42"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                <state key="normal" title="Dogs"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjH-GY-pbZ">
+                                                <rect key="frame" x="0.0" y="124" width="136" height="42"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                <state key="normal" title="Animals"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqR-ly-or4">
+                                                <rect key="frame" x="0.0" y="186" width="136" height="42"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                <state key="normal" title="Weather"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeb-a8-FcC">
+                                                <rect key="frame" x="0.0" y="248" width="136" height="42"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                <state key="normal" title="News Portal"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVr-aN-pZg">
+                                                <rect key="frame" x="0.0" y="310" width="136" height="42"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                <state key="normal" title="Future app"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HPy-kW-qZ6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="h8Q-1D-bDc" secondAttribute="bottom" id="7p4-0Y-gAW"/>
+                            <constraint firstItem="h8Q-1D-bDc" firstAttribute="top" secondItem="hh4-M5-jFp" secondAttribute="top" id="DDZ-E6-3wy"/>
+                            <constraint firstItem="h8Q-1D-bDc" firstAttribute="leading" secondItem="HPy-kW-qZ6" secondAttribute="leading" id="aar-WK-x5U"/>
+                            <constraint firstItem="h8Q-1D-bDc" firstAttribute="width" secondItem="hh4-M5-jFp" secondAttribute="width" multiplier="0.8" id="lDV-pd-euI"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VrD-XB-RYa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2452" y="155"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="XbV-io-hz6">
             <objects>
-                <tabBarController id="dTB-hR-BJ7" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbarView" id="dTB-hR-BJ7" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LiY-94-rfk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -65,7 +170,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfm-7W-CPL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1583" y="465"/>
+            <point key="canvasLocation" x="1586" y="526"/>
         </scene>
         <!--DogApp-->
         <scene sceneID="fSe-U7-Yd5">
@@ -78,4 +183,9 @@
             <point key="canvasLocation" x="1627" y="28"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
