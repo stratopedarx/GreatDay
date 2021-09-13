@@ -2,6 +2,7 @@ import UIKit
 
 class ForecastCell: UITableViewCell {
     static let identifier = "forecastCell"
+    static let formatter = DateFormatter()
 
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var temperatureLabel: UILabel!
@@ -19,9 +20,8 @@ class ForecastCell: UITableViewCell {
 
     private func convertUnixtimeToDate (unixtime: Int) -> String {
         let date = NSDate(timeIntervalSince1970: TimeInterval(unixtime))
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-yy EEEE"
-        let dayOfWeek = formatter.string(from: date as Date)
+        ForecastCell.formatter.dateFormat = "MM-dd-yy EEEE"
+        let dayOfWeek = ForecastCell.formatter.string(from: date as Date)
         return dayOfWeek
     }
 }
