@@ -91,7 +91,7 @@ class WeatherNetworkService: ApiManager, WeatherNetworkServiceProtocol {
                 completion(.failure(error))
                 return
             }
-            if let data = data, let weather = try? JSONDecoder().decode(WeatherApiModel.self, from: data) {
+            if let weather = self.parseJSON(type: WeatherApiModel.self, from: data) {
                 completion(.success(weather))
             }
         }
@@ -108,11 +108,37 @@ class WeatherNetworkService: ApiManager, WeatherNetworkServiceProtocol {
                 completion(.failure(error))
                 return
             }
-            if let data = data, let forecast = try? JSONDecoder().decode(ForecastApiModel.self, from: data) {
+            if let forecast = self.parseJSON(type: ForecastApiModel.self, from: data) {
                 completion(.success(forecast))
             }
         }
         print("requesting fetchForecast")
         task.resume()
+    }
+}
+
+// MARK: Parse JSON and handle errors
+extension WeatherNetworkService {
+    func parseJSON<T>(type: T.Type, from data: Data?) -> T? where T: Decodable {
+        if let data = data {
+            do {
+                let result = try JSONDecoder().decode(type, from: data)
+                return result
+            } catch let DecodingError.dataCorrupted(context) {
+                print(context)
+            } catch let DecodingError.keyNotFound(key, context) {
+                print("Key '\(key)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.valueNotFound(value, context) {
+                print("Value '\(value)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.typeMismatch(type, context) {
+                print("Type '\(type)' mismatch:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch {
+                print("error: ", error)
+            }
+        }
+        return nil
     }
 }
