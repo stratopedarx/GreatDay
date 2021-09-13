@@ -19,9 +19,9 @@ class ForecastCell: UITableViewCell {
     }
 
     private func convertUnixtimeToDate (unixtime: Int) -> String {
-        let date = NSDate(timeIntervalSince1970: TimeInterval(unixtime))
+        let date = Date(timeIntervalSince1970: TimeInterval(unixtime))
         ForecastCell.formatter.dateFormat = "MM-dd-yy EEEE"
-        let dayOfWeek = ForecastCell.formatter.string(from: date as Date)
+        let dayOfWeek = ForecastCell.formatter.string(from: date)
         return dayOfWeek
     }
 }
