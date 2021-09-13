@@ -73,8 +73,14 @@ extension DefaultNewsDBService {
             let urlToImage = object.value(forKey: "urlToImage") as? String ?? ""
             let publishedAt = object.value(forKey: "publishedAt") as? String ?? ""
 
-            return TopArticle(source: source, title: title, description: description,
-                              url: url, urlToImage: urlToImage, publishedAt: publishedAt)
+            return TopArticle(
+                source: source,
+                title: title,
+                description: description,
+                url: url,
+                urlToImage: urlToImage,
+                publishedAt: publishedAt
+            )
         }
     }
 

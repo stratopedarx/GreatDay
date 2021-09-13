@@ -98,7 +98,7 @@ class NewsNetworkService: ApiManager, NewsNetworkServiceProtocol {
                 completion(.failure(error))
                 return
             }
-            if let data = data, let topNews = try? JSONDecoder().decode(NewsAPI.self, from: data) {
+            if let topNews = self.parseJSON(type: NewsAPI.self, from: data) {
                 completion(.success(topNews))
             }
         }
@@ -114,7 +114,7 @@ class NewsNetworkService: ApiManager, NewsNetworkServiceProtocol {
                 completion(.failure(error))
                 return
             }
-            if let data = data, let articles = try? JSONDecoder().decode(NewsAPI.self, from: data) {
+            if let articles = self.parseJSON(type: NewsAPI.self, from: data) {
                 completion(.success(articles))
             }
         }

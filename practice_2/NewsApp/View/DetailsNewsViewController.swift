@@ -1,9 +1,10 @@
 import UIKit
 
 class DetailsNewsViewController: UIViewController {
-    var article: TopArticle?
     @IBOutlet private weak var newsImage: UIImageView!
     @IBOutlet private weak var newsDescriptionTextView: UITextView!
+
+    var article: TopArticle?
 
     override func viewDidLoad() {
         super.viewDidLoad()

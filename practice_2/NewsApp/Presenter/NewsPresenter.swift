@@ -1,6 +1,6 @@
 import Foundation
 
-let newsCacheExpired = 900  // 15 minutes
+let newsCacheExpired = 1  // 15 minutes
 let newsMaxNumberOfConnectionAttempts = 5
 
 protocol NewsViewProtocol: AnyObject {
@@ -108,8 +108,14 @@ extension NewsPresenter {
                    let description = article.articleDescription, let url = article.url,
                    let urlToImage = article.urlToImage, let publishedAt = article.publishedAt {
                     topArticles.append(
-                        TopArticle(source: sourceName, title: title, description: description,
-                                   url: url, urlToImage: urlToImage, publishedAt: publishedAt)
+                        TopArticle(
+                            source: sourceName,
+                            title: title,
+                            description: description,
+                            url: url,
+                            urlToImage: urlToImage,
+                            publishedAt: publishedAt
+                        )
                     )
                 }
             }

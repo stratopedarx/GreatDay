@@ -1,14 +1,16 @@
 import UIKit
 
+let numberOfCharactersInLine = 35
+
 class NewsCell: UICollectionViewCell {
-    static let identifier = "newsCell"
-    var article: TopArticle?
     @IBOutlet private weak var newsImage: UIImageView!
     @IBOutlet private weak var newsTitleLabel: UILabel!
 
+    static let identifier = "newsCell"
+    var article: TopArticle?
+
     func configure() {
         guard let article = article else { return }
-        let numberOfCharactersInLine = 35
         let title = article.title.count > numberOfCharactersInLine ?
             "\(article.title[0...numberOfCharactersInLine])..." : article.title
 

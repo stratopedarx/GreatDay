@@ -70,10 +70,10 @@ extension NewsCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let paddingWidth = sectionInsets.left * (itemsPerRow + 1)
+        let paddingWidth = sectionInsets.left * (itemsPerRow + 1) // add 1, there are 1 more indents than items
         let availableWidth = collectionView.frame.width - paddingWidth
         let widthPerItem = availableWidth / itemsPerRow
-        let paddingHeight = sectionInsets.left * (itemsPerColumn + 1)
+        let paddingHeight = sectionInsets.left * (itemsPerColumn + 1) // add 1, there are 1 more indents than items
         let availableHeight = collectionView.frame.height - paddingHeight
         let heightPerItem = availableHeight / itemsPerColumn
 
@@ -124,6 +124,6 @@ extension NewsCollectionViewController: UISearchBarDelegate {
 extension NewsCollectionViewController: NewsViewProtocol {
    func failure(error: Error) {
         print("FAIL!!!")
-        print(error.localizedDescription)
+        Alert.showAlert(title: "Error!", message: error.localizedDescription, on: self)
     }
 }
