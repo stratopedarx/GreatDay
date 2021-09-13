@@ -90,7 +90,7 @@ class WeatherViewController: UIViewController {
         if let temperature = temperature {
             annotation.title = "\(temperature) \(unit)"
         } else {
-            annotation.title = "\(temperature as Double?)"
+            annotation.title = "error"
         }
         annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         mapView.addAnnotation(annotation)
