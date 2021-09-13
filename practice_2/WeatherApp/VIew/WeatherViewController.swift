@@ -5,6 +5,9 @@ let latitudeNN = 56.327395
 let longitudeNN = 44.003519
 let defaultUnits = (unit: "°C", urlUnits: "metric")
 let storyboardName = "WeatherApp"
+let defaultRadius: CLLocationDistance = 100000
+let defaultLatitudeDelta = 0.05
+let defaultLongitudeDelta = 0.05
 
 protocol HandleMapSearch: AnyObject {
     func dropPinZoomIn(placemark: MKPlacemark)
@@ -96,7 +99,7 @@ class WeatherViewController: UIViewController {
 
 // MARK: MKMapView extension
 extension MKMapView {
-    func centerToLocation(latitude: Double, longitude: Double, regionRadius: CLLocationDistance = 100000) {
+    func centerToLocation(latitude: Double, longitude: Double, regionRadius: CLLocationDistance = defaultRadius) {
         let location = CLLocation(latitude: latitudeNN, longitude: longitudeNN)
         let coordinateRegion = MKCoordinateRegion(
             center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
@@ -140,7 +143,7 @@ extension WeatherViewController: HandleMapSearch {
             annotation.subtitle = "\(city) \(state)"
         }
         mapView.addAnnotation(annotation)
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let span = MKCoordinateSpan(latitudeDelta: defaultLatitudeDelta, longitudeDelta: defaultLongitudeDelta)
         let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
         mapView.setRegion(region, animated: true)
     }
