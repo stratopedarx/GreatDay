@@ -25,7 +25,10 @@ class DetailsNewsViewController: UIViewController {
         if let article = article {
             return URL(string: article.url)
         }
-        return URL(string: "https://www.google.com")
+        DispatchQueue.main.async {
+            Alert.showAlert(title: "Error", message: "Please try again", on: self)
+        }
+        return nil
     }
 
     @IBAction func goToSourceAction(_ sender: UIButton) {
