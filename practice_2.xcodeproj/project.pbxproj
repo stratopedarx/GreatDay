@@ -50,6 +50,9 @@
 		89AC784C26EEA05B00534DEC /* NewsDatabaseStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AC784B26EEA05B00534DEC /* NewsDatabaseStack.swift */; };
 		89AC785126EEA0B500534DEC /* DefaultNewsDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AC785026EEA0B500534DEC /* DefaultNewsDBService.swift */; };
 		89AC785426EEA12100534DEC /* NewsAppDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89AC785226EEA12100534DEC /* NewsAppDataModel.xcdatamodeld */; };
+		89B991F526F106040012872D /* GreatDayApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89B991F426F106040012872D /* GreatDayApp.storyboard */; };
+		89B991FC26F106ED0012872D /* MainMenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B991FB26F106ED0012872D /* MainMenuCollectionViewController.swift */; };
+		89B991FF26F10D550012872D /* GreatDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B991FE26F10D550012872D /* GreatDayCell.swift */; };
 		89BE6D5826CD443E0054B5BC /* WeatherApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BE6D5726CD443E0054B5BC /* WeatherApp.storyboard */; };
 		89BE6D5A26CD4AEE0054B5BC /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE6D5926CD4AEE0054B5BC /* WeatherViewController.swift */; };
 		89D0C70026A157BF008FA33F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0C6FF26A157BF008FA33F /* Alert.swift */; };
@@ -139,6 +142,9 @@
 		89AC784B26EEA05B00534DEC /* NewsDatabaseStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDatabaseStack.swift; sourceTree = "<group>"; };
 		89AC785026EEA0B500534DEC /* DefaultNewsDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNewsDBService.swift; sourceTree = "<group>"; };
 		89AC785326EEA12100534DEC /* NewsAppDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsAppDataModel.xcdatamodel; sourceTree = "<group>"; };
+		89B991F426F106040012872D /* GreatDayApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GreatDayApp.storyboard; sourceTree = "<group>"; };
+		89B991FB26F106ED0012872D /* MainMenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCollectionViewController.swift; sourceTree = "<group>"; };
+		89B991FE26F10D550012872D /* GreatDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreatDayCell.swift; sourceTree = "<group>"; };
 		89BE6D5726CD443E0054B5BC /* WeatherApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WeatherApp.storyboard; sourceTree = "<group>"; };
 		89BE6D5926CD4AEE0054B5BC /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		89D0C6FF26A157BF008FA33F /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -428,6 +434,64 @@
 			path = DatabaseService;
 			sourceTree = "<group>";
 		};
+		89B991F326F105D60012872D /* GreatDayApp */ = {
+			isa = PBXGroup;
+			children = (
+				89B991F426F106040012872D /* GreatDayApp.storyboard */,
+				89B991F626F106270012872D /* Services */,
+				89B991F826F106400012872D /* Model */,
+				89B991FA26F106550012872D /* View */,
+				89B991F926F106460012872D /* Presenter */,
+			);
+			path = GreatDayApp;
+			sourceTree = "<group>";
+		};
+		89B991F626F106270012872D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				89B991F726F106300012872D /* NetworkService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		89B991F726F106300012872D /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		89B991F826F106400012872D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		89B991F926F106460012872D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		89B991FA26F106550012872D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				89B991FD26F10D2E0012872D /* Cells */,
+				89B991FB26F106ED0012872D /* MainMenuCollectionViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		89B991FD26F10D2E0012872D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				89B991FE26F10D550012872D /* GreatDayCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		89BE6D5626CD43E90054B5BC /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -711,6 +775,7 @@
 				89D2134626AD527A0019B40C /* AnimalsApp */,
 				89BE6D5626CD43E90054B5BC /* WeatherApp */,
 				89415C0126DE491C00EBFACE /* NewsApp */,
+				89B991F326F105D60012872D /* GreatDayApp */,
 			);
 			path = practice_2;
 			sourceTree = "<group>";
@@ -777,6 +842,7 @@
 				89BE6D5826CD443E0054B5BC /* WeatherApp.storyboard in Resources */,
 				89F903EF268875E100096068 /* Assets.xcassets in Resources */,
 				89415C0826DE499600EBFACE /* NewsApp.storyboard in Resources */,
+				89B991F526F106040012872D /* GreatDayApp.storyboard in Resources */,
 				894BD1FA26BDAD6100900929 /* AnimalsMiddleCVCell.xib in Resources */,
 				894BD1F626BDA55500900929 /* AnimalsMiddleCell.xib in Resources */,
 				89D2135526AD5FCD0019B40C /* AnimalsTopCell.xib in Resources */,
@@ -834,6 +900,7 @@
 				89ED49C726EFCE7700934634 /* SlideMenuViewController.swift in Sources */,
 				89ED49C526EFCA8E00934634 /* MainViewController.swift in Sources */,
 				894592DA26A098E60012B412 /* HeroCell.swift in Sources */,
+				89B991FF26F10D550012872D /* GreatDayCell.swift in Sources */,
 				89AB269526A1F53C0053C771 /* DatabaseService.swift in Sources */,
 				89DD673126B047C8009AC456 /* DogRandomImage.swift in Sources */,
 				89E8124426BE5B6C00C4A943 /* AnimalsBottomCVCell.swift in Sources */,
@@ -851,6 +918,7 @@
 				898650DF268CB37B00482BB6 /* Model.swift in Sources */,
 				89AC783F26EE446700534DEC /* String.swift in Sources */,
 				8970DDB826DE9583007B6D3F /* NewsPresenter.swift in Sources */,
+				89B991FC26F106ED0012872D /* MainMenuCollectionViewController.swift in Sources */,
 				89A3DC4E26C5957A00FC2551 /* AnimalsDatabaseStack.swift in Sources */,
 				89E365A626C58ED40039814D /* DefaultAnimalsDBService.swift in Sources */,
 				89AC784226EE469500534DEC /* DetailsNewsViewController.swift in Sources */,

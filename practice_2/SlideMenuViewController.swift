@@ -31,4 +31,9 @@ class SlideMenuViewController: UIViewController {
         self.performSegue(withIdentifier: "weatherSegue", sender: self)
         HamburgerMenu().closeSideMenu()
     }
+
+    @IBAction func openGreatDayAppButton(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "greatDaySegue", sender: self)
+        HamburgerMenu().closeSideMenu()
+    }
 }
