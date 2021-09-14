@@ -2,4 +2,3 @@ identifier_name:
   excluded:
     - id
     - dt
-    - q

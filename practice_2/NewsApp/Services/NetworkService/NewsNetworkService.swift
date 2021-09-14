@@ -51,9 +51,9 @@ enum NewsApiType {
                 urlComponents.queryItems = [URLQueryItem(name: "country", value: country)]
             }
         case .fetchArticles:
-            if let q = params?["q"] {
+            if let keyword = params?["keyword"] {
                 urlComponents.queryItems = [
-                    URLQueryItem(name: "q", value: q),
+                    URLQueryItem(name: "q", value: keyword),
                     URLQueryItem(name: "sortBy", value: "popularity"),
                     URLQueryItem(name: "from", value: getDate())
                 ]
@@ -107,7 +107,7 @@ class NewsNetworkService: ApiManager, NewsNetworkServiceProtocol {
     }
 
     func fetchArticles(by keyword: String, completion: @escaping (Result<NewsAPI, Error>) -> Void) {
-        let params = ["q": keyword]
+        let params = ["keyword": keyword]
         let request = NewsApiType.fetchArticles.getRequest(params: params)
         let task = URLSession(configuration: configuration).dataTask(with: request) { data, _, error in
             if let error = error {

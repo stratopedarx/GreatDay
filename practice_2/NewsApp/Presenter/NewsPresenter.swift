@@ -37,7 +37,7 @@ class NewsPresenter: NewsPresenterProtocol {
         } else {
             print("Get data from DB")
             dbService.getArticlesFromDatabase(onComplete: { articlesDB in
-                if articlesDB.count == 0 {
+                if articlesDB.isEmpty {
                     self.getArticlesFromApi()
                 } else {
                     self.topArticles = articlesDB
