@@ -1,5 +1,8 @@
 import UIKit
 
+let arrowUp = (arrow: "up", imageName: "arrow.up")
+let arrowDown = (arrow: "down", imageName: "arrow.down")
+
 class NewsCollectionViewController: UICollectionViewController {
     private let itemsPerRow: CGFloat = 2
     private let itemsPerColumn: CGFloat = 3
@@ -31,14 +34,14 @@ class NewsCollectionViewController: UICollectionViewController {
     // MARK: Sort alphabetically
     @IBAction func sortAction(_ sender: UIBarButtonItem) {
         guard let title = sender.title else { return }
-        if title == "up" {
+        if title == arrowUp.arrow {
             self.presenter?.sortAlphabetically(inOrder: title)
-            sender.title = "down"
-            sender.image = UIImage(systemName: "arrow.down")
+            sender.title = arrowDown.arrow
+            sender.image = UIImage(systemName: arrowDown.imageName)
         } else {
             self.presenter?.sortAlphabetically(inOrder: title)
-            sender.title = "up"
-            sender.image = UIImage(systemName: "arrow.up")
+            sender.title = arrowUp.arrow
+            sender.image = UIImage(systemName: arrowUp.imageName)
         }
         self.collectionView.reloadData()
     }

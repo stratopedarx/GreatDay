@@ -126,7 +126,7 @@ extension NewsPresenter {
 // MARK: Sort alphabetically
 extension NewsPresenter {
     func sortAlphabetically(inOrder: String) {
-        if inOrder == "up" {
+        if inOrder == arrowUp.arrow {
             topArticles = topArticles.sorted { $0.title.lowercased() < $1.title.lowercased() }
         } else {
             topArticles = topArticles.sorted { $0.title.lowercased() > $1.title.lowercased() }
