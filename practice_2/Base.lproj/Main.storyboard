@@ -19,11 +19,12 @@
                         <segue destination="656-SJ-wz2" kind="relationship" relationship="viewControllers" id="hj9-fK-h32"/>
                         <segue destination="A7m-6r-GKb" kind="relationship" relationship="viewControllers" id="RKY-Da-N1U"/>
                         <segue destination="UV1-Vg-Zpc" kind="relationship" relationship="viewControllers" id="A93-6K-omu"/>
+                        <segue destination="aE8-De-HhO" kind="relationship" relationship="viewControllers" id="vHp-Yz-EX2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DC0-Ag-TGu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="880" y="155"/>
+            <point key="canvasLocation" x="784" y="155"/>
         </scene>
         <!--StarWars-->
         <scene sceneID="c49-qf-U60">
@@ -44,6 +45,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U34-9e-jel" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1627" y="288"/>
+        </scene>
+        <!--WeatherApp-->
+        <scene sceneID="oTv-ht-FjP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WeatherApp" id="aE8-De-HhO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="URq-3T-9K9"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pmm-TY-HJK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1620" y="395"/>
         </scene>
         <!--DogApp-->
         <scene sceneID="fSe-U7-Yd5">
