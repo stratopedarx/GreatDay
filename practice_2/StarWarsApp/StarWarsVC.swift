@@ -111,3 +111,14 @@ extension StarWarsVC {
         }
     }
 }
+
+// MARK: touchesBegan, touchesMoved
+extension StarWarsVC {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+}

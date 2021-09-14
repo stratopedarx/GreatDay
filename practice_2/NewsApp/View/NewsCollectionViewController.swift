@@ -134,3 +134,14 @@ extension NewsCollectionViewController: NewsViewProtocol {
         Alert.showAlert(title: "Error!", message: error.localizedDescription, on: self)
     }
 }
+
+// MARK: touchesBegan, touchesMoved
+extension NewsCollectionViewController {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+}
