@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -66,10 +67,58 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="Kba-SF-sbY" kind="presentation" identifier="meditationSegue" id="4hb-ji-cX2"/>
+                        <segue destination="1v3-h9-scm" kind="presentation" identifier="exercisesSegue" id="7zv-jP-LNr"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s36-Jj-QBT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1034.7826086956522" y="82.366071428571431"/>
+        </scene>
+        <!--Meditation View Controller-->
+        <scene sceneID="RRe-Yw-qSk">
+            <objects>
+                <viewController storyboardIdentifier="MeditationViewController" id="Kba-SF-sbY" customClass="MeditationViewController" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vXC-MJ-7ek">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meditation" translatesAutoresizingMaskIntoConstraints="NO" id="vj3-zB-5wF">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xDI-CP-cja"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xDI-CP-cja" firstAttribute="trailing" secondItem="vj3-zB-5wF" secondAttribute="trailing" id="6a4-Yj-HYA"/>
+                            <constraint firstItem="vj3-zB-5wF" firstAttribute="leading" secondItem="xDI-CP-cja" secondAttribute="leading" id="M2b-um-YRJ"/>
+                            <constraint firstItem="vj3-zB-5wF" firstAttribute="top" secondItem="vXC-MJ-7ek" secondAttribute="top" id="clM-bB-fWT"/>
+                            <constraint firstItem="xDI-CP-cja" firstAttribute="bottom" secondItem="vj3-zB-5wF" secondAttribute="bottom" id="n0o-Uq-wjX"/>
+                            <constraint firstItem="xDI-CP-cja" firstAttribute="trailing" secondItem="vj3-zB-5wF" secondAttribute="trailing" id="sK7-er-Q9s"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="iI5-Np-oQz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eq4-fv-EfJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1993" y="-210"/>
+        </scene>
+        <!--Exercises View Controller-->
+        <scene sceneID="y5C-fi-UfW">
+            <objects>
+                <viewController storyboardIdentifier="ExercisesViewController" id="1v3-h9-scm" customClass="ExercisesViewController" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hqz-4u-rWf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="B7X-J3-cW5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="C5n-ts-OFu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3yx-40-Q0k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2820" y="-210"/>
         </scene>
         <!--Great Day-->
         <scene sceneID="WFa-22-7db">
@@ -94,6 +143,7 @@
     </scenes>
     <resources>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <image name="meditation" width="960" height="540"/>
         <image name="power" catalog="system" width="128" height="124"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -1,9 +1,13 @@
 import UIKit
 
+let countOfCells = 4
+
 class MainMenuCollectionViewController: UICollectionViewController {
     private let itemsPerRow: CGFloat = 2
     private let itemsPerColumn: CGFloat = 2
     private let sectionInsets = UIEdgeInsets(top: 30, left: 10, bottom: 100, right: 10)
+
+    private let labelNames = ["Meditation", "Exercises", "Good News", "Quote of the Day"]
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "background")
@@ -27,7 +31,7 @@ class MainMenuCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return countOfCells
     }
 
     override func collectionView(
@@ -35,13 +39,28 @@ class MainMenuCollectionViewController: UICollectionViewController {
         let defaultCell = UICollectionViewCell()
         if let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: GreatDayCell.identifier, for: indexPath) as? GreatDayCell {
-            cell.nameLabel.text = "Meditation"
+            cell.nameLabel.text = labelNames[indexPath.row]
             return cell
         } else {
             print("Can`t create the cell GreadDayCell")
             return defaultCell
         }
     }
+
+    // MARK: UICollectionViewDelegate
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let index = indexPath.row
+        if index == 0 {
+            self.performSegue(withIdentifier: "meditationSegue", sender: self)
+        } else if index == 1 {
+            self.performSegue(withIdentifier: "exercisesSegue", sender: self)
+        } else if index == 2 {
+            self.performSegue(withIdentifier: "...", sender: self)
+        } else if index == 3 {
+            self.performSegue(withIdentifier: "...", sender: self)
+        }
+    }
+
 }
 
 // MARK: DarkMode
@@ -68,14 +87,10 @@ extension MainMenuCollectionViewController: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let paddingWidth = sectionInsets.left * (itemsPerRow + 1) // add 1, there are 1 more indents than items
         let availableWidth = collectionView.frame.width - paddingWidth
-        print("availableWidth \(availableWidth)")
         let widthPerItem = availableWidth / itemsPerRow
-        print("widthPerItem \(widthPerItem)")
         let paddingHeight = sectionInsets.left * (itemsPerColumn + 1) // add 1, there are 1 more indents than items
         let availableHeight = collectionView.frame.height - paddingHeight - 200
-        print("availableHeight \(availableHeight)")
         let heightPerItem = availableHeight / itemsPerColumn
-        print("heightPerItem \(heightPerItem)")
 
         return CGSize(width: widthPerItem, height: heightPerItem)
     }
