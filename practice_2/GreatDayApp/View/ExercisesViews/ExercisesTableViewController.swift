@@ -7,9 +7,13 @@ class ExercisesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createListOfVideos()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
+        self.editButtonItem.tintColor = .black
     }
+}
 
-    // MARK: - Table view data source
+// MARK: UITableViewDelegate
+extension ExercisesTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -30,7 +34,31 @@ class ExercisesTableViewController: UITableViewController {
         }
     }
 
-    // MARK: UITableViewDelegate
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
+
+        if editingStyle == .delete {
+            videos.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+
+    override func tableView(_ tableView: UITableView,
+                            moveRowAt sourceIndexPath: IndexPath,
+                            to destinationIndexPath: IndexPath) {
+        let movedVideo = videos.remove(at: sourceIndexPath.row)
+        videos.insert(movedVideo, at: destinationIndexPath.row)
+        tableView.reloadData()
+    }
+}
+
+// MARK: UITableViewDelegate
+extension ExercisesTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.video = videos[indexPath.row]
         performSegue(withIdentifier: "exercisesVideoSegue", sender: self)
