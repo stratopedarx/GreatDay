@@ -88,8 +88,11 @@
 		89E8124926BE782A00C4A943 /* DetailsBreedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8124726BE782A00C4A943 /* DetailsBreedCell.swift */; };
 		89E8124A26BE782A00C4A943 /* DetailsBreedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E8124826BE782A00C4A943 /* DetailsBreedCell.xib */; };
 		89EAEAFC26F26B1C000EDF51 /* MeditationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAEAFB26F26B1C000EDF51 /* MeditationViewController.swift */; };
-		89EAEAFE26F26E53000EDF51 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAEAFD26F26E53000EDF51 /* ExercisesViewController.swift */; };
 		89EB4DE926F37DA300EB0C08 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 89EB4DE826F37DA300EB0C08 /* alarm.mp3 */; };
+		89EB4DEB26F3B50C00EB0C08 /* ExercisesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB4DEA26F3B50C00EB0C08 /* ExercisesTableViewController.swift */; };
+		89EB4DED26F3B54000EB0C08 /* ExercisesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB4DEC26F3B54000EB0C08 /* ExercisesCell.swift */; };
+		89EB4DEF26F3B99500EB0C08 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB4DEE26F3B99500EB0C08 /* Video.swift */; };
+		89EB4DF326F3C10300EB0C08 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB4DF226F3C10300EB0C08 /* VideoViewController.swift */; };
 		89ED49C526EFCA8E00934634 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED49C426EFCA8E00934634 /* MainViewController.swift */; };
 		89ED49C726EFCE7700934634 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED49C626EFCE7700934634 /* SlideMenuViewController.swift */; };
 		89F903E6268875E000096068 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F903E5268875E000096068 /* AppDelegate.swift */; };
@@ -183,8 +186,11 @@
 		89E8124726BE782A00C4A943 /* DetailsBreedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsBreedCell.swift; sourceTree = "<group>"; };
 		89E8124826BE782A00C4A943 /* DetailsBreedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsBreedCell.xib; sourceTree = "<group>"; };
 		89EAEAFB26F26B1C000EDF51 /* MeditationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationViewController.swift; sourceTree = "<group>"; };
-		89EAEAFD26F26E53000EDF51 /* ExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
 		89EB4DE826F37DA300EB0C08 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
+		89EB4DEA26F3B50C00EB0C08 /* ExercisesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesTableViewController.swift; sourceTree = "<group>"; };
+		89EB4DEC26F3B54000EB0C08 /* ExercisesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesCell.swift; sourceTree = "<group>"; };
+		89EB4DEE26F3B99500EB0C08 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		89EB4DF226F3C10300EB0C08 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		89ED49C426EFCA8E00934634 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		89ED49C626EFCE7700934634 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
 		89F903E2268875E000096068 /* practice_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = practice_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -471,6 +477,7 @@
 		89B991F826F106400012872D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				89EB4DEE26F3B99500EB0C08 /* Video.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -485,20 +492,12 @@
 		89B991FA26F106550012872D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				89B991FD26F10D2E0012872D /* Cells */,
 				89B991FB26F106ED0012872D /* MainMenuCollectionViewController.swift */,
-				89EAEAFB26F26B1C000EDF51 /* MeditationViewController.swift */,
-				89EAEAFD26F26E53000EDF51 /* ExercisesViewController.swift */,
+				89B991FE26F10D550012872D /* GreatDayCell.swift */,
+				89EB4DF026F3C08400EB0C08 /* MeditationViews */,
+				89EB4DF126F3C0A400EB0C08 /* ExercisesViews */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		89B991FD26F10D2E0012872D /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				89B991FE26F10D550012872D /* GreatDayCell.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		89BE6D5626CD43E90054B5BC /* WeatherApp */ = {
@@ -760,6 +759,24 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		89EB4DF026F3C08400EB0C08 /* MeditationViews */ = {
+			isa = PBXGroup;
+			children = (
+				89EAEAFB26F26B1C000EDF51 /* MeditationViewController.swift */,
+			);
+			path = MeditationViews;
+			sourceTree = "<group>";
+		};
+		89EB4DF126F3C0A400EB0C08 /* ExercisesViews */ = {
+			isa = PBXGroup;
+			children = (
+				89EB4DEA26F3B50C00EB0C08 /* ExercisesTableViewController.swift */,
+				89EB4DF226F3C10300EB0C08 /* VideoViewController.swift */,
+				89EB4DEC26F3B54000EB0C08 /* ExercisesCell.swift */,
+			);
+			path = ExercisesViews;
+			sourceTree = "<group>";
+		};
 		89F903D9268875E000096068 = {
 			isa = PBXGroup;
 			children = (
@@ -927,12 +944,14 @@
 				89EAEAFC26F26B1C000EDF51 /* MeditationViewController.swift in Sources */,
 				89F903EA268875E000096068 /* ViewController.swift in Sources */,
 				89D0C70F26A1A28A008FA33F /* DetailHeroVC.swift in Sources */,
+				89EB4DEF26F3B99500EB0C08 /* Video.swift in Sources */,
 				89415C0A26DE4ADB00EBFACE /* NewsCollectionViewController.swift in Sources */,
 				89D2136A26ADAE410019B40C /* DogBreeds.swift in Sources */,
 				890E58D326D2B1C50083CF60 /* Weather.swift in Sources */,
 				89D2134D26AD540B0019B40C /* AnimalsListViewContoller.swift in Sources */,
 				89D0C70C26A18955008FA33F /* HeroModel.swift in Sources */,
 				89AB269226A1F21B0053C771 /* DatabaseStack.swift in Sources */,
+				89EB4DEB26F3B50C00EB0C08 /* ExercisesTableViewController.swift in Sources */,
 				899078BB26C397FC00CE6B80 /* AnimalImageScrollView.swift in Sources */,
 				898650DF268CB37B00482BB6 /* Model.swift in Sources */,
 				89AC783F26EE446700534DEC /* String.swift in Sources */,
@@ -945,10 +964,10 @@
 				898D578F26CFD68900416E68 /* WeatherNetworkService.swift in Sources */,
 				89AC785426EEA12100534DEC /* NewsAppDataModel.xcdatamodeld in Sources */,
 				89D2136C26ADB0C70019B40C /* DogImages.swift in Sources */,
+				89EB4DED26F3B54000EB0C08 /* ExercisesCell.swift in Sources */,
 				89D2136326ADA9120019B40C /* Animal.swift in Sources */,
 				89E365A926C58F680039814D /* AnimalsAppDataModel.xcdatamodeld in Sources */,
 				899AC45526A1F029002EF867 /* StarWarsDataModel.xcdatamodeld in Sources */,
-				89EAEAFE26F26E53000EDF51 /* ExercisesViewController.swift in Sources */,
 				89E365A426C58E910039814D /* AnimalsDatabaseService.swift in Sources */,
 				89D2136726ADAA300019B40C /* NetworkService.swift in Sources */,
 				89AC784426EE650200534DEC /* SearchBarView.swift in Sources */,
@@ -960,6 +979,7 @@
 				89AC785126EEA0B500534DEC /* DefaultNewsDBService.swift in Sources */,
 				89F903E6268875E000096068 /* AppDelegate.swift in Sources */,
 				898F612626D560CB00902C35 /* LocationSearchTable.swift in Sources */,
+				89EB4DF326F3C10300EB0C08 /* VideoViewController.swift in Sources */,
 				8957C83A26C4362F0065CBA9 /* CatBreeds.swift in Sources */,
 				89DFF7B726BC439700B24280 /* ModuleBuilder.swift in Sources */,
 				894592D826A093670012B412 /* StarWarsVC.swift in Sources */,
