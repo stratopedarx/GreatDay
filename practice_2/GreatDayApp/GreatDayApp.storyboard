@@ -84,25 +84,110 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meditation" translatesAutoresizingMaskIntoConstraints="NO" id="vj3-zB-5wF">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.55000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meditation" translatesAutoresizingMaskIntoConstraints="NO" id="vj3-zB-5wF">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                             </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="600" minValue="60" maxValue="3600" translatesAutoresizingMaskIntoConstraints="NO" id="UCt-BP-WMg">
+                                <rect key="frame" x="18" y="313.5" width="378" height="31"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="timeSliderChanged:" destination="Kba-SF-sbY" eventType="valueChanged" id="MRs-Ch-ywZ"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdt-i6-IND">
+                                <rect key="frame" x="60" y="180" width="294" height="93.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="80"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEh-hz-R5H">
+                                <rect key="frame" x="100" y="713" width="214" height="65"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="45"/>
+                                <color key="tintColor" systemColor="systemGray2Color"/>
+                                <state key="normal" title="START">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonTapped:" destination="Kba-SF-sbY" eventType="touchUpInside" id="QZ7-bO-ee5"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="leP-sQ-hUp">
+                                <rect key="frame" x="50" y="368.5" width="314" height="42"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gq0-09-yJs">
+                                        <rect key="frame" x="0.0" y="0.0" width="92" height="42"/>
+                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <state key="normal" title="5 min">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="leftButtonTapped:" destination="Kba-SF-sbY" eventType="touchUpInside" id="Oyo-Gg-MMr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggI-ko-urD">
+                                        <rect key="frame" x="127" y="0.0" width="76" height="42"/>
+                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <state key="normal" title="10 min">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="middleButtonTapped:" destination="Kba-SF-sbY" eventType="touchUpInside" id="WNh-Wn-3gu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeG-Yo-iNq">
+                                        <rect key="frame" x="238" y="0.0" width="76" height="42"/>
+                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <state key="normal" title="15 min">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="rigthButtonTapped:" destination="Kba-SF-sbY" eventType="touchUpInside" id="LZ5-Qc-fJZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="314" id="8ld-b4-RyD"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xDI-CP-cja"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="xDI-CP-cja" firstAttribute="trailing" secondItem="vj3-zB-5wF" secondAttribute="trailing" id="6a4-Yj-HYA"/>
+                            <constraint firstItem="xDI-CP-cja" firstAttribute="bottom" secondItem="lEh-hz-R5H" secondAttribute="bottom" constant="30" id="DoK-Es-JYb"/>
+                            <constraint firstItem="UCt-BP-WMg" firstAttribute="leading" secondItem="xDI-CP-cja" secondAttribute="leading" constant="20" id="Hen-82-a5H"/>
+                            <constraint firstItem="leP-sQ-hUp" firstAttribute="top" secondItem="UCt-BP-WMg" secondAttribute="bottom" constant="25" id="Jpo-y7-SOt"/>
                             <constraint firstItem="vj3-zB-5wF" firstAttribute="leading" secondItem="xDI-CP-cja" secondAttribute="leading" id="M2b-um-YRJ"/>
+                            <constraint firstItem="kdt-i6-IND" firstAttribute="top" secondItem="xDI-CP-cja" secondAttribute="top" constant="180" id="Nm1-8d-s9c"/>
+                            <constraint firstItem="xDI-CP-cja" firstAttribute="trailing" secondItem="lEh-hz-R5H" secondAttribute="trailing" constant="100" id="Vot-VL-C9h"/>
+                            <constraint firstItem="leP-sQ-hUp" firstAttribute="leading" secondItem="xDI-CP-cja" secondAttribute="leading" constant="50" id="ZTe-Z1-OQg"/>
+                            <constraint firstItem="xDI-CP-cja" firstAttribute="trailing" secondItem="kdt-i6-IND" secondAttribute="trailing" constant="60" id="awa-dK-Mea"/>
                             <constraint firstItem="vj3-zB-5wF" firstAttribute="top" secondItem="vXC-MJ-7ek" secondAttribute="top" id="clM-bB-fWT"/>
+                            <constraint firstItem="kdt-i6-IND" firstAttribute="leading" secondItem="xDI-CP-cja" secondAttribute="leading" constant="60" id="jXl-0P-Z2q"/>
+                            <constraint firstItem="xDI-CP-cja" firstAttribute="trailing" secondItem="UCt-BP-WMg" secondAttribute="trailing" constant="20" id="lCs-Sk-N0B"/>
+                            <constraint firstItem="UCt-BP-WMg" firstAttribute="top" secondItem="kdt-i6-IND" secondAttribute="bottom" constant="40" id="lqi-6D-F4R"/>
                             <constraint firstItem="xDI-CP-cja" firstAttribute="bottom" secondItem="vj3-zB-5wF" secondAttribute="bottom" id="n0o-Uq-wjX"/>
                             <constraint firstItem="xDI-CP-cja" firstAttribute="trailing" secondItem="vj3-zB-5wF" secondAttribute="trailing" id="sK7-er-Q9s"/>
+                            <constraint firstItem="lEh-hz-R5H" firstAttribute="leading" secondItem="xDI-CP-cja" secondAttribute="leading" constant="100" id="tQH-yY-3so"/>
+                            <constraint firstItem="xDI-CP-cja" firstAttribute="trailing" secondItem="leP-sQ-hUp" secondAttribute="trailing" constant="50" id="wCb-Xk-dU8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iI5-Np-oQz"/>
+                    <connections>
+                        <outlet property="leftButton" destination="gq0-09-yJs" id="NRB-ne-cMI"/>
+                        <outlet property="middleButton" destination="ggI-ko-urD" id="rwk-Sa-acu"/>
+                        <outlet property="rightButton" destination="jeG-Yo-iNq" id="qQs-Gq-JWl"/>
+                        <outlet property="timeLabel" destination="kdt-i6-IND" id="1zH-Km-0nh"/>
+                        <outlet property="timeSlider" destination="UCt-BP-WMg" id="vs6-D1-0ds"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eq4-fv-EfJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1993" y="-210"/>
+            <point key="canvasLocation" x="1992.753623188406" y="-210.26785714285714"/>
         </scene>
         <!--Exercises View Controller-->
         <scene sceneID="y5C-fi-UfW">
@@ -145,8 +230,17 @@
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="meditation" width="960" height="540"/>
         <image name="power" catalog="system" width="128" height="124"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
