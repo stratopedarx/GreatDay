@@ -1,25 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dTB-hR-BJ7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mXx-Is-ELj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="PSE-gc-Qa3">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" id="mXx-Is-ELj" customClass="MainViewController" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Shf-yh-mmt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1Y-2z-UcJ" userLabel="Slide Menu View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tku-tu-exn" userLabel="Tabbar Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="baq-wY-IIv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Tku-tu-exn" firstAttribute="leading" secondItem="Shf-yh-mmt" secondAttribute="leading" id="1FZ-Tl-G9M"/>
+                            <constraint firstAttribute="bottom" secondItem="F1Y-2z-UcJ" secondAttribute="bottom" id="1gl-OC-llN"/>
+                            <constraint firstItem="F1Y-2z-UcJ" firstAttribute="top" secondItem="Shf-yh-mmt" secondAttribute="top" id="6py-Kd-JPE"/>
+                            <constraint firstAttribute="bottom" secondItem="Tku-tu-exn" secondAttribute="bottom" id="D3f-za-Cbj"/>
+                            <constraint firstItem="F1Y-2z-UcJ" firstAttribute="trailing" secondItem="Shf-yh-mmt" secondAttribute="trailing" id="EaR-UF-dFa"/>
+                            <constraint firstItem="F1Y-2z-UcJ" firstAttribute="leading" secondItem="Shf-yh-mmt" secondAttribute="leading" id="I8B-ck-4lS"/>
+                            <constraint firstItem="Tku-tu-exn" firstAttribute="trailing" secondItem="Shf-yh-mmt" secondAttribute="trailing" id="IdU-Ax-ZTF"/>
+                            <constraint firstItem="Tku-tu-exn" firstAttribute="top" secondItem="Shf-yh-mmt" secondAttribute="top" id="eKi-U9-VVg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="slideMenuView" destination="F1Y-2z-UcJ" id="4UX-vG-MGU"/>
+                        <outlet property="tabbarContainerView" destination="Tku-tu-exn" id="PK5-PH-OJ7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WAE-Yt-ds1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-181" y="155"/>
+        </scene>
+        <!--Slide Menu View Controller-->
+        <scene sceneID="mSS-Gl-fuW">
+            <objects>
+                <viewController storyboardIdentifier="rearVC" id="uZX-uS-W3k" customClass="SlideMenuViewController" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hh4-M5-jFp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8Q-1D-bDc">
+                                <rect key="frame" x="0.0" y="0.0" width="331" height="896"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="t26-dw-lrF">
+                                        <rect key="frame" x="40" y="351" width="98" height="273"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pl6-pW-58E">
+                                                <rect key="frame" x="0.0" y="0.0" width="98" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Star Wars"/>
+                                                <connections>
+                                                    <action selector="openStarWarsAppButton:" destination="uZX-uS-W3k" eventType="touchUpInside" id="fkh-dq-l7Q"/>
+                                                    <segue destination="A7m-6r-GKb" kind="show" identifier="starWarsSegue" id="5gP-h2-WQ3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPy-Hh-nb5">
+                                                <rect key="frame" x="0.0" y="48" width="98" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Dogs"/>
+                                                <connections>
+                                                    <action selector="openDogsAppButton:" destination="uZX-uS-W3k" eventType="touchUpInside" id="myf-MY-UN2"/>
+                                                    <segue destination="656-SJ-wz2" kind="show" identifier="dogsSegue" id="L4W-OJ-5qW"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjH-GY-pbZ">
+                                                <rect key="frame" x="0.0" y="96" width="98" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Animals"/>
+                                                <connections>
+                                                    <action selector="openAnimalsAppButton:" destination="uZX-uS-W3k" eventType="touchUpInside" id="INc-yc-ln4"/>
+                                                    <segue destination="UV1-Vg-Zpc" kind="show" identifier="animalsSegue" id="AQY-Bw-3gM"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqR-ly-or4">
+                                                <rect key="frame" x="0.0" y="144" width="98" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Weather"/>
+                                                <connections>
+                                                    <action selector="openWeatherAppButton:" destination="uZX-uS-W3k" eventType="touchUpInside" id="y9A-0y-rpc"/>
+                                                    <segue destination="aE8-De-HhO" kind="show" identifier="weatherSegue" id="15b-vd-A68"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeb-a8-FcC">
+                                                <rect key="frame" x="0.0" y="192" width="98" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="News Portal"/>
+                                                <connections>
+                                                    <action selector="openNewsAppButton:" destination="uZX-uS-W3k" eventType="touchUpInside" id="TF4-NJ-3yV"/>
+                                                    <segue destination="ZqB-tn-85h" kind="show" identifier="newsSegue" id="AsT-2A-gzl"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVr-aN-pZg">
+                                                <rect key="frame" x="0.0" y="240" width="98" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Future app"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstItem="t26-dw-lrF" firstAttribute="leading" secondItem="h8Q-1D-bDc" secondAttribute="leading" constant="40" id="RO9-Ln-6tA"/>
+                                    <constraint firstAttribute="bottom" secondItem="t26-dw-lrF" secondAttribute="bottom" constant="272" id="Tma-6k-IrB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HPy-kW-qZ6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="h8Q-1D-bDc" secondAttribute="bottom" id="7p4-0Y-gAW"/>
+                            <constraint firstItem="h8Q-1D-bDc" firstAttribute="top" secondItem="hh4-M5-jFp" secondAttribute="top" id="DDZ-E6-3wy"/>
+                            <constraint firstItem="h8Q-1D-bDc" firstAttribute="leading" secondItem="HPy-kW-qZ6" secondAttribute="leading" id="aar-WK-x5U"/>
+                            <constraint firstItem="h8Q-1D-bDc" firstAttribute="width" secondItem="hh4-M5-jFp" secondAttribute="width" multiplier="0.8" id="lDV-pd-euI"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VrD-XB-RYa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2546" y="155"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="XbV-io-hz6">
             <objects>
-                <tabBarController id="dTB-hR-BJ7" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="frontTabbar" id="dTB-hR-BJ7" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LiY-94-rfk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="656-SJ-wz2" kind="relationship" relationship="viewControllers" id="hj9-fK-h32"/>
                         <segue destination="A7m-6r-GKb" kind="relationship" relationship="viewControllers" id="RKY-Da-N1U"/>
+                        <segue destination="656-SJ-wz2" kind="relationship" relationship="viewControllers" id="hj9-fK-h32"/>
                         <segue destination="UV1-Vg-Zpc" kind="relationship" relationship="viewControllers" id="A93-6K-omu"/>
                         <segue destination="aE8-De-HhO" kind="relationship" relationship="viewControllers" id="vHp-Yz-EX2"/>
+                        <segue destination="ZqB-tn-85h" kind="relationship" relationship="viewControllers" id="p0I-qc-nOW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DC0-Ag-TGu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -31,6 +161,7 @@
             <objects>
                 <viewControllerPlaceholder storyboardName="StarWars" id="A7m-6r-GKb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="QZw-Ma-rcl"/>
+                    <navigationItem key="navigationItem" id="qtw-By-MaY"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0x6-qc-fMT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -41,6 +172,7 @@
             <objects>
                 <viewControllerPlaceholder storyboardName="AnimalsApp" id="UV1-Vg-Zpc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="bEk-bs-5MS"/>
+                    <navigationItem key="navigationItem" id="8ZW-8W-XFi"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U34-9e-jel" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,20 +183,48 @@
             <objects>
                 <viewControllerPlaceholder storyboardName="WeatherApp" id="aE8-De-HhO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="URq-3T-9K9"/>
+                    <navigationItem key="navigationItem" id="D8T-WK-QBB"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmm-TY-HJK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1620" y="395"/>
+        </scene>
+        <!--NewsApp-->
+        <scene sceneID="gAE-Pl-GhV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewsApp" id="ZqB-tn-85h" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="6kK-aF-jBr"/>
+                    <navigationItem key="navigationItem" id="hQc-RD-Zaw"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vfm-7W-CPL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1586" y="526"/>
         </scene>
         <!--DogApp-->
         <scene sceneID="fSe-U7-Yd5">
             <objects>
                 <viewControllerPlaceholder storyboardName="DogApp" id="656-SJ-wz2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="TdU-Ov-Ixb"/>
+                    <navigationItem key="navigationItem" id="ZB1-NQ-1gP"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="18n-LM-wQm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1627" y="28"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="L4W-OJ-5qW"/>
+        <segue reference="AsT-2A-gzl"/>
+        <segue reference="15b-vd-A68"/>
+        <segue reference="AQY-Bw-3gM"/>
+        <segue reference="5gP-h2-WQ3"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

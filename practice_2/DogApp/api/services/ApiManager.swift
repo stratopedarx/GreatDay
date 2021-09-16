@@ -1,6 +1,8 @@
 import Foundation
 
 let numberOfImages = 12  // the value must be a multiple of 6
+let defaultTimeInterval = 15
+let defaultSleep: UInt32 = 1
 
 enum ApiType {
     case getRandom
@@ -30,8 +32,8 @@ class ApiManager {
 
     var configuration: URLSessionConfiguration {
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = TimeInterval(15)
-        configuration.timeoutIntervalForResource = TimeInterval(15)
+        configuration.timeoutIntervalForRequest = TimeInterval(defaultTimeInterval)
+        configuration.timeoutIntervalForResource = TimeInterval(defaultTimeInterval)
         return configuration
     }
 
@@ -57,11 +59,37 @@ class ApiManager {
             if self.hasError(error) || !self.isValidStatusCode(response) {
                 return
             }
-            if let data = data, let images = try? JSONDecoder().decode(RandomImage.self, from: data) {
+            if let images = self.parseJSON(type: RandomImage.self, from: data) {
                 completion(images)
             }
         }
         task.resume()
-        sleep(1) // it helps to get result from webserver
+        sleep(defaultSleep) // it helps to get result from webserver. Fix it later
+    }
+}
+
+// MARK: Parse JSON and handle errors
+extension ApiManager {
+    func parseJSON<T>(type: T.Type, from data: Data?) -> T? where T: Decodable {
+        if let data = data {
+            do {
+                let result = try JSONDecoder().decode(type, from: data)
+                return result
+            } catch let DecodingError.dataCorrupted(context) {
+                print(context)
+            } catch let DecodingError.keyNotFound(key, context) {
+                print("Key '\(key)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.valueNotFound(value, context) {
+                print("Value '\(value)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.typeMismatch(type, context) {
+                print("Type '\(type)' mismatch:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch {
+                print("error: ", error)
+            }
+        }
+        return nil
     }
 }

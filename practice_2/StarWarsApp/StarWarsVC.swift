@@ -14,6 +14,10 @@ class StarWarsVC: UIViewController {
         starWarsTableView.delegate = self
     }
 
+    @IBAction func slideMenuTapped(_ sender: UIBarButtonItem) {
+        HamburgerMenu().triggerSideMenu()
+    }
+
     @IBAction func searchHero(_ sender: UIButton) {
         removeModels()
         let name = searchTextField.text!
@@ -105,5 +109,16 @@ extension StarWarsVC {
             searchButton.layer.backgroundColor = UIColor.yellow.cgColor
             searchButton.setTitleColor(UIColor.black, for: .normal)
         }
+    }
+}
+
+// MARK: touchesBegan, touchesMoved
+extension StarWarsVC {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }

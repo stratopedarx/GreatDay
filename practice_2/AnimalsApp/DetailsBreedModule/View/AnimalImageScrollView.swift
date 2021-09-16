@@ -15,6 +15,7 @@ class AnimalImageScrollView: UIScrollView {
         self.showsVerticalScrollIndicator = false
         self.showsHorizontalScrollIndicator = false
         self.decelerationRate = UIScrollView.DecelerationRate.fast
+        self.backgroundColor = .black
     }
 
     required init?(coder: NSCoder) {

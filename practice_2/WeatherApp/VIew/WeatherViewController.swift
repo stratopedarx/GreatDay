@@ -29,6 +29,10 @@ class WeatherViewController: UIViewController {
         initSearchController()
     }
 
+    @IBAction func slideMenuTapped(_ sender: UIBarButtonItem) {
+        HamburgerMenu().triggerSideMenu()
+    }
+
     private func setup() {
         let networkService = WeatherNetworkService.sharedWeather
         self.presenter = WeatherPresenter(view: self, networkService: networkService)

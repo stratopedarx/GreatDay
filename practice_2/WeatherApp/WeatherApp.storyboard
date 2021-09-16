@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-1403" y="76"/>
         </scene>
-        <!--Weather View Controller-->
+        <!--Weather-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="WeatherViewController" id="Y6W-OH-hqX" customClass="WeatherViewController" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,8 +47,15 @@
                             <constraint firstItem="8VC-l4-H41" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="eIc-EC-zk1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hMP-dO-a8o">
+                    <navigationItem key="navigationItem" title="Weather" id="hMP-dO-a8o">
+                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="HUj-x8-G84">
+                            <color key="tintColor" systemColor="systemBlueColor"/>
+                            <connections>
+                                <action selector="slideMenuTapped:" destination="Y6W-OH-hqX" id="RbZ-rK-MLH"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="gearshape" catalog="system" id="CCa-JX-Hvz">
+                            <color key="tintColor" systemColor="systemBlueColor"/>
                             <connections>
                                 <segue destination="Jnh-Bo-Yuv" kind="show" id="3dh-Bi-EVs"/>
                             </connections>
@@ -286,6 +293,7 @@
     <resources>
         <image name="cloud.sun" catalog="system" width="128" height="93"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
