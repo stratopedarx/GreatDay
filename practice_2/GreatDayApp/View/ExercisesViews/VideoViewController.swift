@@ -9,6 +9,19 @@ class VideoViewController: UIViewController {
         super.viewDidLoad()
         getVideo()
     }
+
+    @IBAction func shareAction(_ sender: UIButton) {
+        if let video = video {
+            let shareController = UIActivityViewController(
+                activityItems: [video.urlToVideo], applicationActivities: nil)
+            shareController.completionWithItemsHandler = { _, bool, _, _ in
+                if bool {
+                    print("Successfully sent")
+                }
+            }
+            present(shareController, animated: true, completion: nil)
+        }
+    }
 }
 
 private extension VideoViewController {

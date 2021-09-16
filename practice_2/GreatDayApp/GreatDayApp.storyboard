@@ -266,12 +266,23 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1b-Np-80c">
+                                <rect key="frame" x="50" y="766" width="314" height="22"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Tap To Share" image="square.and.arrow.up" catalog="system"/>
+                                <connections>
+                                    <action selector="shareAction:" destination="nfh-41-CUS" eventType="touchUpInside" id="gsu-Gl-tWH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bzY-PD-rYV"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
                         <constraints>
                             <constraint firstItem="U0u-AH-8eB" firstAttribute="leading" secondItem="bzY-PD-rYV" secondAttribute="leading" id="Igq-1C-BMG"/>
+                            <constraint firstItem="q1b-Np-80c" firstAttribute="leading" secondItem="bzY-PD-rYV" secondAttribute="leading" constant="50" id="PHq-h6-jms"/>
+                            <constraint firstItem="bzY-PD-rYV" firstAttribute="trailing" secondItem="q1b-Np-80c" secondAttribute="trailing" constant="50" id="bj9-oB-ucg"/>
                             <constraint firstItem="U0u-AH-8eB" firstAttribute="top" secondItem="bzY-PD-rYV" secondAttribute="top" constant="240" id="hQt-6x-A9B"/>
+                            <constraint firstItem="bzY-PD-rYV" firstAttribute="bottom" secondItem="q1b-Np-80c" secondAttribute="bottom" constant="20" id="mNx-J0-8OV"/>
                             <constraint firstItem="bzY-PD-rYV" firstAttribute="trailing" secondItem="U0u-AH-8eB" secondAttribute="trailing" id="nbr-zx-dVq"/>
                             <constraint firstItem="bzY-PD-rYV" firstAttribute="bottom" secondItem="U0u-AH-8eB" secondAttribute="bottom" constant="240" id="psU-ew-Ned"/>
                             <constraint firstItem="U0u-AH-8eB" firstAttribute="centerX" secondItem="bzY-PD-rYV" secondAttribute="centerX" id="q1o-EY-gzb"/>
@@ -331,6 +342,7 @@
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="meditation" width="960" height="540"/>
         <image name="power" catalog="system" width="128" height="124"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
