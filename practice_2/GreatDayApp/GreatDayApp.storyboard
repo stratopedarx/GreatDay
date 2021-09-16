@@ -181,6 +181,7 @@
                         <outlet property="leftButton" destination="gq0-09-yJs" id="NRB-ne-cMI"/>
                         <outlet property="middleButton" destination="ggI-ko-urD" id="rwk-Sa-acu"/>
                         <outlet property="rightButton" destination="jeG-Yo-iNq" id="qQs-Gq-JWl"/>
+                        <outlet property="startStopButton" destination="lEh-hz-R5H" id="xp9-Ds-zSM"/>
                         <outlet property="timeLabel" destination="kdt-i6-IND" id="1zH-Km-0nh"/>
                         <outlet property="timeSlider" destination="UCt-BP-WMg" id="vs6-D1-0ds"/>
                     </connections>

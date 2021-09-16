@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 
 let secondsInMinute = 60
 let defaultTimeSliderValue = 600 // 10 minutes
@@ -18,9 +19,11 @@ class MeditationViewController: UIViewController {
     @IBOutlet private weak var leftButton: UIButton!
     @IBOutlet private weak var middleButton: UIButton!
     @IBOutlet private weak var rightButton: UIButton!
+    @IBOutlet private weak var startStopButton: UIButton!
 
     var timer = Timer()
     var meditationTime: Int = 0
+    var audioPlayer: AVAudioPlayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,33 +50,10 @@ class MeditationViewController: UIViewController {
         let currentMode = sender.titleLabel?.text
 
         if currentMode == Mode.start.rawValue {
-            startTimer(sender: sender)
+            startTimer()
         } else {
-            stopTimer(sender: sender)
+            stopTimer()
         }
-    }
-
-    private func setInitValues() {
-        timeSlider.value = Float(defaultTimeSliderValue)
-        updateScreen(to: defaultTimeSliderValue)
-    }
-
-    private func updateScreen(to seconds: Int) {
-        timeSlider.value = Float(seconds)
-        timeLabel.text = "\(seconds / secondsInMinute):00"
-    }
-
-    private func startTimer(sender: UIButton) {
-        meditationTime = Int(timeSlider.value) - Int(timeSlider.value) % secondsInMinute
-        sender.setTitle(Mode.stop.rawValue, for: .normal)
-
-        timeSlider.isHidden = true
-        leftButton.isHidden = true
-        middleButton.isHidden = true
-        rightButton.isHidden = true
-
-        timer = Timer.scheduledTimer(
-            timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
 
     @objc func timerAction() {
@@ -81,18 +61,62 @@ class MeditationViewController: UIViewController {
         let minutes = String(format: "%02d", meditationTime / secondsInMinute)
         let restOfSeconds = String(format: "%02d", meditationTime % secondsInMinute)
         timeLabel.text = "\(minutes):\(restOfSeconds)"
+
+        if meditationTime == 0 {
+            playSound(name: "alarm")
+            DispatchQueue.main.async {
+                Alert.showAlert(title: "Great", message: "Meditation completed", on: self)
+            }
+            stopTimer()
+        }
     }
 
-    private func stopTimer(sender: UIButton) {
+}
+
+// MARK: secondary functions
+private extension MeditationViewController {
+    func setInitValues() {
+        timeSlider.value = Float(defaultTimeSliderValue)
+        updateScreen(to: defaultTimeSliderValue)
+    }
+
+    func updateScreen(to seconds: Int) {
+        timeSlider.value = Float(seconds)
+        timeLabel.text = "\(seconds / secondsInMinute):00"
+    }
+
+    func startTimer() {
+        meditationTime = Int(timeSlider.value) - Int(timeSlider.value) % secondsInMinute
+        startStopButton.setTitle(Mode.stop.rawValue, for: .normal)
+        setHiddenValue(value: true)
+        timer = Timer.scheduledTimer(
+            timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+    }
+
+    func playSound(name: String) {
+        guard let pathToSound = Bundle.main.path(forResource: "alarm", ofType: "mp3") else { return }
+        let url = URL(fileURLWithPath: pathToSound)
+
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            print("Could not play `\(name)` sound")
+        }
+    }
+
+    func stopTimer() {
         timer.invalidate()
         meditationTime = 0
-        sender.setTitle(Mode.start.rawValue, for: .normal)
-
-        timeSlider.isHidden = false
-        leftButton.isHidden = false
-        middleButton.isHidden = false
-        rightButton.isHidden = false
-
+        startStopButton.setTitle(Mode.start.rawValue, for: .normal)
+        setHiddenValue(value: false)
         setInitValues()
+    }
+
+    func setHiddenValue(value: Bool) {
+        timeSlider.isHidden = value
+        leftButton.isHidden = value
+        middleButton.isHidden = value
+        rightButton.isHidden = value
     }
 }

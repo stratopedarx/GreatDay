@@ -89,6 +89,7 @@
 		89E8124A26BE782A00C4A943 /* DetailsBreedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E8124826BE782A00C4A943 /* DetailsBreedCell.xib */; };
 		89EAEAFC26F26B1C000EDF51 /* MeditationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAEAFB26F26B1C000EDF51 /* MeditationViewController.swift */; };
 		89EAEAFE26F26E53000EDF51 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAEAFD26F26E53000EDF51 /* ExercisesViewController.swift */; };
+		89EB4DE926F37DA300EB0C08 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 89EB4DE826F37DA300EB0C08 /* alarm.mp3 */; };
 		89ED49C526EFCA8E00934634 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED49C426EFCA8E00934634 /* MainViewController.swift */; };
 		89ED49C726EFCE7700934634 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED49C626EFCE7700934634 /* SlideMenuViewController.swift */; };
 		89F903E6268875E000096068 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F903E5268875E000096068 /* AppDelegate.swift */; };
@@ -183,6 +184,7 @@
 		89E8124826BE782A00C4A943 /* DetailsBreedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsBreedCell.xib; sourceTree = "<group>"; };
 		89EAEAFB26F26B1C000EDF51 /* MeditationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationViewController.swift; sourceTree = "<group>"; };
 		89EAEAFD26F26E53000EDF51 /* ExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
+		89EB4DE826F37DA300EB0C08 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
 		89ED49C426EFCA8E00934634 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		89ED49C626EFCE7700934634 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
 		89F903E2268875E000096068 /* practice_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = practice_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -442,6 +444,7 @@
 			isa = PBXGroup;
 			children = (
 				89B991F426F106040012872D /* GreatDayApp.storyboard */,
+				89EB4DE726F37D8E00EB0C08 /* Sounds */,
 				89B991F626F106270012872D /* Services */,
 				89B991F826F106400012872D /* Model */,
 				89B991FA26F106550012872D /* View */,
@@ -749,6 +752,14 @@
 			path = BottomCell;
 			sourceTree = "<group>";
 		};
+		89EB4DE726F37D8E00EB0C08 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				89EB4DE826F37DA300EB0C08 /* alarm.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		89F903D9268875E000096068 = {
 			isa = PBXGroup;
 			children = (
@@ -848,6 +859,7 @@
 				89BE6D5826CD443E0054B5BC /* WeatherApp.storyboard in Resources */,
 				89F903EF268875E100096068 /* Assets.xcassets in Resources */,
 				89415C0826DE499600EBFACE /* NewsApp.storyboard in Resources */,
+				89EB4DE926F37DA300EB0C08 /* alarm.mp3 in Resources */,
 				89B991F526F106040012872D /* GreatDayApp.storyboard in Resources */,
 				894BD1FA26BDAD6100900929 /* AnimalsMiddleCVCell.xib in Resources */,
 				894BD1F626BDA55500900929 /* AnimalsMiddleCell.xib in Resources */,
