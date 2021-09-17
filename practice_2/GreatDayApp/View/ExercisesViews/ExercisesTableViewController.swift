@@ -3,6 +3,7 @@ import UIKit
 class ExercisesTableViewController: UITableViewController {
     var videos = [Video]()
     var video: Video?
+    var editVideo: Video?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -12,9 +13,20 @@ class ExercisesTableViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "exercisesVideoSegue" {
+        super.prepare(for: segue, sender: sender)
+        let identifier = segue.identifier
+
+        if identifier == "exercisesVideoSegue" {
             guard let videoVC = segue.destination as? VideoViewController else { return }
             videoVC.video = video
+        } else if identifier == "editVideoSegue" {
+            if let editVideo = editVideo {
+                guard let navigationVC = segue.destination as? UINavigationController else { return }
+                guard let newVideoVC = navigationVC.topViewController
+                        as? NewVideoTableTableViewController else { return }
+                newVideoVC.video = editVideo
+                newVideoVC.title = "Edit"
+            }
         }
     }
 
@@ -23,9 +35,21 @@ class ExercisesTableViewController: UITableViewController {
         guard let sourceVC = segue.source as? NewVideoTableTableViewController else { return }
         guard let video = sourceVC.video else { return }
 
-        let newIndexPath = IndexPath(row: videos.count, section: 0)
-        videos.append(video)
-        tableView.insertRows(at: [newIndexPath], with: .fade)
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            videos[selectedIndexPath.row] = video
+            tableView.reloadRows(at: [selectedIndexPath], with: .fade)
+        } else if let editVideo = editVideo {  // handle the case if we edit video
+            let editedIndex = videos.firstIndex(where: { $0.youtubeKey == editVideo.youtubeKey })
+            if let editedIndex = editedIndex {
+                videos[editedIndex] = editVideo
+                tableView.reloadData()
+            }
+            self.editVideo = nil
+        } else {
+            let newIndexPath = IndexPath(row: videos.count, section: 0)
+            videos.append(video)
+            tableView.insertRows(at: [newIndexPath], with: .fade)
+        }
     }
 }
 
@@ -81,6 +105,7 @@ extension ExercisesTableViewController {
         performSegue(withIdentifier: "exercisesVideoSegue", sender: self)
     }
 
+    // MARK: leading swipe
     override func tableView(
         _ tableView: UITableView,
         leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -111,6 +136,25 @@ extension ExercisesTableViewController {
         }
         action.backgroundColor = video.isFavourite ? .systemGreen : .systemGray
         action.image = UIImage(systemName: "heart")
+        return action
+    }
+
+    // MARK: trailing swipe
+    override func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let edit = editAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [edit])
+    }
+
+    func editAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .normal,
+                                        title: "Edit") { (_, _, completion) in
+            self.editVideo = self.videos[indexPath.row]
+            self.performSegue(withIdentifier: "editVideoSegue", sender: self)
+            completion(true)
+        }
+        action.backgroundColor = .systemBlue
         return action
     }
 }

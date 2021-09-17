@@ -251,6 +251,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="nfh-41-CUS" kind="show" identifier="exercisesVideoSegue" id="RyF-rq-yBq"/>
+                        <segue destination="jac-x6-99Y" kind="show" identifier="editVideoSegue" id="hhy-FC-OKS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1WA-FG-Kpg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -460,6 +461,9 @@
             <point key="canvasLocation" x="3921.739130434783" y="-404.46428571428572"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="hhy-FC-OKS"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="meditation" width="960" height="540"/>

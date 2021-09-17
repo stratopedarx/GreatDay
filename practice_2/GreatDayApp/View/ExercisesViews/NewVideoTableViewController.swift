@@ -11,6 +11,8 @@ class NewVideoTableTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         saveButton.isEnabled = false
+        updateUserInterface()
+        updateSaveButtonState()
     }
 
     @IBAction func textChanged(_ sender: UITextField) {
@@ -20,6 +22,12 @@ class NewVideoTableTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         guard segue.identifier == "saveSegue" else { return }
+
+        // handle the case if we edit video
+        guard let exercisesVC = segue.destination as? ExercisesTableViewController else { return }
+        if  exercisesVC.editVideo != nil, let video = video {
+            exercisesVC.editVideo = video
+        }
     }
 }
 
@@ -31,11 +39,20 @@ private extension NewVideoTableTableViewController {
             if !videoTitle.isEmpty && !youtubeLink.isEmpty && youtubeLink.matches(regex) {
                 video = Video(youtubeKey: getYoutubeKey(from: youtubeLink), title: videoTitle)
                 saveButton.isEnabled = true
+                return
             }
         }
+        saveButton.isEnabled = false
     }
 
     func getYoutubeKey(from link: String) -> String {
         return link.components(separatedBy: "?v=")[1]
+    }
+
+    func updateUserInterface() {
+        if let video = video {
+            videoTitleTextField.text = video.title
+            youtubeLinkTextField.text = video.urlToVideo
+        }
     }
 }
