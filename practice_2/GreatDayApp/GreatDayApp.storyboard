@@ -241,7 +241,14 @@
                             <outlet property="delegate" destination="zU8-WZ-M17" id="Cwe-o6-87N"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Just Do It" id="vrZ-8L-7ts"/>
+                    <navigationItem key="navigationItem" title="Just Do It" id="vrZ-8L-7ts">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="R1A-It-PWi">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <segue destination="jac-x6-99Y" kind="show" id="EdD-vw-uC8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="nfh-41-CUS" kind="show" identifier="exercisesVideoSegue" id="RyF-rq-yBq"/>
                     </connections>
@@ -297,7 +304,103 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3n-lh-erL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3886.9565217391309" y="-58.258928571428569"/>
+            <point key="canvasLocation" x="3922" y="341"/>
+        </scene>
+        <!--New Video Table Table View Controller-->
+        <scene sceneID="W7Q-HF-lAY">
+            <objects>
+                <tableViewController storyboardIdentifier="NewVideoTableTableViewController" id="vA2-MH-dNw" customClass="NewVideoTableTableViewController" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="WcW-c1-1gq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Video title" id="Xln-PP-m5E">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="34" id="tmb-98-EKD">
+                                        <rect key="frame" x="0.0" y="49.5" width="414" height="34"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tmb-98-EKD" id="sba-So-ff7">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yPQ-t8-hUI">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textChanged:" destination="vA2-MH-dNw" eventType="editingChanged" id="5pJ-Dx-Aa7"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yPQ-t8-hUI" firstAttribute="top" secondItem="sba-So-ff7" secondAttribute="top" id="Cz5-v2-aAz"/>
+                                                <constraint firstItem="yPQ-t8-hUI" firstAttribute="leading" secondItem="sba-So-ff7" secondAttribute="leading" constant="20" id="aQQ-z6-1Sw"/>
+                                                <constraint firstAttribute="trailing" secondItem="yPQ-t8-hUI" secondAttribute="trailing" constant="20" id="iit-xI-Xqn"/>
+                                                <constraint firstAttribute="bottom" secondItem="yPQ-t8-hUI" secondAttribute="bottom" id="zC4-Sv-2iV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Youtube Link" id="5g6-og-ume">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="34" id="C6d-K2-wVT">
+                                        <rect key="frame" x="0.0" y="133.5" width="414" height="34"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C6d-K2-wVT" id="R9m-bP-xrR">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="https://www.youtube.com/watch?v=wOrVyQw2H5s" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R7V-B3-oO0">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textChanged:" destination="vA2-MH-dNw" eventType="editingChanged" id="imX-52-IvO"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="R7V-B3-oO0" secondAttribute="bottom" id="4KB-nA-rkU"/>
+                                                <constraint firstItem="R7V-B3-oO0" firstAttribute="top" secondItem="R9m-bP-xrR" secondAttribute="top" id="Xaq-gh-lyt"/>
+                                                <constraint firstItem="R7V-B3-oO0" firstAttribute="leading" secondItem="R9m-bP-xrR" secondAttribute="leading" constant="20" id="eHb-9s-XvM"/>
+                                                <constraint firstAttribute="trailing" secondItem="R7V-B3-oO0" secondAttribute="trailing" constant="20" id="pk4-dl-zQQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="vA2-MH-dNw" id="oL4-f9-xgV"/>
+                            <outlet property="delegate" destination="vA2-MH-dNw" id="Dre-nZ-UoA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="3mK-sB-SaX">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LOi-JQ-12z">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="Eoc-Md-p1f" kind="unwind" unwindAction="unwindSegueWithSegue:" id="d0a-sb-qU2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="maw-mB-p1X">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="Eoc-Md-p1f" kind="unwind" identifier="saveSegue" unwindAction="unwindSegueWithSegue:" id="6HR-dm-cHT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="maw-mB-p1X" id="OWA-MS-BLM"/>
+                        <outlet property="videoTitleTextField" destination="yPQ-t8-hUI" id="mIU-em-MnS"/>
+                        <outlet property="youtubeLinkTextField" destination="R7V-B3-oO0" id="qhF-pe-J1G"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B6N-ig-hnC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Eoc-Md-p1f" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4831.884057971015" y="-404.46428571428572"/>
         </scene>
         <!--Great Day-->
         <scene sceneID="WFa-22-7db">
@@ -336,6 +439,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cA-z1-k1D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2080" y="-58"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Mfe-cd-ZdY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jac-x6-99Y" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="KTg-LG-945"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TGs-5B-uXu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vA2-MH-dNw" kind="relationship" relationship="rootViewController" id="Nty-Hy-Vqx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="81N-mx-juL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3921.739130434783" y="-404.46428571428572"/>
         </scene>
     </scenes>
     <resources>

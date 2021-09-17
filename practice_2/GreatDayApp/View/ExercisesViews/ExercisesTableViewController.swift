@@ -10,6 +10,23 @@ class ExercisesTableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         self.editButtonItem.tintColor = .black
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "exercisesVideoSegue" {
+            guard let videoVC = segue.destination as? VideoViewController else { return }
+            videoVC.video = video
+        }
+    }
+
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        guard segue.identifier == "saveSegue" else { return }
+        guard let sourceVC = segue.source as? NewVideoTableTableViewController else { return }
+        guard let video = sourceVC.video else { return }
+
+        let newIndexPath = IndexPath(row: videos.count, section: 0)
+        videos.append(video)
+        tableView.insertRows(at: [newIndexPath], with: .fade)
+    }
 }
 
 // MARK: UITableViewDelegate
@@ -62,13 +79,6 @@ extension ExercisesTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.video = videos[indexPath.row]
         performSegue(withIdentifier: "exercisesVideoSegue", sender: self)
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "exercisesVideoSegue" {
-            guard let videoVC = segue.destination as? VideoViewController else { return }
-            videoVC.video = video
-        }
     }
 
     override func tableView(

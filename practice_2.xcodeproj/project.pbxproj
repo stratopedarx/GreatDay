@@ -95,6 +95,8 @@
 		89EB4DF326F3C10300EB0C08 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB4DF226F3C10300EB0C08 /* VideoViewController.swift */; };
 		89ED49C526EFCA8E00934634 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED49C426EFCA8E00934634 /* MainViewController.swift */; };
 		89ED49C726EFCE7700934634 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED49C626EFCE7700934634 /* SlideMenuViewController.swift */; };
+		89F3549F26F5206A00710BFD /* NewVideoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F3549E26F5206A00710BFD /* NewVideoTableViewController.swift */; };
+		89F354A226F5325A00710BFD /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F354A126F5325A00710BFD /* StringExtensions.swift */; };
 		89F903E6268875E000096068 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F903E5268875E000096068 /* AppDelegate.swift */; };
 		89F903E8268875E000096068 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F903E7268875E000096068 /* SceneDelegate.swift */; };
 		89F903EA268875E000096068 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F903E9268875E000096068 /* ViewController.swift */; };
@@ -193,6 +195,8 @@
 		89EB4DF226F3C10300EB0C08 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		89ED49C426EFCA8E00934634 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		89ED49C626EFCE7700934634 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
+		89F3549E26F5206A00710BFD /* NewVideoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVideoTableViewController.swift; sourceTree = "<group>"; };
+		89F354A126F5325A00710BFD /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		89F903E2268875E000096068 /* practice_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = practice_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89F903E5268875E000096068 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89F903E7268875E000096068 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -450,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				89B991F426F106040012872D /* GreatDayApp.storyboard */,
+				89F354A026F5324200710BFD /* Extensions */,
 				89EB4DE726F37D8E00EB0C08 /* Sounds */,
 				89B991F626F106270012872D /* Services */,
 				89B991F826F106400012872D /* Model */,
@@ -771,10 +776,19 @@
 			isa = PBXGroup;
 			children = (
 				89EB4DEA26F3B50C00EB0C08 /* ExercisesTableViewController.swift */,
+				89F3549E26F5206A00710BFD /* NewVideoTableViewController.swift */,
 				89EB4DF226F3C10300EB0C08 /* VideoViewController.swift */,
 				89EB4DEC26F3B54000EB0C08 /* ExercisesCell.swift */,
 			);
 			path = ExercisesViews;
+			sourceTree = "<group>";
+		};
+		89F354A026F5324200710BFD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				89F354A126F5325A00710BFD /* StringExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		89F903D9268875E000096068 = {
@@ -967,6 +981,7 @@
 				89EB4DED26F3B54000EB0C08 /* ExercisesCell.swift in Sources */,
 				89D2136326ADA9120019B40C /* Animal.swift in Sources */,
 				89E365A926C58F680039814D /* AnimalsAppDataModel.xcdatamodeld in Sources */,
+				89F354A226F5325A00710BFD /* StringExtensions.swift in Sources */,
 				899AC45526A1F029002EF867 /* StarWarsDataModel.xcdatamodeld in Sources */,
 				89E365A426C58E910039814D /* AnimalsDatabaseService.swift in Sources */,
 				89D2136726ADAA300019B40C /* NetworkService.swift in Sources */,
@@ -984,6 +999,7 @@
 				89DFF7B726BC439700B24280 /* ModuleBuilder.swift in Sources */,
 				894592D826A093670012B412 /* StarWarsVC.swift in Sources */,
 				898EAF4426C4DEAF000105DA /* CatImages.swift in Sources */,
+				89F3549F26F5206A00710BFD /* NewVideoTableViewController.swift in Sources */,
 				897D8F6226D4AC270051631E /* SettingsViewController.swift in Sources */,
 				89D2136026ADA6230019B40C /* AnimalsListPresenter.swift in Sources */,
 				898D579226CFF35700416E68 /* WeatherPresenter.swift in Sources */,
