@@ -57,7 +57,7 @@ class MainMenuCollectionViewController: UICollectionViewController {
         } else if index == 2 {
             self.performSegue(withIdentifier: "...", sender: self)
         } else if index == 3 {
-            self.performSegue(withIdentifier: "...", sender: self)
+            self.performSegue(withIdentifier: "quotesSegue", sender: self)
         }
     }
 

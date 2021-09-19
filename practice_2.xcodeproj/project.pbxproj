@@ -97,6 +97,10 @@
 		89ED49C726EFCE7700934634 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ED49C626EFCE7700934634 /* SlideMenuViewController.swift */; };
 		89F3549F26F5206A00710BFD /* NewVideoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F3549E26F5206A00710BFD /* NewVideoTableViewController.swift */; };
 		89F354A226F5325A00710BFD /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F354A126F5325A00710BFD /* StringExtensions.swift */; };
+		89F641C126F76DBE005DE398 /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F641C026F76DBE005DE398 /* QuotesViewController.swift */; };
+		89F641C326F77E26005DE398 /* QuotesNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F641C226F77E26005DE398 /* QuotesNetworkService.swift */; };
+		89F641C626F77F19005DE398 /* QuoteOfTheDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F641C526F77F19005DE398 /* QuoteOfTheDay.swift */; };
+		89F641C826F7895B005DE398 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F641C726F7895B005DE398 /* Quote.swift */; };
 		89F903E6268875E000096068 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F903E5268875E000096068 /* AppDelegate.swift */; };
 		89F903E8268875E000096068 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F903E7268875E000096068 /* SceneDelegate.swift */; };
 		89F903EA268875E000096068 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F903E9268875E000096068 /* ViewController.swift */; };
@@ -197,6 +201,10 @@
 		89ED49C626EFCE7700934634 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
 		89F3549E26F5206A00710BFD /* NewVideoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVideoTableViewController.swift; sourceTree = "<group>"; };
 		89F354A126F5325A00710BFD /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		89F641C026F76DBE005DE398 /* QuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewController.swift; sourceTree = "<group>"; };
+		89F641C226F77E26005DE398 /* QuotesNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesNetworkService.swift; sourceTree = "<group>"; };
+		89F641C526F77F19005DE398 /* QuoteOfTheDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteOfTheDay.swift; sourceTree = "<group>"; };
+		89F641C726F7895B005DE398 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		89F903E2268875E000096068 /* practice_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = practice_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89F903E5268875E000096068 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89F903E7268875E000096068 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -475,6 +483,8 @@
 		89B991F726F106300012872D /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				89F641C426F77EC4005DE398 /* ApiModels */,
+				89F641C226F77E26005DE398 /* QuotesNetworkService.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -483,6 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				89EB4DEE26F3B99500EB0C08 /* Video.swift */,
+				89F641C726F7895B005DE398 /* Quote.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -501,6 +512,7 @@
 				89B991FE26F10D550012872D /* GreatDayCell.swift */,
 				89EB4DF026F3C08400EB0C08 /* MeditationViews */,
 				89EB4DF126F3C0A400EB0C08 /* ExercisesViews */,
+				89F641BF26F76D8A005DE398 /* QuotesViews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -791,6 +803,22 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		89F641BF26F76D8A005DE398 /* QuotesViews */ = {
+			isa = PBXGroup;
+			children = (
+				89F641C026F76DBE005DE398 /* QuotesViewController.swift */,
+			);
+			path = QuotesViews;
+			sourceTree = "<group>";
+		};
+		89F641C426F77EC4005DE398 /* ApiModels */ = {
+			isa = PBXGroup;
+			children = (
+				89F641C526F77F19005DE398 /* QuoteOfTheDay.swift */,
+			);
+			path = ApiModels;
+			sourceTree = "<group>";
+		};
 		89F903D9268875E000096068 = {
 			isa = PBXGroup;
 			children = (
@@ -961,6 +989,8 @@
 				89EB4DEF26F3B99500EB0C08 /* Video.swift in Sources */,
 				89415C0A26DE4ADB00EBFACE /* NewsCollectionViewController.swift in Sources */,
 				89D2136A26ADAE410019B40C /* DogBreeds.swift in Sources */,
+				89F641C826F7895B005DE398 /* Quote.swift in Sources */,
+				89F641C626F77F19005DE398 /* QuoteOfTheDay.swift in Sources */,
 				890E58D326D2B1C50083CF60 /* Weather.swift in Sources */,
 				89D2134D26AD540B0019B40C /* AnimalsListViewContoller.swift in Sources */,
 				89D0C70C26A18955008FA33F /* HeroModel.swift in Sources */,
@@ -986,6 +1016,7 @@
 				89E365A426C58E910039814D /* AnimalsDatabaseService.swift in Sources */,
 				89D2136726ADAA300019B40C /* NetworkService.swift in Sources */,
 				89AC784426EE650200534DEC /* SearchBarView.swift in Sources */,
+				89F641C326F77E26005DE398 /* QuotesNetworkService.swift in Sources */,
 				89BE6D5A26CD4AEE0054B5BC /* WeatherViewController.swift in Sources */,
 				8931C3272688D1D9009310AA /* BottomTableViewCell.swift in Sources */,
 				89D2135426AD5FCD0019B40C /* AnimalsTopCell.swift in Sources */,
@@ -998,6 +1029,7 @@
 				8957C83A26C4362F0065CBA9 /* CatBreeds.swift in Sources */,
 				89DFF7B726BC439700B24280 /* ModuleBuilder.swift in Sources */,
 				894592D826A093670012B412 /* StarWarsVC.swift in Sources */,
+				89F641C126F76DBE005DE398 /* QuotesViewController.swift in Sources */,
 				898EAF4426C4DEAF000105DA /* CatImages.swift in Sources */,
 				89F3549F26F5206A00710BFD /* NewVideoTableViewController.swift in Sources */,
 				897D8F6226D4AC270051631E /* SettingsViewController.swift in Sources */,

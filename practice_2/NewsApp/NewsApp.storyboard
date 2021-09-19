@@ -105,7 +105,7 @@
                                     <constraint firstAttribute="height" constant="256" id="wZj-u3-J9E"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="gdfgdfgfdgdfg" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="qgI-VX-8zf">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="gdfgdfgfdgdfg" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="qgI-VX-8zf">
                                 <rect key="frame" x="20" y="384" width="374" height="286"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -70,6 +70,7 @@
                     <connections>
                         <segue destination="Kba-SF-sbY" kind="presentation" identifier="meditationSegue" id="4hb-ji-cX2"/>
                         <segue destination="uaf-PK-uMa" kind="presentation" identifier="exercisesSegue" id="Tjs-ti-d2q"/>
+                        <segue destination="kk2-i2-Zn0" kind="presentation" identifier="quotesSegue" id="NQY-k9-R8U"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s36-Jj-QBT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -305,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3n-lh-erL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3922" y="341"/>
+            <point key="canvasLocation" x="3922" y="266"/>
         </scene>
         <!--New Video Table Table View Controller-->
         <scene sceneID="W7Q-HF-lAY">
@@ -460,6 +461,66 @@
             </objects>
             <point key="canvasLocation" x="3921.739130434783" y="-404.46428571428572"/>
         </scene>
+        <!--Quotes View Controller-->
+        <scene sceneID="SV5-Qu-aSY">
+            <objects>
+                <viewController storyboardIdentifier="QuotesViewController" id="kk2-i2-Zn0" customClass="QuotesViewController" customModule="practice_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I0e-9T-eNm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="ep6-4z-VG3">
+                                <rect key="frame" x="20" y="70" width="374" height="564"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rJ-lS-cP5">
+                                <rect key="frame" x="20" y="697" width="374" height="31"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJH-R2-or7">
+                                <rect key="frame" x="50" y="777" width="314" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title=" Tap To Share" image="square.and.arrow.up" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareAction:" destination="kk2-i2-Zn0" eventType="touchUpInside" id="BQP-AK-iiC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="58W-0Q-rse"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="58W-0Q-rse" firstAttribute="trailing" secondItem="BJH-R2-or7" secondAttribute="trailing" constant="50" id="90m-pw-xdK"/>
+                            <constraint firstItem="58W-0Q-rse" firstAttribute="bottom" secondItem="BJH-R2-or7" secondAttribute="bottom" constant="10" id="C4h-Hj-f2a"/>
+                            <constraint firstItem="58W-0Q-rse" firstAttribute="trailing" secondItem="ep6-4z-VG3" secondAttribute="trailing" constant="20" id="D6m-Kc-Gui"/>
+                            <constraint firstItem="4rJ-lS-cP5" firstAttribute="top" secondItem="ep6-4z-VG3" secondAttribute="bottom" constant="63" id="L1g-Ow-AwX"/>
+                            <constraint firstItem="58W-0Q-rse" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="4rJ-lS-cP5" secondAttribute="bottom" constant="80" id="QLx-Os-lbx"/>
+                            <constraint firstItem="58W-0Q-rse" firstAttribute="trailing" secondItem="ep6-4z-VG3" secondAttribute="trailing" constant="20" id="Urb-aW-DIW"/>
+                            <constraint firstItem="ep6-4z-VG3" firstAttribute="leading" secondItem="58W-0Q-rse" secondAttribute="leading" constant="20" id="ZSv-k4-gpa"/>
+                            <constraint firstItem="58W-0Q-rse" firstAttribute="trailing" secondItem="4rJ-lS-cP5" secondAttribute="trailing" constant="20" id="cyX-vp-sLs"/>
+                            <constraint firstItem="ep6-4z-VG3" firstAttribute="top" secondItem="58W-0Q-rse" secondAttribute="top" constant="70" id="eUJ-Ya-JNa"/>
+                            <constraint firstItem="58W-0Q-rse" firstAttribute="bottom" secondItem="ep6-4z-VG3" secondAttribute="bottom" constant="174" id="f0O-fZ-qT4"/>
+                            <constraint firstItem="4rJ-lS-cP5" firstAttribute="leading" secondItem="58W-0Q-rse" secondAttribute="leading" constant="20" id="nDQ-qf-NVL"/>
+                            <constraint firstItem="BJH-R2-or7" firstAttribute="leading" secondItem="58W-0Q-rse" secondAttribute="leading" constant="50" id="qan-o8-EmM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="authorLabel" destination="4rJ-lS-cP5" id="ovF-6E-DqB"/>
+                        <outlet property="quoteTextView" destination="ep6-4z-VG3" id="BIn-Do-iY2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3J5-YA-wmv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2037.68115942029" y="1064.7321428571429"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="hhy-FC-OKS"/>
@@ -471,6 +532,9 @@
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
