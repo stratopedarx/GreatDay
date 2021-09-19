@@ -7,7 +7,7 @@ class MainMenuCollectionViewController: UICollectionViewController {
     private let itemsPerColumn: CGFloat = 2
     private let sectionInsets = UIEdgeInsets(top: 30, left: 10, bottom: 100, right: 10)
 
-    private let labelNames = ["Meditation", "Exercises", "Sports & Health News", "Quote of the Day"]
+    private let labelNames = ["Meditation", "Exercises", "Sports News", "Quote of the Day"]
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "background")
@@ -55,7 +55,7 @@ class MainMenuCollectionViewController: UICollectionViewController {
         } else if index == 1 {
             self.performSegue(withIdentifier: "exercisesSegue", sender: self)
         } else if index == 2 {
-            self.performSegue(withIdentifier: "...", sender: self)
+            self.performSegue(withIdentifier: "newsSourceSegue", sender: self)
         } else if index == 3 {
             self.performSegue(withIdentifier: "quotesSegue", sender: self)
         }

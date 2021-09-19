@@ -2,3 +2,7 @@ identifier_name:
   excluded:
     - id
     - dt
+    - gb
+    - it
+    - us
+    - en
