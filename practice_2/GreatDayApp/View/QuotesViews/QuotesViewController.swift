@@ -8,10 +8,12 @@ class QuotesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getQuoteOfTheDay()
-        if let quote = self.quote {
-            self.quoteTextView.text = "\"\(quote.text)\""
-            self.authorLabel.text = "- \(quote.author)"
-        }
+        updateUI()
+    }
+
+    @IBAction func refreshAction(_ sender: UIButton) {
+        getQuoteOfTheDay()
+        updateUI()
     }
 
     @IBAction func shareAction(_ sender: UIButton) {
@@ -23,6 +25,13 @@ class QuotesViewController: UIViewController {
                 }
             }
             present(shareController, animated: true, completion: nil)
+        }
+    }
+
+    private func updateUI() {
+        if let quote = self.quote {
+            self.quoteTextView.text = "\"\(quote.text)\""
+            self.authorLabel.text = "- \(quote.author)"
         }
     }
 

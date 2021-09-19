@@ -7,7 +7,7 @@ class MainMenuCollectionViewController: UICollectionViewController {
     private let itemsPerColumn: CGFloat = 2
     private let sectionInsets = UIEdgeInsets(top: 30, left: 10, bottom: 100, right: 10)
 
-    private let labelNames = ["Meditation", "Exercises", "Good News", "Quote of the Day"]
+    private let labelNames = ["Meditation", "Exercises", "Sports & Health News", "Quote of the Day"]
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "background")

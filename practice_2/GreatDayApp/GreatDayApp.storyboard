@@ -32,8 +32,8 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHy-cC-iAg">
-                                            <rect key="frame" x="75.5" y="163.5" width="49" height="23"/>
-                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                            <rect key="frame" x="80.5" y="166" width="39.5" height="18.5"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -494,10 +494,21 @@
                                     <action selector="shareAction:" destination="kk2-i2-Zn0" eventType="touchUpInside" id="BQP-AK-iiC"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KhM-PK-PMd">
+                                <rect key="frame" x="389" y="24" width="18" height="22"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="arrow.clockwise" catalog="system">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="refreshAction:" destination="kk2-i2-Zn0" eventType="touchUpInside" id="LK6-0d-4En"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="58W-0Q-rse"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="58W-0Q-rse" firstAttribute="trailing" secondItem="KhM-PK-PMd" secondAttribute="trailing" constant="7" id="38Z-PT-OHZ"/>
                             <constraint firstItem="58W-0Q-rse" firstAttribute="trailing" secondItem="BJH-R2-or7" secondAttribute="trailing" constant="50" id="90m-pw-xdK"/>
                             <constraint firstItem="58W-0Q-rse" firstAttribute="bottom" secondItem="BJH-R2-or7" secondAttribute="bottom" constant="10" id="C4h-Hj-f2a"/>
                             <constraint firstItem="58W-0Q-rse" firstAttribute="trailing" secondItem="ep6-4z-VG3" secondAttribute="trailing" constant="20" id="D6m-Kc-Gui"/>
@@ -508,6 +519,7 @@
                             <constraint firstItem="58W-0Q-rse" firstAttribute="trailing" secondItem="4rJ-lS-cP5" secondAttribute="trailing" constant="20" id="cyX-vp-sLs"/>
                             <constraint firstItem="ep6-4z-VG3" firstAttribute="top" secondItem="58W-0Q-rse" secondAttribute="top" constant="70" id="eUJ-Ya-JNa"/>
                             <constraint firstItem="58W-0Q-rse" firstAttribute="bottom" secondItem="ep6-4z-VG3" secondAttribute="bottom" constant="174" id="f0O-fZ-qT4"/>
+                            <constraint firstItem="KhM-PK-PMd" firstAttribute="top" secondItem="58W-0Q-rse" secondAttribute="top" constant="24" id="ft2-2F-yxu"/>
                             <constraint firstItem="4rJ-lS-cP5" firstAttribute="leading" secondItem="58W-0Q-rse" secondAttribute="leading" constant="20" id="nDQ-qf-NVL"/>
                             <constraint firstItem="BJH-R2-or7" firstAttribute="leading" secondItem="58W-0Q-rse" secondAttribute="leading" constant="50" id="qan-o8-EmM"/>
                         </constraints>
@@ -519,13 +531,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3J5-YA-wmv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2037.68115942029" y="1064.7321428571429"/>
+            <point key="canvasLocation" x="2079.7101449275365" y="1182.5892857142856"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="hhy-FC-OKS"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="meditation" width="960" height="540"/>
         <image name="power" catalog="system" width="128" height="124"/>
