@@ -476,7 +476,6 @@
 				89B991F626F106270012872D /* Services */,
 				89B991F826F106400012872D /* Model */,
 				89B991FA26F106550012872D /* View */,
-				89B991F926F106460012872D /* Presenter */,
 			);
 			path = GreatDayApp;
 			sourceTree = "<group>";
@@ -506,13 +505,6 @@
 				89F641D026F7B9D1005DE398 /* NewsSourceModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		89B991F926F106460012872D /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		89B991FA26F106550012872D /* View */ = {
