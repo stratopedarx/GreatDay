@@ -109,7 +109,11 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVr-aN-pZg">
                                                 <rect key="frame" x="0.0" y="240" width="98" height="33"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                                <state key="normal" title="Future app"/>
+                                                <state key="normal" title="Great Day"/>
+                                                <connections>
+                                                    <action selector="openGreatDayAppButton:" destination="uZX-uS-W3k" eventType="touchUpInside" id="Jle-z3-OfK"/>
+                                                    <segue destination="k9o-mg-QBi" kind="show" identifier="greatDaySegue" id="Zq3-ye-LEY"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -146,10 +150,11 @@
                     </tabBar>
                     <connections>
                         <segue destination="A7m-6r-GKb" kind="relationship" relationship="viewControllers" id="RKY-Da-N1U"/>
+                        <segue destination="k9o-mg-QBi" kind="relationship" relationship="viewControllers" id="rZ1-MQ-ItY"/>
+                        <segue destination="ZqB-tn-85h" kind="relationship" relationship="viewControllers" id="p0I-qc-nOW"/>
                         <segue destination="656-SJ-wz2" kind="relationship" relationship="viewControllers" id="hj9-fK-h32"/>
                         <segue destination="UV1-Vg-Zpc" kind="relationship" relationship="viewControllers" id="A93-6K-omu"/>
                         <segue destination="aE8-De-HhO" kind="relationship" relationship="viewControllers" id="vHp-Yz-EX2"/>
-                        <segue destination="ZqB-tn-85h" kind="relationship" relationship="viewControllers" id="p0I-qc-nOW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DC0-Ag-TGu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -200,6 +205,17 @@
             </objects>
             <point key="canvasLocation" x="1586" y="526"/>
         </scene>
+        <!--GreatDayApp-->
+        <scene sceneID="orm-pF-i3U">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GreatDayApp" id="k9o-mg-QBi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="wQH-7s-8RZ"/>
+                    <navigationItem key="navigationItem" id="Jeg-iq-nUi"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xp2-Qd-dUp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1599" y="608"/>
+        </scene>
         <!--DogApp-->
         <scene sceneID="fSe-U7-Yd5">
             <objects>
@@ -213,11 +229,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="L4W-OJ-5qW"/>
-        <segue reference="AsT-2A-gzl"/>
-        <segue reference="15b-vd-A68"/>
-        <segue reference="AQY-Bw-3gM"/>
-        <segue reference="5gP-h2-WQ3"/>
+        <segue reference="hj9-fK-h32"/>
+        <segue reference="rZ1-MQ-ItY"/>
+        <segue reference="p0I-qc-nOW"/>
+        <segue reference="vHp-Yz-EX2"/>
+        <segue reference="A93-6K-omu"/>
+        <segue reference="RKY-Da-N1U"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

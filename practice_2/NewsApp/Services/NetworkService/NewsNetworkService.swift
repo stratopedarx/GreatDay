@@ -5,6 +5,7 @@ let daysInWeek = 7  // news for the last 7 days
 protocol NewsNetworkServiceProtocol {
     func fetchTopNews(country: String, completion: @escaping (Result<NewsAPI, Error>) -> Void)
     func fetchArticles(by keyword: String, completion: @escaping (Result<NewsAPI, Error>) -> Void)
+    func fetchSourceNews(country: String, completion: @escaping (Result<NewsSourceAPI, Error>) -> Void)
 }
 
 enum NewsApiType {
@@ -13,10 +14,11 @@ enum NewsApiType {
 
     case fetchTopNews
     case fetchArticles
+    case fetchSourceNews
 
     var host: String {
         switch self {
-        case .fetchTopNews, .fetchArticles:
+        case .fetchTopNews, .fetchArticles, .fetchSourceNews:
             return "newsapi.org"
         }
     }
@@ -26,6 +28,8 @@ enum NewsApiType {
             return "/v2/top-headlines"
         case .fetchArticles:
             return "/v2/everything"
+        case .fetchSourceNews:
+            return "/v2/top-headlines/sources"
         }
     }
 
@@ -58,6 +62,14 @@ enum NewsApiType {
                     URLQueryItem(name: "from", value: getDate())
                 ]
             }
+        case .fetchSourceNews:
+            if let country = params?["country"] {
+                urlComponents.queryItems = [
+                    URLQueryItem(name: "country", value: country),
+                    URLQueryItem(name: "from", value: getDate()),
+                    URLQueryItem(name: "category", value: "sports")
+                ]
+            }
         }
 
         urlComponents.queryItems?.append(URLQueryItem(name: "apiKey", value: NewsApiType.apiKey))
@@ -80,7 +92,7 @@ enum NewsApiType {
     func getRequest(params: [String: String]?) -> URLRequest {
         var request = makeURLRequest(params: params)
         switch self {
-        case .fetchTopNews, .fetchArticles:
+        case .fetchTopNews, .fetchArticles, .fetchSourceNews:
             request.httpMethod = "GET"
             return request
         }
@@ -119,6 +131,22 @@ class NewsNetworkService: ApiManager, NewsNetworkServiceProtocol {
             }
         }
         print("requesting fetchArticles by keyword")
+        task.resume()
+    }
+
+    func fetchSourceNews(country: String, completion: @escaping (Result<NewsSourceAPI, Error>) -> Void) {
+        let params = ["country": country]
+        let request = NewsApiType.fetchSourceNews.getRequest(params: params)
+        let task = URLSession(configuration: configuration).dataTask(with: request) { data, _, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            if let sources = self.parseJSON(type: NewsSourceAPI.self, from: data) {
+                completion(.success(sources))
+            }
+        }
+        print("requesting fetchSourceNews")
         task.resume()
     }
 }
