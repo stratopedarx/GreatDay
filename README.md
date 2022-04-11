@@ -12,4 +12,5 @@ On the home screen, we see 4 separate apps:
 4. Quote of the day - A cool quote is sacred.
 
 ### Screen record
+
 https://user-images.githubusercontent.com/15280020/133975773-96a4a53a-3ddd-44fb-85da-a432d6755a92.mp4
